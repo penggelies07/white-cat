@@ -1,0 +1,38 @@
+{
+  "name": "white-cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "stroybook": "start-storybook -p 6666 -c .storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varHarrie/white-cat.git"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "typescript"
+  ],
+  "author": "varHarrie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/varHarrie/white-cat/issues"
+  },
+  "homepage": "https://github.com/varHarrie/white-cat#readme",
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.1.6",
+    "@storybook/addon-knobs": "^3.1.6",
+    "@storybook/react": "^3.1.7",
+    "@types/storybook__addon-actions": "^3.0.0",
+    "@types/storybook__addon-knobs": "^3.0.0",
+    "@types/storybook__react": "^3.0.1",
+    "awesome-typescript-loader": "^3.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "tslint": "^5.4.3",
+    "typescript": "^2.4.1"
+  }
+}
