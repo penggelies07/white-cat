@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "demo": "webpack-dev-server --config webpack/demo.dev.config.js",
     "stroybook": "start-storybook -p 6666 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,16 +24,30 @@
   },
   "homepage": "https://github.com/varHarrie/white-cat#readme",
   "devDependencies": {
-    "@storybook/addon-actions": "^3.1.6",
-    "@storybook/addon-knobs": "^3.1.6",
-    "@storybook/react": "^3.1.7",
-    "@types/storybook__addon-actions": "^3.0.0",
-    "@types/storybook__addon-knobs": "^3.0.0",
-    "@types/storybook__react": "^3.0.1",
+    "@types/node": "^8.0.7",
+    "@types/react": "^15.0.34",
+    "@types/react-dom": "^15.5.1",
+    "@types/react-router": "^4.0.12",
+    "@types/react-router-dom": "^4.0.5",
     "awesome-typescript-loader": "^3.2.1",
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "raw-loader": "^0.5.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.18.2",
     "tslint": "^5.4.3",
-    "typescript": "^2.4.1"
+    "tslint-eslint-rules": "^4.1.1",
+    "tslint-react": "^3.0.0",
+    "typescript": "^2.4.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-merge": "^4.1.0"
   }
 }

@@ -6,7 +6,8 @@ yarn-error.log*
 
 node_modules/
 
-dist
+dist/
+dist-demo/
 
 src/**.js
 src/**.css
