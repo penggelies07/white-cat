@@ -1,0 +1,197 @@
+@import "../styles/import";
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: @font-color;
+  background: @color-gray-lighter;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.Root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__container {
+    flex: 1;
+    margin: 30px 50px 0;
+    background: white;
+    border-radius: @border-radius;
+    // box-shadow: @box-shadow;
+  }
+}
+
+.TopBar {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  line-height: 60px;
+  box-shadow: @box-shadow;
+  background: white;
+
+  &__header {
+    flex: 1;
+  }
+
+  &__item {
+    position: relative;
+    padding: 0 30px;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 0;
+      background: @color-primary;
+      transition: height 0.3s;
+    }
+
+    &:hover {
+      color: @color-primary;
+    }
+
+    &.active {
+      color: @color-primary;
+      font-weight: bold;
+
+      &:after {
+        height: 3px;
+      }
+    }
+  }
+}
+
+.ComponentsView {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.SideBar {
+  width: 260px;
+  height: 100%;
+  border-right: @border;
+
+  &__item {
+    position: relative;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    transition: background 0.3s;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 0;
+      height: 100%;
+      content: '';
+      background: @color-gray-light;
+      transition: width 0.3s, backgound 0.3s;
+    }
+
+    &:hover {
+      color: @color-primary;
+
+      &:after {
+        width: 3px;
+      }
+    }
+
+    &.active {
+      color: @color-primary;
+      background: lighten(@color-primary, 35%);
+
+      &:after {
+        width: 3px;
+        background: @color-primary;
+      }
+    }
+  }
+}
+
+.ComponentView {
+  padding: 20px;
+  flex: 1;
+
+  &__header {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  &__container {
+    padding-left: 10px;
+  }
+
+  &__sub-title {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+}
+
+.Example {
+  display: flex;
+  flex-direction: row;
+  border: @border;
+  border-radius: @border-radius;
+
+  &__content {
+    flex: 1;
+    position: relative;
+  }
+
+  &__text {
+    padding: 20px;
+    width: 300px;
+    border-left: @border;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__description {
+    margin-top: 10px;
+    color: @font-color-light;
+  }
+
+  &__demo {
+    padding: 40px 20px;
+  }
+
+  &__raw {
+    padding: 20px;
+    border-top: @border;
+  }
+
+  &__toggle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
