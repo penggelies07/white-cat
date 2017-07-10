@@ -1,0 +1,84 @@
+@import "../../styles/import";
+
+.Notification {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.notice-type (@name, @color) {
+  &__@{name} {
+    .Notice__header {
+      color: @color;
+    }
+  }
+}
+
+.Notice {
+  margin-top: 10px;
+  height: @notice-height;
+
+  &__wrap {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 0 12px;
+    box-shadow: @notice-box-shadow;
+    border-radius: @notice-border-radius;
+    background: @notice-fill;
+    line-height: @notice-height;
+    overflow: hidden;
+  }
+
+  &__header {
+    margin-right: 8px;
+  }
+
+  &__content {
+    color: @notice-content-color;
+  }
+
+  &__close {
+    margin-left: 8px;
+    opacity: 0.3;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  .notice-type(primary, @notice-primary-color);
+  .notice-type(success, @notice-success-color);
+  .notice-type(warning, @notice-warning-color);
+  .notice-type(error, @notice-error-color);
+
+  &-enter {
+    opacity: 0.01;
+    height: 0;
+    margin-top: 0;
+
+    &&-active {
+      opacity: 1;
+      height: @notice-height;
+      margin-top: 10px;
+      transition: all 300ms;
+    }
+  }
+
+  &-leave {
+    opacity: 1;
+    height: @notice-height;
+    margin-top: 10px;
+
+    &&-active {
+      opacity: 0;
+      height: 0;
+      margin-top: 0;
+      transition: all 300ms;
+    }
+  }
+}

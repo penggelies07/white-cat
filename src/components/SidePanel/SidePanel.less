@@ -1,0 +1,75 @@
+@import "../../styles/import";
+
+.SidePanel {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  flex-direction: column;
+  box-shadow: @box-shadow;
+  background: rgba(255, 255, 255, 0.8);
+
+  &__header {
+    padding: 10px 20px;
+    line-height: 40px;
+  }
+
+  &__container {
+    padding: 10px 20px;
+    flex: 1;
+
+    .SidePanel__header + & {
+      border-top: @border;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+  }
+
+  &--left {
+    left: 0;
+  }
+
+  &--left&-enter {
+    transform: translate(-100%);
+
+    &&-active {
+      transform: translate(0);
+      transition: transform 300ms ease-in;
+    }
+  }
+
+  &--left&-leave {
+    transform: translate(0);
+
+    &&-active {
+      transform: translate(-100%);
+      transition: transform 300ms ease-out;
+    }
+  }
+
+  &--right {
+    right: 0;
+  }
+
+  &--right&-enter {
+    transform: translate(100%);
+
+    &&-active {
+      transform: translate(0);
+      transition: transform 300ms ease-in;
+    }
+  }
+
+  &--right&-leave {
+    transform: translate(0);
+
+    &&-active {
+      transform: translate(100%);
+      transition: transform 300ms ease-in;
+    }
+  }
+}

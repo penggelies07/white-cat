@@ -1,0 +1,91 @@
+@import "../../styles/import";
+
+.Calendar {
+  padding: @calendar-padding;
+  width: @calendar-padding * 2 + @calendar-item-size * 7;
+  user-select: none;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__upper {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__body {
+    overflow: hidden;
+  }
+
+  &__slide {
+    position: relative;
+    white-space: nowrap;
+    transition: left 0.3s;
+  }
+
+  &__year-panel {
+    .Calendar__item {
+      width: 20%;
+    }
+  }
+
+  &__month-panel {
+    .Calendar__item {
+      width: 33.3%;
+    }
+  }
+
+  &__year-panel,
+  &__month-panel,
+  &__date-panel {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    white-space: pre-wrap;
+  }
+
+  &__date-panel-head {
+    font-weight: bold;
+
+    .Calendar__item {
+      cursor: auto;
+
+      &:hover {
+        background: @calendar-item-fill;
+      }
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    width: @calendar-item-size;
+    height: @calendar-item-size;
+    line-height: @calendar-item-size;
+    border-radius: @calendar-item-border-radius;
+    text-align: center;
+    background: @calendar-item-fill;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: @calendar-item-fill-hover;
+    }
+
+    &.past,
+    &.future {
+      opacity: 0.5;
+    }
+
+    &.current {
+      color: @calendar-item-color-current;
+      font-weight: bold;
+    }
+
+    &.active {
+      color: white;
+      background: @calendar-item-fill-active;
+    }
+  }
+}

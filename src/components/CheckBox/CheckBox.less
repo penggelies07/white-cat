@@ -1,0 +1,79 @@
+@import "../../styles/import";
+
+.CheckBox {
+  margin: 0 5px;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+
+  &__head {
+    position: relative;
+    display: inline-block;
+    font-size: @checkbox-font-size;
+    width: 1em;
+    height: 1em;
+    border: @checkbox-border;
+    border-radius: @checkbox-border-radius;
+    vertical-align: middle;
+    transition: background 0.2s;
+
+    &::after {
+      position: absolute;
+      display: table;
+      top: 45%;
+      left: 50%;
+      width: 0.2em;
+      height: 0.4em;
+      border: @checkbox-inner-border;
+      border-top: 0;
+      border-left: 0;
+      content: "";
+      transition: all 0.2s;
+      transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    }
+  }
+
+  &__original {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__content {
+    vertical-align: middle;
+
+    &:not(:empty) {
+      margin-left: 0.5em;
+    }
+  }
+
+  &:not(.disabled):hover &__head {
+    border: @checkbox-border-hover;
+  }
+
+  &.checked &__head {
+    border: none;
+    background-color: @checkbox-fill-active;
+  }
+
+  &--small &__head {
+    font-size: @checkbox-small-font-size;
+  }
+
+  &--large &__head {
+    font-size: @checkbox-large-font-size;
+  }
+
+  &.checked &__head::after {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  }
+}

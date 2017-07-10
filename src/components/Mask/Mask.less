@@ -1,0 +1,40 @@
+@import "../../styles/import";
+
+.Mask {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(238, 236, 232, 0.8);
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.fixed {
+    position: fixed;
+  }
+
+  &-enter {
+    opacity: 0.01;
+
+    &&-active {
+      opacity: 1;
+      transition: opacity 300ms;
+    }
+  }
+
+  &-leave {
+    opacity: 1;
+
+    &&-active {
+      opacity: 0;
+      transition: opacity 300ms;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../styles/import";
+
+.List {
+  background: @list-fill;
+
+  &__title {
+    padding: @list-title-padding;
+    height: @list-title-height;
+    line-height: @list-title-height;
+    font-size: @list-title-font-size;
+    color: @list-title-color;
+  }
+
+  &__item {
+    padding: @list-item-padding;
+    height: @list-item-height;
+    line-height: @list-item-height;
+    font-size: @list-item-font-size;
+    color: @list-item-color;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: @list-item-color-hover;
+      background: @list-item-fill-hover;
+    }
+
+    &.active {
+      color: @list-item-color-active;
+      background: @list-item-fill-active;
+    }
+  }
+}

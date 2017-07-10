@@ -1,0 +1,37 @@
+@import "../../styles/import";
+
+.Pagination {
+  display: inline-block;
+
+  &__item {
+    display: inline-block;
+    padding: 0 10px;
+    height: @pagination-size;
+    min-width: @pagination-size;
+    line-height: @pagination-size;
+    text-align: center;
+    border-radius: @pagination-border-radius;
+    color: @pagination-color;
+    background: @pagination-fill;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: @pagination-fill-hover;
+    }
+
+    &.active {
+      color: @pagination-color-active;
+      background: @pagination-fill-active;
+    }
+
+    &[disabled] {
+      color: @pagination-color-disabled;
+      background: @pagination-fill;
+    }
+  }
+
+  &__pager {
+    display: inline-block;
+  }
+}

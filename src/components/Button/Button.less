@@ -1,0 +1,125 @@
+@import "../../styles/import";
+
+.button-size (@size, @padding, @font-size) {
+  &.Button--@{size} {
+    padding: @padding;
+    font-size: @font-size;
+  }
+}
+
+.button-style (@type, @color, @fill) {
+  &.Button--@{type} {
+    color: @color;
+    background: @fill;
+
+    &:hover {
+      background: lighten(@fill, 4%);
+    }
+
+    &:active {
+      background: darken(@fill, 4%);
+    }
+  }
+}
+
+.Button {
+  display: inline-block;
+  padding: @button-padding;
+  -webkit-appearance: none;
+  line-height: 1.2em;
+  border: none;
+  border-radius: @button-border-radius;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+
+  &:not(.full) + .Button:not(.full) {
+    margin-left: 5px;
+  }
+
+  .Icon + span {
+    margin-left: 0.5em;
+  }
+
+  .Input + & {
+    margin-left: 5px;
+  }
+
+  &.full {
+    width: 100%;
+  }
+
+  &.Button--text {
+    &,
+    &.disabled,
+    &.loading {
+      background: none;
+      color: @button-text-color;
+
+      &:hover {
+        background: none;
+        color: @button-text-color-hover;
+      }
+    }
+  }
+
+  .button-size(small, @button-small-padding, @button-small-font-size);
+  .button-size(large, @button-large-padding, @button-large-font-size);
+
+  .button-style(default, @button-color, @button-fill);
+  .button-style(primary, @button-primary-color, @button-primary-fill);
+  .button-style(success, @button-success-color, @button-success-fill);
+  .button-style(warning, @button-warning-color, @button-warning-fill);
+  .button-style(danger, @button-danger-color, @button-danger-fill);
+  .button-style(info, @button-info-color, @button-info-fill);
+
+  &.disabled,
+  &.loading {
+    &,
+    &:hover,
+    &:focus {
+      color: @button-disabled-color;
+      background: @button-disabled-fill;
+      cursor: auto;
+    }
+  }
+}
+
+.ButtonGroup {
+  display: inline-block;
+  vertical-align: middle;
+
+  &.full {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .Button {
+      float: none;
+      flex: 1;
+    }
+  }
+
+  .Button {
+    float: left;
+
+    & + .Button {
+      margin-left: 0 !important;
+    }
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+}

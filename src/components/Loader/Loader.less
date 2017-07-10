@@ -1,0 +1,57 @@
+@import "../../styles/import";
+
+@keyframes Loader-spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Loader {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-height: 60px;
+  user-select: none;
+
+  &::after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: @loader-mask-fill;
+  }
+
+  &__core {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: @loader-size + 10px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -@loader-size / 2 - @loader-circle-width;
+      content: '';
+      width: @loader-size;
+      height: @loader-size;
+      border: @loader-circle-width @loader-circle-style @loader-circle-color;
+      border-radius: @loader-radius;
+    }
+
+    &::after {
+      border-top: @loader-spin-width @loader-spin-style @loader-spin-color;
+      animation: Loader-spin @loader-duration linear infinite;
+    }
+  }
+}

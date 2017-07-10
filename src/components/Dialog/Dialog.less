@@ -1,0 +1,97 @@
+@import "../../styles/import";
+
+@media (max-width: 768px) {
+  .Dialog {
+    &&--default,
+    &&--small,
+    &&--large {
+      width: 90%;
+      margin: 10px;
+    }
+  }
+}
+
+.dialog-size (@name, @width, @padding) {
+  &--@{name} {
+    width: @width;
+
+    .Dialog__header,
+    .Dialog__body,
+    .Dialog__footer {
+      padding: @padding;
+    }
+  }
+}
+
+.Dialog {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  z-index: 6;
+  background: @dialog-fill;
+  transform: translateX(-50%);
+  border-radius: @dialog-border-radius;
+  box-shadow: @dialog-box-shadow;
+
+  .dialog-size(default, @dialog-width, @dialog-padding);
+  .dialog-size(small, @dialog-small-width, @dialog-padding);
+  .dialog-size(large, @dialog-large-width, @dialog-padding);
+
+  &__wrap {
+    position: relative;
+    z-index: 20;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__defaultFooter {
+    overflow: hidden;
+
+    .Button {
+      float: right;
+    }
+  }
+
+  &__header {
+    font-size: 1.2em;
+  }
+
+  &__header + &__body,
+  &__body + &__footer,
+  &__header + &__footer {
+    border-top: @dialog-divider-border;
+  }
+
+  &-enter {
+    transform: translateX(-50%) scale(0.3);
+    opacity: 0.01;
+
+    &&-active {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+      transition: transform 300ms, opacity 250ms;
+    }
+  }
+
+  &-leave {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+
+    &&-active {
+      transform: translateX(-50%) scale(0.3);
+      opacity: 0.01;
+      transition: transform 300ms, opacity 250ms;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../styles/import";
+
+.Popover {
+  &__popper {
+    margin: 8px;
+    z-index: 4;
+    box-shadow: @box-shadow-large;
+    border-radius: @border-radius-small;
+    background: @color-white-base;
+  }
+
+  &__popperHeader {
+    margin: 0 10px;
+    padding: 6px 0;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: @border;
+  }
+}
+
+.PopoverMenu {
+  padding: 5px 0;
+  line-height: 20px;
+  color: @font-color-light;
+
+  &__item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: @color-gray-lighter;
+    }
+
+    &:active {
+      background: @color-gray-light;
+    }
+  }
+
+  &__divider {
+    margin: 5px 10px;
+    border-bottom: @border;
+  }
+}

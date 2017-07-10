@@ -1,0 +1,38 @@
+.Form {
+  &__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .FormField {
+    margin-bottom: 10px;
+  }
+
+  &--vertical {
+    .FormField__label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .FormField__content {
+      display: block;
+    }
+  }
+
+  &--horizontal {
+    .FormField {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .FormField__label {
+      width: 80px;
+      margin-right: 8px;
+      text-align: right;
+    }
+
+    .FormField__content {
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../styles/import";
+
+.input-size (@size, @padding-v, @padding-h, @font-size) {
+  &.Input--@{size} {
+    font-size: @font-size;
+
+    .Input__original {
+      padding: @padding-v @padding-h;
+    }
+
+    &.Input--hasPrefix {
+      .Input__original {
+        padding-left: (@padding-v * 2) + (@font-size * 0.8);
+      }
+
+      .Input__prefix {
+        left: @padding-v;
+      }
+    }
+
+    &.Input--hasSuffix {
+      .Input__original {
+        padding-right: (@padding-v * 2) + (@font-size * 0.8);
+      }
+
+      .Input__suffix {
+        right: @padding-v;
+      }
+    }
+  }
+}
+
+.Input {
+  display: inline-block;
+  position: relative;
+
+  &__original {
+    box-sizing: border-box;
+    line-height: 1.2em;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: @input-border-radius;
+    border: @input-border;
+    background: @input-fill;
+    transition: background 0.2s, border 0.2s;
+
+    &:hover {
+      border-color: @input-border-color-hover;
+    }
+
+    &:focus {
+      border-color: @input-border-color-focus;
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+
+  .input-size(normal, @input-padding-v, @input-padding-h, @input-font-size);
+  .input-size(small, @input-small-padding-v, @input-small-padding-h, @input-small-font-size);
+  .input-size(large, @input-large-padding-v, @input-large-padding-h, @input-large-font-size);
+
+  &.disabled &__original {
+    background: @input-disabled-fill;
+    border: @input-border;
+  }
+
+  &__prefix,
+  &__suffix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 0;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.full,
+  &.full &__original {
+    width: 100%;
+  }
+
+  &.plain &__original {
+    border: none;
+  }
+
+  .Button + & {
+    margin-left: 5px;
+  }
+}

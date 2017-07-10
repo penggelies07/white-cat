@@ -1,0 +1,45 @@
+@import "../../styles/import";
+
+.ScrollBar {
+  width: 100%;
+  height: 100%;
+
+  &.dragging {
+    cursor: move;
+    user-select: none;
+  }
+
+  &&--vertical {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &&--horizontal {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-thumb:horizontal,
+    &::-webkit-scrollbar-thumb:vertical {
+      background: rgba(0, 0, 0, 0.16);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:horizontal,
+  &::-webkit-scrollbar-thumb:vertical {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
