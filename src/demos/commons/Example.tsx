@@ -23,7 +23,7 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
   constructor (props: IExampleProps) {
     super(props)
     this.state = {
-      expanded: true
+      expanded: false
     }
   }
 
