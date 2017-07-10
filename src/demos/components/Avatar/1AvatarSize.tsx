@@ -7,7 +7,7 @@ const img = require('./avatar.jpg')
 
 export const title = `尺寸`
 
-export const description = `多种按钮尺寸。`
+export const description = `多种头像组件尺寸。`
 
 interface IAvatarTypeProps {}
 
