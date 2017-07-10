@@ -158,6 +158,7 @@ a {
 }
 
 .Example {
+  position: relative;
   display: flex;
   flex-direction: row;
   border: @border;
@@ -165,7 +166,6 @@ a {
 
   &__content {
     flex: 1;
-    position: relative;
     overflow: auto;
   }
 
@@ -195,11 +195,11 @@ a {
 
   &__toggle {
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
     padding: 5px;
     background: @color-gray-lighter;
-    border-top-left-radius: @border-radius;
+    border-top-right-radius: @border-radius;
     color: @color-gray;
     font-size: 12px;
     cursor: pointer;
