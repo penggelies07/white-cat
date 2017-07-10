@@ -32,7 +32,7 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
   }
 
   toHtml = (raw: string) => {
-    return marked('```jsx\n' + raw + '\n```')
+    return marked('```tsx\n' + raw.replace('../../../components', 'white-cat') + '\n```')
   }
   
   render () {
