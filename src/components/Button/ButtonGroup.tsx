@@ -10,7 +10,7 @@ export default class ButtonGroup extends Base<IButtonGroupProps> {
     const {children, full} = this.props
 
     return (
-      <div {...this.rootProps(['ButtonGroup', {full}])}>
+      <div {...this.rootProps(['whc-button-group', {full}])}>
         {children}
       </div>
     )

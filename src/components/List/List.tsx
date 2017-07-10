@@ -21,7 +21,7 @@ class Item extends Base<IItemProps> {
     const {active, children} = this.props
 
     return (
-      <div {...this.rootProps(['List__item', {active}])} onClick={this.onClick}>
+      <div {...this.rootProps(['whc-list__item', {active}])} onClick={this.onClick}>
         {children}
       </div>
     )
@@ -40,8 +40,8 @@ export default class List extends Base<IListProps> {
     const {title, children} = this.props
 
     return (
-      <div {...this.rootProps('List')}>
-        {title && <div className='List__title'>{title}</div>}
+      <div {...this.rootProps('whc-list')}>
+        {title && <div className='whc-list__title'>{title}</div>}
         {children}
       </div>
     )

@@ -45,18 +45,18 @@ export default class DatePanel extends React.Component<IDatePanelProps, IDatePan
     const {dates} = this.state
 
     return (
-      <div className='Calendar__date-panel'>
-        <div className='Calendar__date-panel-head'>
+      <div className='whc-calendar__date-panel'>
+        <div className='whc-calendar__date-panel-head'>
           {
             dayNames.map((name) => (
-              <div className='Calendar__item' key={name}>{name}</div>
+              <div className='whc-calendar__item' key={name}>{name}</div>
             ))
           }
         </div>
         {
           dates.map(({date, status, text, current}) => (
             <div
-              className={cn('Calendar__item', status, {current, active: this.isSelected(date)})}
+              className={cn('whc-calendar__item', status, {current, active: this.isSelected(date)})}
               key={status + text}
               onClick={() => this.onSelect(date)}>{text}</div>
           ))}

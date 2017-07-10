@@ -56,7 +56,7 @@ export default class Notice extends Base<INoticeProps> {
       : icon || iconMap[type || 'primary']
     return name
       ? (
-        <div className='Notice__header'>
+        <div className='whc-notice__header'>
           <Icon name={name} spinning={loading} fit/>
         </div>
       ) : null
@@ -65,13 +65,13 @@ export default class Notice extends Base<INoticeProps> {
   render () {
     const {children, type, closable, onClose} = this.props
     return (
-      <div {...this.rootProps(['Notice', `Notice__${type}`])}>
-        <div className='Notice__wrap' onMouseEnter={this.clearTimer} onMouseLeave={this.startTimer}>
+      <div {...this.rootProps(['whc-notice', `whc-notice__${type}`])}>
+        <div className='whc-notice__wrap' onMouseEnter={this.clearTimer} onMouseLeave={this.startTimer}>
           {this.renderHeader()}
-          <div className='Notice__content'>{children}</div>
+          <div className='whc-notice__content'>{children}</div>
           {closable && (
-            <div className='Notice__footer'>
-              <span className='Notice__close' onClick={onClose}>×</span>
+            <div className='whc-notice__footer'>
+              <span className='whc-notice__close' onClick={onClose}>×</span>
             </div>
           )}
         </div>

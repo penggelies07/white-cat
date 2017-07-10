@@ -9,7 +9,7 @@ export default class Box extends Base<IBoxProps> {
   render () {
     const {children} = this.props
     return (
-      <div {...this.rootProps('Box')}>
+      <div {...this.rootProps('whc-box')}>
         {children}
       </div>
     )

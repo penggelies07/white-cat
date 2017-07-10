@@ -64,7 +64,7 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
     const {loading} = this.state
 
     return (
-      <div className='Dialog__footer Dialog__defaultFooter'>
+      <div className='whc-dialog__footer whc-dialog__default-footer'>
         <Button loading={loading} type='primary' size='small' onClick={this.onConfirm}>{confirmText}</Button>
         <Button loading={loading} type='text' size='small' onClick={onCancel}>{cancelText}</Button>
       </div>
@@ -73,29 +73,29 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
 
   render () {
     const {visible, size, header, footer, children, onCancel} = this.props
-    const rootProps = this.rootProps(['Dialog', `Dialog--${size}`])
+    const rootProps = this.rootProps(['whc-dialog', `whc-dialog--${size}`])
 
     return (
-      <span className='Dialog__wrap'>
+      <span className='whc-dialog__wrap'>
         <Mask visible={visible} fixed onClick={this.onClickMask}/>
         <Transition
-        transitionName='Dialog'
+        transitionName='whc-dialog'
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300}>
         {
           visible
           ? (
             <div {...rootProps}>
-              {header && <div className='Dialog__header'>{header}</div>}
-              {children && <div className='Dialog__body'>{children}</div>}
+              {header && <div className='whc-dialog__header'>{header}</div>}
+              {children && <div className='whc-dialog__body'>{children}</div>}
               {
                 footer === undefined
                 ? this.renderDefaultFooter()
                 : footer === null
                 ? null
-                : <div className='Dialog__footer'>{footer}</div>
+                : <div className='whc-dialog__footer'>{footer}</div>
               }
-              <span className='Dialog__close' onClick={onCancel}>×</span>
+              <span className='whc-dialog__close' onClick={onCancel}>×</span>
             </div>
           )
           : null

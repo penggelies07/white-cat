@@ -34,11 +34,11 @@ export default class MonthPanel extends React.Component<IMonthPanelProps, IMonth
   render () {
     const {months} = this.state
     return (
-      <div className='Calendar__month-panel'>
+      <div className='whc-calendar__month-panel'>
         {
           months.map(({month, text, current}) => (
             <div
-              className={cn('Calendar__item', {current, active: this.isSelected(month)})}
+              className={cn('whc-calendar__item', {current, active: this.isSelected(month)})}
               key={month}
               onClick={() => this.onSelect(month)}>
               {text}

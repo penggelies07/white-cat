@@ -138,16 +138,16 @@ export default class Calendar extends Base<ICalendarProps, ICalendarState> {
     const {status, year, month, value} = this.state
 
     return (
-      <div {...this.rootProps('Calendar')}>
-        <div className='Calendar__header'>
-          <div className='Calendar__item' onClick={this.onPrevious}><Icon name='angle-left'/></div>
-          <div className='Calendar__item Calendar__upper' onClick={this.onReturn}>
+      <div {...this.rootProps('whc-calendar')}>
+        <div className='whc-calendar__header'>
+          <div className='whc-calendar__item' onClick={this.onPrevious}><Icon name='angle-left'/></div>
+          <div className='whc-calendar__item whc-calendar__upper' onClick={this.onReturn}>
             {this.renderTitle()}
           </div>
-          <div className='Calendar__item' onClick={this.onNext}><Icon name='angle-right'/></div>
+          <div className='whc-calendar__item' onClick={this.onNext}><Icon name='angle-right'/></div>
         </div>
-        <div className='Calendar__body'>
-          <div className='Calendar__slide' style={{left: status * -100 + '%'}}>
+        <div className='whc-calendar__body'>
+          <div className='whc-calendar__slide' style={{left: status * -100 + '%'}}>
             <YearPanel year={year} value={value} onSelect={this.onSelectYear}/>
             <MonthPanel value={value} onSelect={this.onSelectMonth}/>
             <DatePanel year={year} month={month} value={value} onSelect={this.onSelectDate}/>

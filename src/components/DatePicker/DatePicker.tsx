@@ -86,13 +86,13 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
     const valueText = defaultValue ? formatDate(defaultValue, format) : ''
     return (
       <Popover
-        {...this.rootProps(['DatePicker', {full}])}
+        {...this.rootProps(['whc-date-picker', {full}])}
         visible={visible && !disabled}
         onChange={this.onVisibleChange}
         content={(
-        <div className='DatePicker__popover'>
+        <div className='whc-date-picker__popover'>
           <Calendar value={value} onChange={this.onChange}/>
-          <div className='DatePicker__actions'>
+          <div className='whc-date-picker__actions'>
             <Button type='primary' size='small' onClick={this.onConfirm}>确定</Button>
             <Button type='text' size='small' onClick={this.onClear}>清除</Button>
             <Button type='text' size='small' onClick={this.onCancel}>取消</Button>
@@ -100,7 +100,7 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
         </div>
       )}>
         {type === 'text' ? (
-          <div className='DatePicker__text'>
+          <div className='whc-date-picker__text'>
             <Icon name={icon || undefined} clickable>{valueText || placeholder}</Icon>
           </div>
         ) : (

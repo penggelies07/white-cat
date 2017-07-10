@@ -1,6 +1,6 @@
 @import "../../styles/import";
 
-.Notification {
+.whc-notification {
   position: fixed;
   z-index: 30;
   top: 0;
@@ -11,13 +11,13 @@
 
 .notice-type (@name, @color) {
   &__@{name} {
-    .Notice__header {
+    .whc-notice__header {
       color: @color;
     }
   }
 }
 
-.Notice {
+.whc-notice {
   margin-top: 10px;
   height: @notice-height;
 

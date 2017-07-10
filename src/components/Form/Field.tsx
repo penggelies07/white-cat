@@ -46,11 +46,11 @@ export default class FormField extends Base<IFormFieldProps> {
   render () {
     const  {label} = this.props
     return (
-      <div {...this.rootProps('FormField')}>
-        <label className='FormField__label'>
+      <div {...this.rootProps('whc-form-field')}>
+        <label className='whc-form-field__label'>
           {label}
         </label>
-        <div className='FormField__content'>
+        <div className='whc-form-field__content'>
           {this.renderChildren()}
         </div>
       </div>

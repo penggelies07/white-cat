@@ -133,10 +133,10 @@ export default class Popover extends Base<IPopoverProps, IPopoverState> {
     const {title, content, width, children} = this.props
     const {visible} = this.state
     return (
-      <span {...this.rootProps('Popover')}>
+      <span {...this.rootProps('whc-popover')}>
         {visible && (
-          <div className='Popover__popper' style={{width}} ref={this.refPopperEl}>
-            {title && <div className='Popover__popperHeader'>{title}</div>}
+          <div className='whc-popover__popper' style={{width}} ref={this.refPopperEl}>
+            {title && <div className='whc-popover__popper-header'>{title}</div>}
             {content}
           </div>
         )}

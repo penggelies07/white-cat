@@ -121,7 +121,10 @@ export default class ScrollBar extends Base<IScrollBarProps, IScrollBarState> {
     const {dragging} = this.state
 
     return (
-      <div ref={this.saveEl} {...this.rootProps(['ScrollBar', 'ScrollBar--' + direction, {dragging}])} {...rest}/>
+      <div
+      ref={this.saveEl}
+      {...this.rootProps(['whc-scroll-bar', 'whc-scroll-bar--' + direction, {dragging}])}
+      {...rest}/>
     )
   }
 }

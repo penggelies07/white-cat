@@ -44,11 +44,11 @@ export default class YearPanel extends React.Component<IYearPanelProps, IYearPan
     const {years} = this.state
 
     return (
-      <div className='Calendar__year-panel'>
+      <div className='whc-calendar__year-panel'>
         {
           years.map(({year, current}) => (
             <div
-              className={cn('Calendar__item', {current, active: this.isSelected(year)})}
+              className={cn('whc-calendar__item', {current, active: this.isSelected(year)})}
               key={year}
               onClick={() => this.onSelect(year)}>
               {year}

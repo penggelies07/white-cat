@@ -1,14 +1,14 @@
 @import "../../styles/import";
 
 .button-size (@size, @padding, @font-size) {
-  &.Button--@{size} {
+  &.whc-button--@{size} {
     padding: @padding;
     font-size: @font-size;
   }
 }
 
 .button-style (@type, @color, @fill) {
-  &.Button--@{type} {
+  &.whc-button--@{type} {
     color: @color;
     background: @fill;
 
@@ -22,7 +22,7 @@
   }
 }
 
-.Button {
+.whc-button {
   display: inline-block;
   -webkit-appearance: none;
   line-height: 1.2em;
@@ -33,7 +33,7 @@
   user-select: none;
   outline: none;
 
-  &:not(.full) + .Button:not(.full) {
+  &:not(.full) + .whc-button:not(.full) {
     margin-left: 5px;
   }
 
@@ -49,7 +49,7 @@
     width: 100%;
   }
 
-  &.Button--text {
+  &.whc-button--text {
     &,
     &.disabled,
     &.loading {
@@ -86,7 +86,7 @@
   }
 }
 
-.ButtonGroup {
+.whc-buttonGroup {
   display: inline-block;
   vertical-align: middle;
 
@@ -95,16 +95,16 @@
     flex-direction: row;
     width: 100%;
 
-    .Button {
+    .whc-button {
       float: none;
       flex: 1;
     }
   }
 
-  .Button {
+  .whc-button {
     float: left;
 
-    & + .Button {
+    & + .whc-button {
       margin-left: 0 !important;
     }
 

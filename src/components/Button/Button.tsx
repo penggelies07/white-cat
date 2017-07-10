@@ -60,11 +60,11 @@ export default class Button extends Base<IButtonProps, IButtonState> {
   render () {
     const {disabled, full, icon, nativeType, children} = this.props
     const {loading} = this.state
-    const size = this.props.size && 'Button--' + this.props.size
-    const type = this.props.type && 'Button--' + this.props.type
+    const size = this.props.size && 'whc-button--' + this.props.size
+    const type = this.props.type && 'whc-button--' + this.props.type
     return (
       <button
-        {...this.rootProps(['Button', type, size, {disabled, loading, full}])}
+        {...this.rootProps(['whc-button', type, size, {disabled, loading, full}])}
         disabled={disabled || loading}
         type={nativeType}
         onClick={this.onClick}

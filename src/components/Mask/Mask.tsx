@@ -15,14 +15,14 @@ export default class Mask extends Base<IMaskProps> {
     const {visible, fixed, children} = this.props
     return (
       <Transition
-        transitionName='Mask'
+        transitionName='whc-mask'
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300}>
         {
           !!visible
           ? (
-              <div {...this.rootProps(['Mask', {fixed}])} onClick={this.props.onClick}>
-                {children && <div className='Mask__content'>{children}</div>}
+              <div {...this.rootProps(['whc-mask', {fixed}])} onClick={this.props.onClick}>
+                {children && <div className='whc-mask__content'>{children}</div>}
               </div>
             )
           : null

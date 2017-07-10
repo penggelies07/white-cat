@@ -8,7 +8,7 @@ class MiddleContainer extends Base<IMiddleContainerProps> {
 
   render () {
     return (
-      <div {...this.rootProps('MiddleContainer')}>
+      <div {...this.rootProps('whc-middle-container')}>
         {this.props.children}
       </div>
     )
@@ -33,12 +33,12 @@ export default class Layout extends Base<ILayoutProps> {
 
   render () {
     const {header, footer, children, centered, full} = this.props
-    const direction = this.props.direction && 'Layout--' + this.props.direction
+    const direction = this.props.direction && 'whc-layout--' + this.props.direction
     return (
-      <div {...this.rootProps(['Layout', direction, {centered, full}])}>
-        {header && <div className='Layout__header'>{header}</div>}
-        {children && <div className='Layout__container'>{children}</div>}
-        {footer && <div className='Layout__footer'>{footer}</div>}
+      <div {...this.rootProps(['whc-layout', direction, {centered, full}])}>
+        {header && <div className='whc-layout__header'>{header}</div>}
+        {children && <div className='whc-layout__container'>{children}</div>}
+        {footer && <div className='whc-layout__footer'>{footer}</div>}
       </div>
     )
   }

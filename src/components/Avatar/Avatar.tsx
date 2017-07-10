@@ -4,7 +4,7 @@ import './Avatar.less'
 
 interface IAvatarProps {
   src?: string,
-  size?: 'large' | 'small' | 'normal'
+  size?: 'small' | 'normal' | 'large'
 }
 
 export default class Avatar extends Base<IAvatarProps> {
@@ -17,8 +17,8 @@ export default class Avatar extends Base<IAvatarProps> {
   render () {
     const {src, size} = this.props
     return (
-      <div {...this.rootProps(['Avatar', `Avatar--${size}`])}>
-        <img className='Avatar__img' src={src}/>
+      <div {...this.rootProps(['whc-avatar', `whc-avatar--${size}`])}>
+        <img className='whc-avatar__img' src={src}/>
       </div>
     )
   }

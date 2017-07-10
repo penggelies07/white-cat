@@ -55,9 +55,9 @@ export default class Notification extends Base<INotificationProps, INotification
   render () {
     const notices = this.state.notices
     return (
-      <span {...this.rootProps('Notification')}>
+      <span {...this.rootProps('whc-notification')}>
         <Transition
-          transitionName='Notice'
+          transitionName='whc-notice'
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}>
           {notices.map(({content, ...rest}) => (

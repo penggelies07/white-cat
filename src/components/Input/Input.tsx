@@ -45,16 +45,16 @@ export default class Input extends Base<IInputProps> {
 
   render () {
     const {type, size, disabled, full, plain, prefix, suffix, onChange, value, style, ...rest} = this.props
-    const _size = size && `Input--` + size
-    const _prefix = !!prefix && `Input--hasPrefix`
-    const _suffix = !!suffix && `Input--hasSuffix`
+    const _size = size && `whc-input--` + size
+    const _prefix = !!prefix && `whc-input--has-prefix`
+    const _suffix = !!suffix && `whc-input--has-suffix`
 
     if (type === 'textarea') {
       return (
-        <div {...this.rootProps(['Input', _size, {disabled, full, plain}])}>
+        <div {...this.rootProps(['whc-input', _size, {disabled, full, plain}])}>
           <textarea {...rest}
             value={value}
-            className='Input__original'
+            className='whc-input__original'
             disabled={disabled}
             onChange={this.onChange}/>
         </div>
@@ -65,16 +65,16 @@ export default class Input extends Base<IInputProps> {
         val = (parseInt(value + '') || 0) + ''
       }
       return (
-        <div {...this.rootProps(['Input', _size, _prefix, _suffix, {disabled, full, plain}])}>
-          {prefix && <div className='Input__prefix'>{prefix}</div>}
+        <div {...this.rootProps(['whc-input', _size, _prefix, _suffix, {disabled, full, plain}])}>
+          {prefix && <div className='whc-input__prefix'>{prefix}</div>}
           <input {...rest}
             ref={this.autoFocus}
             type={type === 'password' ? 'password' : 'text'}
             value={val}
             disabled={disabled}
-            className='Input__original'
+            className='whc-input__original'
             onChange={this.onChange}/>
-          {suffix && <div className='Input__suffix'>{suffix}</div>}
+          {suffix && <div className='whc-input__suffix'>{suffix}</div>}
         </div>
       )
     }

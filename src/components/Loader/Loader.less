@@ -1,6 +1,6 @@
 @import "../../styles/import";
 
-@keyframes Loader-spin {
+@keyframes whc-loader-spin {
   0% {
     transform: rotate(0);
   }
@@ -10,7 +10,7 @@
   }
 }
 
-.Loader {
+.whc-loader {
   position: relative;
   height: 100%;
   width: 100%;
@@ -51,7 +51,7 @@
 
     &::after {
       border-top: @loader-spin-width @loader-spin-style @loader-spin-color;
-      animation: Loader-spin @loader-duration linear infinite;
+      animation: whc-loader-spin @loader-duration linear infinite;
     }
   }
 }

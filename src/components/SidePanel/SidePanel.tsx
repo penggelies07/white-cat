@@ -39,18 +39,18 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
     
     return (
       <Transition
-        transitionName='SidePanel'
+        transitionName='whc-side-panel'
         transitionEnterTimeout={300}
         transitionLeaveTimeout={300}>
         {
           visible
           ? (
-            <div {...this.rootProps(['SidePanel', `SidePanel--${placement}`, {fixed, visible}], {width})}>
-              {!loading && header && <div className='SidePanel__header'>{header}</div>}
+            <div {...this.rootProps(['whc-side-panel', `whc-side-panel--${placement}`, {fixed, visible}], {width})}>
+              {!loading && header && <div className='whc-side-panel__header'>{header}</div>}
               {
                 loading
                 ? <Loader loading={true}/>
-                : children && <ScrollBar className='SidePanel__container'>{children}</ScrollBar>
+                : children && <ScrollBar className='whc-side-panel__container'>{children}</ScrollBar>
               }
             </div>
           )

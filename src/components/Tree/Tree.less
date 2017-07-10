@@ -1,15 +1,15 @@
 @import "../../styles/import";
 
-.Tree {
+.whc-tree {
   color: @tree-color;
 
   &__node {
-    &.selected > .Tree__nodeHead {
+    &.selected > .whc-tree__node-head {
       background: @tree-fill-active;
     }
   }
 
-  &__nodeHead {
+  &__node-head {
     line-height: @tree-line-height;
     cursor: pointer;
     background: @tree-fill;
@@ -21,7 +21,7 @@
     }
   }
 
-  &__nodeIcon {
+  &__node-icon {
     display: inline-block;
     width: @tree-line-height;
     text-align: center;

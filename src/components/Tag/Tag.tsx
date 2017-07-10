@@ -46,9 +46,11 @@ export default class Tag extends Base<ITagProps, ITagState> {
       colorStyle = {background: color}
     }
     return (
-      <div {...this.rootProps(['Tag', {closable, clickable, rounded}, colorType, size], colorStyle)} onClick={onClick}>
+      <div
+        {...this.rootProps(['whc-tag', {closable, clickable, rounded}, colorType, size], colorStyle)}
+        onClick={onClick}>
         {children}
-        {closable && <span className='Tag__close' onClick={this.onClose}>×</span>}
+        {closable && <span className='whc-tag__close' onClick={this.onClose}>×</span>}
       </div>
     )
   }

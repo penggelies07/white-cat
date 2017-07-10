@@ -31,7 +31,7 @@ class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
     const {children} = this.props
 
     return (
-      <div {...this.rootProps('PopoverMenu__item')} onClick={this.onClick}>{children}</div>
+      <div {...this.rootProps('whc-popover-menu__item')} onClick={this.onClick}>{children}</div>
     )
   }
 }
@@ -41,7 +41,7 @@ interface IPopoverMenuDividerProps {}
 class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
   render () {
     return (
-      <div {...this.rootProps('PopoverMenu__divider')}/>
+      <div {...this.rootProps('whc-popover-menu__divider')}/>
     )
   }
 }
@@ -69,7 +69,7 @@ export default class PopoverMenu extends Base<IPopoverMenuProps> {
   
   render () {
     return (
-      <div {...this.rootProps('PopoverMenu')}>
+      <div {...this.rootProps('whc-popover-menu')}>
         {this.props.children}
       </div>
     )

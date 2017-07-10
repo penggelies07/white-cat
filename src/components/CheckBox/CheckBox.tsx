@@ -51,19 +51,19 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
   render () {
     const {checked} = this.state
     const {disabled, children} = this.props
-    const size = this.props.size && 'CheckBox--' + this.props.size
+    const size = this.props.size && 'whc-checkbox--' + this.props.size
     return (
-      <label {...this.rootProps(['CheckBox', size, {checked, disabled}])}>
-        <div className='CheckBox__head'>
+      <label {...this.rootProps(['whc-checkbox', size, {checked, disabled}])}>
+        <div className='whc-checkbox__head'>
           <input
-            type='checkbox'
-            className='CheckBox__original'
+            type='whc-checkbox'
+            className='whc-checkbox__original'
             checked={checked}
             disabled={disabled}
             onChange={this.onChange}
           />
         </div>
-        <span className='CheckBox__content'>
+        <span className='whc-checkbox__content'>
           {children}
         </span>
       </label>

@@ -69,7 +69,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
     const {store} = this.state
     const {root} = store
     return (
-      <div {...this.rootProps('Tree')}>
+      <div {...this.rootProps('whc-tree')}>
         {
           root.children && root.children.map((node: Node) => {
             return (

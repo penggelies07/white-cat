@@ -41,10 +41,10 @@ export default class Pager extends Base<IPagerProps> {
     const pages = this.getPages()
 
     return (
-      <div className='Pagination__pager'>
+      <div className='whc-pagination__pager'>
         {pages.map((page) => (
           <div
-            className={cn('Pagination__item', {active: page === current})}
+            className={cn('whc-pagination__item', {active: page === current})}
             key={page}
             onClick={() => onClick(page)}>
             {current === page ? current + ' / ' + total : page}

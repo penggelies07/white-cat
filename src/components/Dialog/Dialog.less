@@ -1,7 +1,7 @@
 @import "../../styles/import";
 
 @media (max-width: 768px) {
-  .Dialog {
+  .whc-dialog {
     &&--default,
     &&--small,
     &&--large {
@@ -15,15 +15,15 @@
   &--@{name} {
     width: @width;
 
-    .Dialog__header,
-    .Dialog__body,
-    .Dialog__footer {
+    .whc-dialog__header,
+    .whc-dialog__body,
+    .whc-dialog__footer {
       padding: @padding;
     }
   }
 }
 
-.Dialog {
+.whc-dialog {
   position: fixed;
   top: 100px;
   left: 50%;
@@ -55,10 +55,10 @@
     }
   }
 
-  &__defaultFooter {
+  &__default-footer {
     overflow: hidden;
 
-    .Button {
+    .whc-button {
       float: right;
     }
   }

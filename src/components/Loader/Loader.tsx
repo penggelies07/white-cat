@@ -29,9 +29,9 @@ export default class Loader extends Base<ILoaderProps, ILoaderState> {
     return (
       loading
       ? (
-        <div {...this.rootProps(['Loader'])}>
-          <div className='Loader__core'>{text}</div>
-          {children && <span className='Loader__container'>{children}</span>}
+        <div {...this.rootProps(['whc-loader'])}>
+          <div className='whc-loader__core'>{text}</div>
+          {children && <span className='whc-loader__container'>{children}</span>}
         </div>
       )
       : this.renderChildren()

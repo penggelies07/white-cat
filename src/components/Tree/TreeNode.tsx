@@ -40,9 +40,9 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
     const indent = this.context.tree.props.indent
     const selected = node.store.selectedNode === node
     return (
-      <div {...this.rootProps(['Tree__node', {selected}])}>
-        <div className='Tree__nodeHead' style={{paddingLeft: indent * node.level + 'px'}} onClick={this.onSelect}>
-          <span className='Tree__nodeIcon' onClick={this.onToggle}>
+      <div {...this.rootProps(['whc-tree__node', {selected}])}>
+        <div className='whc-tree__node-head' style={{paddingLeft: indent * node.level + 'px'}} onClick={this.onSelect}>
+          <span className='whc-tree__node-icon' onClick={this.onToggle}>
             {
               node.isLeaf
               ? <Icon name='circle-o' style={{opacity: 0.3}}/>
@@ -53,10 +53,10 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
               : <Icon name='chevron-right'/>
             }
           </span>
-          <span className='Tree__nodeLabel'>{node.label}</span>
+          <span className='whc-tree__node-label'>{node.label}</span>
         </div>
         {node.expanded && (
-          <div className='Tree__nodeChildren'>
+          <div className='whc-tree__node-children'>
             {
               node.children && node.children.map((n: Node) => (
                 <TreeNode key={n.key} node={n}/>

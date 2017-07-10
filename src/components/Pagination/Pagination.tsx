@@ -12,7 +12,7 @@ interface INextProps {
 function Next ({total, current, onClick}: INextProps) {
   const disabled = current >= total
   return (
-    <div className='Pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current + 1)}>
+    <div className='whc-pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current + 1)}>
       <i className='fa fa-fw fa-angle-right'/>
     </div>
   )
@@ -27,7 +27,7 @@ interface IPrevProps {
 function Prev ({current, onClick}: IPrevProps) {
   const disabled = current < 2
   return (
-    <div className='Pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current - 1)}>
+    <div className='whc-pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current - 1)}>
       <i className='fa fa-fw fa-angle-left'/>
     </div>
   )
@@ -58,7 +58,7 @@ export default class Pagination extends Base<IPaginationProps, IPaginationState>
   }
 
   renderContent = () => {
-    const {layout = ['prev', 'pager', 'next'], current = 1, total = 0, range = 3} = this.props
+    const {layout = ['prev', 'whc-pager', 'next'], current = 1, total = 0, range = 3} = this.props
     const template = {
       'prev': (
         <Prev
@@ -74,9 +74,9 @@ export default class Pagination extends Base<IPaginationProps, IPaginationState>
           total={total}
           onClick={this.onChange}/>
       ),
-      'pager': (
+      'whc-pager': (
         <Pager
-          key='pager'
+          key='whc-pager'
           current={current}
           total={total}
           range={range}
@@ -95,7 +95,7 @@ export default class Pagination extends Base<IPaginationProps, IPaginationState>
   render () {
     if (this.props.total && this.props.total > 0) {
       return (
-        <div className='Pagination'>
+        <div className='whc-pagination'>
           {this.renderContent()}
         </div>
       )

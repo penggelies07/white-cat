@@ -105,7 +105,7 @@ export default class Form extends Base<IFormProps, IFormState> {
     const {layout, children} = this.props
 
     return (
-      <form {...this.rootProps(['Form', `Form--${layout}`])} onSubmit={this.onSubmit}>
+      <form {...this.rootProps(['whc-form', `whc-form--${layout}`])} onSubmit={this.onSubmit}>
         {children}
       </form>
     )

@@ -18,7 +18,7 @@ class CardItem extends Base<ICardItemProps> {
 
   render () {
     return (
-      <div {...this.rootProps('CardItem')} onClick={this.onClick}>
+      <div {...this.rootProps('whc-card-item')} onClick={this.onClick}>
         {this.props.children}
       </div>
     )
@@ -38,10 +38,10 @@ export default class Card extends Base<ICardProps> {
   render () {
     const {children, items, footer, onClick} = this.props
     return (
-      <div {...this.rootProps('Card')}>
-        {children && <div className='Card__header' onClick={onClick}>{children}</div>}
-        {items && <div className='Card__items'>{items}</div>}
-        {footer && <div className='Card__footer'>{footer}</div>}
+      <div {...this.rootProps('whc-card')}>
+        {children && <div className='whc-card__header' onClick={onClick}>{children}</div>}
+        {items && <div className='whc-card__items'>{items}</div>}
+        {footer && <div className='whc-card__footer'>{footer}</div>}
       </div>
     )
   }

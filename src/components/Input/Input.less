@@ -1,36 +1,36 @@
 @import "../../styles/import";
 
 .input-size (@size, @padding-v, @padding-h, @font-size) {
-  &.Input--@{size} {
+  &.whc-input--@{size} {
     font-size: @font-size;
 
-    .Input__original {
+    .whc-input__original {
       padding: @padding-v @padding-h;
     }
 
-    &.Input--hasPrefix {
-      .Input__original {
+    &.whc-input--has-prefix {
+      .whc-input__original {
         padding-left: (@padding-v * 2) + (@font-size * 0.8);
       }
 
-      .Input__prefix {
+      .whc-input__prefix {
         left: @padding-v;
       }
     }
 
-    &.Input--hasSuffix {
-      .Input__original {
+    &.whc-input--has-suffix {
+      .whc-input__original {
         padding-right: (@padding-v * 2) + (@font-size * 0.8);
       }
 
-      .Input__suffix {
+      .whc-input__suffix {
         right: @padding-v;
       }
     }
   }
 }
 
-.Input {
+.whc-input {
   display: inline-block;
   position: relative;
 
@@ -89,7 +89,7 @@
     border: none;
   }
 
-  .Button + & {
+  .whc-button + & {
     margin-left: 5px;
   }
 }
