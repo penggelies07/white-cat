@@ -5,7 +5,7 @@ import Icon from '../Icon'
 import './Button.less'
 
 interface IButtonProps {
-  size?: 'small' | 'large',
+  size?: 'small' | 'normal' | 'large',
   type?: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger' | 'info',
   nativeType?: 'button' | 'submit' | 'reset',
   icon?: string,
@@ -21,6 +21,7 @@ interface IButtonState {
 
 export default class Button extends Base<IButtonProps, IButtonState> {
   static defaultProps: IButtonProps = {
+    size: 'normal',
     type: 'default',
     nativeType: 'button'
   }

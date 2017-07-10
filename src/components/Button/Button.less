@@ -24,7 +24,6 @@
 
 .Button {
   display: inline-block;
-  padding: @button-padding;
   -webkit-appearance: none;
   line-height: 1.2em;
   border: none;
@@ -65,6 +64,7 @@
   }
 
   .button-size(small, @button-small-padding, @button-small-font-size);
+  .button-size(normal, @button-normal-padding, @button-normal-font-size);
   .button-size(large, @button-large-padding, @button-large-font-size);
 
   .button-style(default, @button-color, @button-fill);
