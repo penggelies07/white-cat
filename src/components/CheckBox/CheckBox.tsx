@@ -1,4 +1,3 @@
-import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import Base from '../../libs/Base'
 import './CheckBox.less'
@@ -7,7 +6,7 @@ interface ICheckBoxProps {
   checked?: boolean,
   disabled?: boolean,
   value?: any,
-  size?: 'small' | 'large'
+  size?: 'small' | 'normal' | 'large'
   onChange?: (checked: boolean, value?: any) => void
 }
 
@@ -17,8 +16,8 @@ interface ICheckBoxState {
 
 export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
 
-  static contextTypes = {
-    form: PropTypes.any,
+  static defaultProps = {
+    size: 'normal'
   }
 
   constructor (props: ICheckBoxProps) {
@@ -40,7 +39,7 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
       return
     }
     const checked = e.target.checked
-    if (this.props.checked === undefined) {
+    if (!('checked' in this.props)) {
       this.setState({checked})
     }
     if (onChange) {
@@ -49,21 +48,21 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
   }
 
   render () {
-    const {checked} = this.state
     const {disabled, children} = this.props
-    const size = this.props.size && 'whc-checkbox--' + this.props.size
+    const {checked} = this.state
+    const size = this.props.size && 'whc-check-box--' + this.props.size
     return (
-      <label {...this.rootProps(['whc-checkbox', size, {checked, disabled}])}>
-        <div className='whc-checkbox__head'>
+      <label {...this.rootProps(['whc-check-box', size, {checked, disabled}])}>
+        <div className='whc-check-box__head'>
           <input
-            type='whc-checkbox'
-            className='whc-checkbox__original'
+            type='checkbox'
+            className='whc-check-box__original'
             checked={checked}
             disabled={disabled}
             onChange={this.onChange}
           />
         </div>
-        <span className='whc-checkbox__content'>
+        <span className='whc-check-box__content'>
           {children}
         </span>
       </label>

@@ -11,7 +11,6 @@
   &__head {
     position: relative;
     display: inline-block;
-    font-size: @checkbox-font-size;
     width: 1em;
     height: 1em;
     border: @checkbox-border;
@@ -67,6 +66,10 @@
 
   &--small &__head {
     font-size: @checkbox-small-font-size;
+  }
+
+  &--normal &__head {
+    font-size: @checkbox-normal-font-size;
   }
 
   &--large &__head {
