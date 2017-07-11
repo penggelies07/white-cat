@@ -19,13 +19,13 @@ export default class Icon extends Base<IIconProps> {
 
     return (
       name || children
-      ? (
-        <span {...this.rootProps(['whc-icon', {clickable}])} onClick={onClick}>
-          {name && <i className={`fa fa-${name}${spin}${fit}`}/>}
-          {children !== undefined && <span className='whc-icon__text'>{children}</span>}
-        </span>
-      )
-      : null
+        ? (
+          <span {...this.rootProps(['whc-icon', {clickable}])} onClick={onClick}>
+            {name && <i className={`fa fa-${name}${spin}${fit}`}/>}
+            {children !== undefined && <span className='whc-icon__text'>{children}</span>}
+          </span>
+        )
+        : null
     )
   }
 }

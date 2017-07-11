@@ -45,12 +45,12 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
           <span className='whc-tree__node-icon' onClick={this.onToggle}>
             {
               node.isLeaf
-              ? <Icon name='circle-o' style={{opacity: 0.3}}/>
-              : node.loading
-              ? <Icon name='circle-o-notch' spinning/>
-              : node.expanded
-              ? <Icon name='chevron-down'/>
-              : <Icon name='chevron-right'/>
+                ? <Icon name='circle-o' style={{opacity: 0.3}}/>
+                : node.loading
+                ? <Icon name='circle-o-notch' spinning/>
+                : node.expanded
+                ? <Icon name='chevron-down'/>
+                : <Icon name='chevron-right'/>
             }
           </span>
           <span className='whc-tree__node-label'>{node.label}</span>

@@ -84,21 +84,21 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
         transitionLeaveTimeout={300}>
         {
           visible
-          ? (
-            <div {...rootProps}>
-              {header && <div className='whc-dialog__header'>{header}</div>}
-              {children && <div className='whc-dialog__body'>{children}</div>}
-              {
-                footer === undefined
-                ? this.renderDefaultFooter()
-                : footer === null
-                ? null
-                : <div className='whc-dialog__footer'>{footer}</div>
-              }
-              <span className='whc-dialog__close' onClick={onCancel}>×</span>
-            </div>
-          )
-          : null
+            ? (
+              <div {...rootProps}>
+                {header && <div className='whc-dialog__header'>{header}</div>}
+                {children && <div className='whc-dialog__body'>{children}</div>}
+                {
+                  footer === undefined
+                    ? this.renderDefaultFooter()
+                    : footer === null
+                    ? null
+                    : <div className='whc-dialog__footer'>{footer}</div>
+                }
+                <span className='whc-dialog__close' onClick={onCancel}>×</span>
+              </div>
+            )
+            : null
         }
       </Transition>
       </span>

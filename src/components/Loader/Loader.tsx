@@ -28,13 +28,13 @@ export default class Loader extends Base<ILoaderProps, ILoaderState> {
     const {loading, text, children} = this.props
     return (
       loading
-      ? (
-        <div {...this.rootProps(['whc-loader'])}>
-          <div className='whc-loader__core'>{text}</div>
-          {children && <span className='whc-loader__container'>{children}</span>}
-        </div>
-      )
-      : this.renderChildren()
+        ? (
+          <div {...this.rootProps(['whc-loader'])}>
+            <div className='whc-loader__core'>{text}</div>
+            {children && <span className='whc-loader__container'>{children}</span>}
+          </div>
+        )
+        : this.renderChildren()
     )
   }
 }

@@ -40,8 +40,8 @@ export function getDates (year: number, month: number): IDateItem[] {
 
   const pastDates: IDateItem[] = (
       beginDate < beginMonthDate
-      ? eachDay(beginDate, addDays(beginMonthDate, -1))
-      : []
+        ? eachDay(beginDate, addDays(beginMonthDate, -1))
+        : []
     ).map((date: Date) => ({
       date,
       status: 'past',
@@ -59,8 +59,8 @@ export function getDates (year: number, month: number): IDateItem[] {
 
   const futrueDates: IDateItem[] = (
       endDate > endMonthDate
-      ? eachDay(addDays(endMonthDate, 1), endDate)
-      : []
+        ? eachDay(addDays(endMonthDate, 1), endDate)
+        : []
     ).map((date: Date) => ({date,
       status: 'future',
       text: date.getDate(),
