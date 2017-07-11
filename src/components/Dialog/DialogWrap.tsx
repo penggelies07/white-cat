@@ -5,7 +5,7 @@ import Dialog from './Dialog'
 
 interface IDialogWrapProps {
   visible?: boolean,
-  size?: 'small' | 'default' | 'large',
+  size?: 'small' | 'normal' | 'large',
   maskClosable?: boolean,
   header?: React.ReactNode,
   footer?: React.ReactNode,

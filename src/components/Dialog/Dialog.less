@@ -2,7 +2,7 @@
 
 @media (max-width: 768px) {
   .whc-dialog {
-    &&--default,
+    &&--normal,
     &&--small,
     &&--large {
       width: 90%;
@@ -33,7 +33,7 @@
   border-radius: @dialog-border-radius;
   box-shadow: @dialog-box-shadow;
 
-  .dialog-size(default, @dialog-width, @dialog-padding);
+  .dialog-size(normal, @dialog-normal-width, @dialog-padding);
   .dialog-size(small, @dialog-small-width, @dialog-padding);
   .dialog-size(large, @dialog-large-width, @dialog-padding);
 

@@ -7,7 +7,7 @@ import './Dialog.less'
 
 interface IDialogProps {
   visible?: boolean,
-  size?: 'small' | 'default' | 'large',
+  size?: 'small' | 'normal' | 'large',
   maskClosable?: boolean,
   header?: React.ReactNode,
   footer?: React.ReactNode,
@@ -24,7 +24,7 @@ interface IDialogState {
 export default class Dialog extends Base<IDialogProps, IDialogState> {
 
   static defaultProps = {
-    size: 'default',
+    size: 'normal',
     maskClosable: true,
     cancelText: '取消',
     confirmText: '确定'
