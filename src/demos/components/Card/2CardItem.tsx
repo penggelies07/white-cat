@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {Card} from '../../../components'
 
-export const title = `卡片`
+export const title = `子项`
 
-export const description = `支持footer属性`
+export const description = `提供子项组件。`
 
 interface ICardNormalProps {}
 
