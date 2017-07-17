@@ -20,7 +20,7 @@ class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
     }
     const {popoverMenu, popover} = this.context
     if (popoverMenu && popoverMenu.props.onCommand) {
-      popoverMenu.props.onCommand(this.props.command || '', this.props.data)
+      popoverMenu.props.onCommand(e, this.props.command || '', this.props.data)
     }
     if (popover) {
       popover.hide()
@@ -46,11 +46,11 @@ class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
   }
 }
 
-type menuChildType = React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
+type menuChildType = null | false | React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
 
 interface IPopoverMenuProps {
   children?: menuChildType | menuChildType[],
-  onCommand?: (command: string, data: any) => void
+  onCommand?: (e: React.MouseEvent<any>, command: string, data: any) => void
 }
 
 export default class PopoverMenu extends Base<IPopoverMenuProps> {

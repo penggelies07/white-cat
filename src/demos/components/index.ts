@@ -50,6 +50,4 @@ for (var key in values) {
   components.push(values[key])
 }
 
-console.log(components)
-
 export default components

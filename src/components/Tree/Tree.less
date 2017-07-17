@@ -10,14 +10,19 @@
   }
 
   &__node-head {
+    display: flex;
+    flex-direction: row;
     line-height: @tree-line-height;
     cursor: pointer;
     background: @tree-fill;
-    white-space: nowrap;
     border-radius: @tree-border-radius;
 
     &:hover {
       color: @tree-color-hover;
+
+      .whc-tree__node-action {
+        opacity: 1;
+      }
     }
   }
 
@@ -30,5 +35,17 @@
     &:hover {
       opacity: 0.8;
     }
+  }
+
+  &__node-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: hidden;
+  }
+
+  &__node-action {
+    margin-right: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 }

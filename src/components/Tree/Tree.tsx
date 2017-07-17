@@ -8,6 +8,7 @@ import './Tree.less'
 
 interface ITreeProps {
   load: loadFn,
+  action?: (node: Node) => React.ReactNode,
   indent?: number,
   autoSelect?: boolean,
   onSelect?: (node: Node) => void
@@ -66,6 +67,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
   }
 
   render () {
+    const {action} = this.props
     const {store} = this.state
     const {root} = store
     return (
@@ -73,7 +75,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
         {
           root.children && root.children.map((node: Node) => {
             return (
-              <TreeNode key={node.key} node={node}/>
+              <TreeNode key={node.key} node={node} action={action && action(node)}/>
             )
           })
         }

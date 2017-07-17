@@ -5,7 +5,8 @@ import Icon from '../Icon'
 import Node from './models/Node'
 
 interface ITreeNodeProps {
-  node: Node
+  node: Node,
+  action?: React.ReactNode
 }
 
 interface ITreeNodeState {}
@@ -35,9 +36,15 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
     node.toggle()
   }
 
+  onStopPropagation = (e: React.MouseEvent<any>) => {
+    e.stopPropagation()
+    e.nativeEvent.stopPropagation()
+  }
+
   render (): JSX.Element {
-    const {node} = this.props
+    const {node, action} = this.props
     const indent = this.context.tree.props.indent
+    const actionFunc = this.context.tree.props.action
     const selected = node.store.selectedNode === node
     return (
       <div {...this.rootProps(['whc-tree__node', {selected}])}>
@@ -54,12 +61,13 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
             }
           </span>
           <span className='whc-tree__node-label'>{node.label}</span>
+          <span className='whc-tree__node-action' onClick={this.onStopPropagation}>{action}</span>
         </div>
         {node.expanded && (
           <div className='whc-tree__node-children'>
             {
               node.children && node.children.map((n: Node) => (
-                <TreeNode key={n.key} node={n}/>
+                <TreeNode key={n.key} node={n} action={actionFunc && actionFunc(n)}/>
               ))
             }
           </div>

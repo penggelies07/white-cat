@@ -13,14 +13,15 @@ export interface IField {
 interface IFormProps {
   layout?: 'horizontal' | 'vertical',
   labelWidth?: string | number,
-  onSubmit?: (invalid: IField[] | null, values: any) => void,
+  onSubmit?: (invalid: IField[] | null, values: any, reset?: () => void) => void,
   validations?: {
     [key: string]: (value: any, values: any) => string | boolean
   }
 }
 
 interface IFormState {
-  values: any
+  values: any,
+  defaultValues: any
 }
 
 export default class Form extends Base<IFormProps, IFormState> {
@@ -38,7 +39,8 @@ export default class Form extends Base<IFormProps, IFormState> {
   constructor (props: IFormProps) {
     super(props)
     this.state = {
-      values: {}
+      values: {},
+      defaultValues: {}
     }
   }
 
@@ -59,13 +61,13 @@ export default class Form extends Base<IFormProps, IFormState> {
           invalids.push(invalid)
         }
       }
-      onSubmit(invalids.length ? invalids : null, values)
+      onSubmit(invalids.length ? invalids : null, values, this.reset)
     }
     e.preventDefault()
   }
 
   setValue = (name: string, value: any) => {
-    const values = this.state.values
+    const {values, defaultValues} = this.state
     const oldValue = values[name]
     let newValue = value
     if (oldValue instanceof Array) {
@@ -77,6 +79,13 @@ export default class Form extends Base<IFormProps, IFormState> {
         : [...oldValue, value]
     }
     this.setState((state) => ({values: {...state.values, [name]: newValue}}))
+    if (!(name in defaultValues)) {
+      this.setState((state) => ({defaultValues: {...state.defaultValues, [name]: newValue}}))
+    }
+  }
+
+  reset = () => {
+    this.setState({values: this.state.defaultValues})
   }
 
   getValue = (name: string) => {
