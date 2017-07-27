@@ -13,6 +13,7 @@ export default class Node implements INode {
   key: string
   label?: string
   value?: any
+  parent?: Node
   children?: Node[]
 
   isRoot?: boolean
@@ -32,13 +33,13 @@ export default class Node implements INode {
     this.level = -1
     this.expanded = false
     this.isLeaf = false
-    this.shouldLoad = false
+    this.shouldLoad = true
     this.loading = false
   }
 
   createChildren (children: INode[]): Node[] {
-    this.shouldLoad = true
     this.isLeaf = !children.length
+    this.children = []
     return children.map(item => {
       return this.insertChild(item)
     })
@@ -48,7 +49,8 @@ export default class Node implements INode {
     const childNode = child instanceof Node
       ? child
       : new Node(child)
-    
+
+    childNode.parent = this
     childNode.store = this.store
     childNode.level = this.level + 1
     const children = this.children = (this.children || []) as Node[]
@@ -66,10 +68,11 @@ export default class Node implements INode {
     if (this.loading) {
       return
     }
-    if (!this.shouldLoad) {
+    if (this.shouldLoad) {
       this.loading = true
       this.store.load(this).then((children) => {
         this.createChildren(children)
+        this.shouldLoad = false
         this.loading = false
         this.store.component.refresh()
       })

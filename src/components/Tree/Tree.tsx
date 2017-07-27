@@ -9,14 +9,16 @@ import './Tree.less'
 interface ITreeProps {
   load: loadFn,
   action?: (node: Node) => React.ReactNode,
-  indent?: number,
+  checkable?: boolean,
+  checkedKeys?: string[],
   autoSelect?: boolean,
-  onSelect?: (node: Node) => void
+  onSelect?: (node: Node) => void,
+  onCheckedChange?: (keys: string[]) => void
 }
 
 interface ITreeState {
   store: Store,
-  mounted: boolean
+  checkedKeys: string[]
 }
 
 export default class Tree extends Base<ITreeProps, ITreeState> {
@@ -39,7 +41,13 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
         load: props.load,
         autoSelect: props.autoSelect
       }),
-      mounted: false
+      checkedKeys: props.checkedKeys || []
+    }
+  }
+
+  componentWillReceiveProps ({checkedKeys}: ITreeProps) {
+    if (checkedKeys && checkedKeys !== this.state.checkedKeys) {
+      this.setState({checkedKeys})
     }
   }
 
@@ -49,10 +57,6 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
     }
   }
 
-  componentDidMount () {
-    this.setState({mounted: true})
-  }
-
   onSelect = (node: Node) => {
     const onSelect = this.props.onSelect
     if (onSelect) {
@@ -60,8 +64,24 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
     }
   }
 
+  onCheck = (node: Node) => {
+    const checkedKeys = this.state.checkedKeys
+    const exist = !!checkedKeys.find((key) => key === node.key)
+    const newKeys = exist ? checkedKeys.filter((key) => key !== node.key) : [...checkedKeys, node.key]
+    if (!this.props.checkedKeys) {
+      this.setState({checkedKeys: newKeys})
+    }
+    if (this.props.onCheckedChange) {
+      this.props.onCheckedChange(newKeys)
+    }
+  }
+
+  isChecked = (node: Node) => {
+    return !!this.state.checkedKeys.find((key) => key === node.key)
+  }
+
   refresh = () => {
-    if (this.state.mounted) {
+    if (this.mounted) {
       this.setState({})
     }
   }

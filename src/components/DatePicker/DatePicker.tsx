@@ -42,7 +42,7 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
   }
 
   componentWillReceiveProps ({value}: IDatePickerProps) {
-    value = (value === 'string' ? new Date(value) : value || null) as Date
+    value = (typeof value === 'string' ? new Date(value) : value || null) as Date
     this.setState({value})
   }
 

@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import Base from '../../libs/Base'
+import CheckBox from '../CheckBox'
 import Icon from '../Icon'
 import Node from './models/Node'
 
@@ -20,6 +21,14 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
   constructor (props: ITreeNodeProps) {
     super(props)
     this.state = {}
+  }
+
+  isChecked = () => {
+    return this.context.tree.isChecked(this.props.node)
+  }
+
+  onCheck = (value: boolean) => {
+    this.context.tree.onCheck(this.props.node)
   }
 
   onSelect = () => {
@@ -43,8 +52,7 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
 
   render (): JSX.Element {
     const {node, action} = this.props
-    const indent = this.context.tree.props.indent
-    const actionFunc = this.context.tree.props.action
+    const {indent, checkable, action: actionFunc} = this.context.tree.props
     const selected = node.store.selectedNode === node
     return (
       <div {...this.rootProps(['whc-tree__node', {selected}])}>
@@ -60,6 +68,7 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
                 : <Icon name='chevron-right'/>
             }
           </span>
+          {checkable && <CheckBox className='whc-tree__node-check-box' checked={this.isChecked()} onChange={this.onCheck}/>}
           <span className='whc-tree__node-label'>{node.label}</span>
           <span className='whc-tree__node-action' onClick={this.onStopPropagation}>{action}</span>
         </div>

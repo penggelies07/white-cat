@@ -98,7 +98,15 @@ export default class Form extends Base<IFormProps, IFormState> {
     if (validation) {
       const values = this.state.values
       const value = values[name]
-      const result = validation(value, values)
+      let result
+      try {
+        result = validation(value, values)
+      } catch (error) {
+        result = error.message
+        if (console.warn) {
+          console.warn(error)
+        }
+      }
       if (typeof result === 'string' || result === false) {
         return {
           name,

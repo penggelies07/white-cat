@@ -14,6 +14,7 @@ interface IPopoverProps {
   title?: string,
   content?: React.ReactNode,
   visible?: boolean,
+  disabled?: boolean,
   trigger?: 'hover' | 'click',
   placement?: placementType,
   width?: string | number,
@@ -110,20 +111,31 @@ export default class Popover extends Base<IPopoverProps, IPopoverState> {
   }
 
   show = () => {
+    const {disabled, onChange} = this.props
+    if (disabled) {
+      return
+    }
+
     this.setState({visible: true})
-    if (this.props.onChange) {
-      this.props.onChange(true)
+    if (onChange) {
+      onChange(true)
     }
   }
 
   hide = () => {
+    const {disabled, onChange} = this.props
+    if (disabled) {
+      return
+    }
+
     this.setState({visible: false})
-    if (this.props.onChange) {
-      this.props.onChange(false)
+    if (onChange) {
+      onChange(false)
     }
   }
 
   getTriggerElement = (children: React.ReactNode) => {
+    children = children || ''
     return typeof children === 'string'
       ? React.createElement('span', {ref: 'triggerEl'}, children)
       : React.cloneElement(React.Children.only(children), {ref: 'triggerEl'})

@@ -1,3 +1,4 @@
+import * as cn from 'classnames'
 import * as React from 'react'
 import Base from '../../libs/Base'
 import Pager from './Pager'
@@ -12,7 +13,7 @@ interface INextProps {
 function Next ({total, current, onClick}: INextProps) {
   const disabled = current >= total
   return (
-    <div className='whc-pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current + 1)}>
+    <div className={cn('whc-pagination__item', {disabled})} onClick={() => !disabled && onClick(current + 1)}>
       <i className='fa fa-fw fa-angle-right'/>
     </div>
   )
@@ -27,7 +28,7 @@ interface IPrevProps {
 function Prev ({current, onClick}: IPrevProps) {
   const disabled = current < 2
   return (
-    <div className='whc-pagination__item' disabled={disabled} onClick={() => !disabled && onClick(current - 1)}>
+    <div className={cn('whc-pagination__item', {disabled})} onClick={() => !disabled && onClick(current - 1)}>
       <i className='fa fa-fw fa-angle-left'/>
     </div>
   )
