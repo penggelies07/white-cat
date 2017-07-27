@@ -1,0 +1,35 @@
+@import "../../styles/_import";
+
+.whc-time-picker {
+  display: inline-block;
+
+  &__input {
+    display: inline-block;
+    width: 50px;
+  }
+
+  &__separator {
+    margin: 0 10px;
+    display: inline-block;
+  }
+
+  &__items {
+    max-height: 250px;
+    width: 80px;
+  }
+
+  &__item {
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: @color-gray-lighter;
+    }
+
+    &.active {
+      background: @color-gray-light;
+    }
+  }
+}

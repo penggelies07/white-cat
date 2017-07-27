@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "date-fns": "^1.28.5",
     "popper.js": "^1.10.8",
     "prop-types": "^15.5.10"
   }
