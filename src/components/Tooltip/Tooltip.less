@@ -1,0 +1,118 @@
+@import "../../styles/import";
+
+.whc-tooltip {
+  position: relative;
+
+  &__content {
+    position: absolute;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    padding: @tooltip-padding;
+    border-radius: @tooltip-border-radius;
+    font-size: @tooltip-font-size;
+    line-height: @tooltip-font-size;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: all 0.2s ease 0.1s;
+
+    &::before {
+      position: absolute;
+      border: @tooltip-arrow-size solid transparent;
+      content: '';
+    }
+  }
+
+  &--light &__content {
+    background: @tooltip-light-fill;
+    color: @tooltip-light-color;
+    box-shadow: 0 2px 2px @tooltip-light-box-shadow;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &--dark &__content {
+    background: @tooltip-dark-fill;
+    color: @tooltip-dark-color;
+  }
+
+  &:hover &__content {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-style(left, right, top, bottom);
+  .tooltip-style(right, left, top, bottom);
+  .tooltip-style(top, bottom, left, right);
+  .tooltip-style(bottom, top, left, right);
+}
+
+.tooltip-style (@direction, @reverse, @start, @end) {
+  &--@{direction} &,
+  &--@{direction}-start &,
+  &--@{direction}-end & {
+    &__content {
+      @{reverse}: 100%;
+      @{start}: 50%;
+
+      & when (@direction = top) {
+        transform: translateX(-50%);
+      }
+
+      & when (@direction = bottom) {
+        transform: translateX(-50%);
+      }
+
+      & when (@direction = left) {
+        transform: translateY(-50%);
+      }
+
+      & when (@direction = right) {
+        transform: translateY(-50%);
+      }
+    }
+
+    &__content::before {
+      @{direction}: 100%;
+      border-@{direction}-color: @tooltip-dark-fill;
+    }
+  }
+
+  &--@{direction}:hover &,
+  &--@{direction}-start:hover &,
+  &--@{direction}-end:hover & {
+    &__content {
+      & when (@direction = top) {
+        transform: translate(-50%, -@tooltip-gap-size);
+      }
+
+      & when (@direction = bottom) {
+        transform: translate(-50%, @tooltip-gap-size);
+      }
+
+      & when (@direction = left) {
+        transform: translate(-@tooltip-gap-size, -50%);
+      }
+
+      & when (@direction = right) {
+        transform: translate(@tooltip-gap-size, -50%);
+      }
+    }
+  }
+
+  &--@{direction} &__content::before {
+    @{start}: calc(~"50%" - @tooltip-arrow-size);
+  }
+
+  &--@{direction}-start &__content::before {
+    @{start}: @tooltip-arrow-size;
+  }
+
+  &--@{direction}-end &__content::before {
+    @{end}: @tooltip-arrow-size;
+  }
+}
+
