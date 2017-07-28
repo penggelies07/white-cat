@@ -2,7 +2,7 @@
 
 # size
 
-type: `'small'` | `'normal'` | `'large'`
+type: `'small'` `'normal'` `'large'`
 
 -----
 

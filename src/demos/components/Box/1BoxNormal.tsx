@@ -8,7 +8,9 @@ export default class BoxNormal extends React.Component<IBoxNormalProps> {
   render () {
     return (
       <div style={{background: '#fafafa', padding: '30px'}}>
-        <Box style={{width: '300px', height: '300px'}}>box</Box>
+        <Box style={{width: '300px', height: '200px'}}>
+          content
+        </Box>
       </div>
     )
   }
