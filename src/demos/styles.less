@@ -10,6 +10,8 @@ body {
   margin: 0;
   color: @font-color;
   background: @color-gray-lighter;
+  font-size: 14px;
+  font-family: 'Helvetica Neue For Number', BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -19,6 +21,11 @@ a {
   &:visited {
     color: inherit;
   }
+}
+
+pre,
+code {
+  font-family: Lucida Console,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
 }
 
 .Root {
@@ -171,17 +178,30 @@ a {
 
   &__text {
     padding: 20px;
-    width: 300px;
+    width: 400px;
     border-left: @border;
-  }
-
-  &__title {
-    font-weight: bold;
-  }
-
-  &__description {
-    margin-top: 10px;
     color: @font-color-light;
+    font-size: 14px;
+
+    h1, h2, h3, h4, h5 {
+      font-size: 1.2em;
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    code {
+      padding: 2px 1px;
+      border: 1px solid @color-gray-light;
+      border-radius: 2px;
+      font-size: 0.8em;
+    }
   }
 
   &__demo {

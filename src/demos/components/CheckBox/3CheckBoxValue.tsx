@@ -1,10 +1,6 @@
 import * as React from 'react'
 import {CheckBox} from '../../../components'
 
-export const title = `值`
-
-export const description = `支持任意类型value，出发onChange事件时，传递checked和value参数。`
-
 interface ICheckBoxValueProps {}
 
 export default class CheckBoxValue extends React.Component<ICheckBoxValueProps> {

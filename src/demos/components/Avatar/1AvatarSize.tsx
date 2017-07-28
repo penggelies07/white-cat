@@ -5,25 +5,21 @@ declare const require: any
 
 const img = require('./avatar.jpg')
 
-export const title = `尺寸`
+interface IAvatarSizeProps {}
 
-export const description = `多种头像组件尺寸。`
-
-interface IAvatarTypeProps {}
-
-export default class AvatarType extends React.Component<IAvatarTypeProps> {
+export default class AvatarSize extends React.Component<IAvatarSizeProps> {
 
   render () {
     return (
       <div>
         <div>
-          <Avatar src={img} size='small'>small</Avatar>
+          <Avatar src={img} size='small'/>
         </div>
         <div style={{marginTop: '8px'}}>
-          <Avatar src={img}>normal</Avatar>
+          <Avatar src={img}/>
         </div>
         <div style={{marginTop: '8px'}}>
-          <Avatar src={img} size='large'>large</Avatar>
+          <Avatar src={img} size='large'/>
         </div>
       </div>
     )

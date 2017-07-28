@@ -1,13 +1,9 @@
 import * as React from 'react'
 import {Box} from '../../../components'
 
-export const title = `盒子`
+interface IBoxNormalProps {}
 
-export const description = ``
-
-interface IBoxTypeProps {}
-
-export default class BoxType extends React.Component<IBoxTypeProps> {
+export default class BoxNormal extends React.Component<IBoxNormalProps> {
 
   render () {
     return (

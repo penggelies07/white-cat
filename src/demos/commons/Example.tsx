@@ -10,8 +10,7 @@ marked.setOptions({
 interface IExampleProps {
   demo: React.ComponentClass,
   raw: string,
-  title: string,
-  description: string
+  doc: string
 }
 
 interface IExampleState {
@@ -31,15 +30,20 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
     this.setState({expanded: !this.state.expanded})
   }
 
-  toHtml = (raw: string) => {
+  markdownText = (raw: string = '') => {
+    return marked(raw)
+  }
+
+  highLightCode = (raw: string = '') => {
     return marked('```tsx\n' + raw.replace('../../../components', 'white-cat') + '\n```')
   }
   
   render () {
-    const {demo: Demo, raw, title, description} = this.props
+    const {demo: Demo, raw, doc} = this.props
     const {expanded} = this.state
 
-    const html = this.toHtml(raw)
+    const html = this.highLightCode(raw)
+    const text = this.markdownText(doc)
 
     return (
       <div className='Example'>
@@ -50,10 +54,7 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
           </div>
           {expanded && <div className='Example__raw' dangerouslySetInnerHTML={{__html: html}}/>}
         </div>
-        <div className='Example__text'>
-          <div className='Example__title'>{title}</div>
-          <div className='Example__description'>{description}</div>
-        </div>
+        <div className='Example__text' dangerouslySetInnerHTML={{__html: text}}/>
       </div>
     )
   }

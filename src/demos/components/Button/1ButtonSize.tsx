@@ -1,13 +1,9 @@
 import * as React from 'react'
 import {Button} from '../../../components'
 
-export const title = `尺寸`
+interface IButtonSizeProps {}
 
-export const description = `多种按钮尺寸。`
-
-interface IButtonTypeProps {}
-
-export default class ButtonType extends React.Component<IButtonTypeProps> {
+export default class ButtonSize extends React.Component<IButtonSizeProps> {
 
   render () {
     return (

@@ -1,10 +1,6 @@
 import * as React from 'react'
 import {Calendar} from '../../../components'
 
-export const title = `日历`
-
-export const description = `支持年月日面板切换。`
-
 interface ICalendarNormalProps {}
 
 interface ICalendarNormalState {

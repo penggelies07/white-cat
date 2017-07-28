@@ -1,31 +1,31 @@
 declare const require: any
 
-function getTitle (text: string) {
-  const result = /export\sconst\stitle\s\=\s`([^`]*)`/gm.exec(text)
-  return result ? result[1] : ''
-}
+const docs: any  = {}
 
-function getDescription (text: string) {
-  const result = /export\sconst\sdescription\s\=\s`([^`]*)`/gm.exec(text)
-  return result ? result[1] : ''
-}
-
-const context = require.context('.', true, /.tsx$/)
+const context = require.context('.', true, /\.tsx$/)
 const list: string[] = context.keys()
 
 const values = list.reduce((vals: any, path: string) => {
   const [name, demo] = path.split(/[./]/).filter(Boolean)
-  const text: any = require(`!!raw-loader!./${name}/${demo}`)
 
-  const title = getTitle(text)
-  const description = getDescription(text)
-  const raw = text.replace(/^export\sconst\s(title|description)\s\=\s`[^`]*`\s*/gm, '')
-  const component = require(`./${name}/${demo}`).default
+  if (!docs[name]) {
+    try {
+      const text: string = require(`!!raw-loader!./${name}/readme.md`)
+      docs[name] = text.split(/^[-]{3,}/gm).map((t) => t.trim())
+    } catch (error) {
+      docs[name] = []
+    }
+  }
+
+  const index = demo.replace(/[^\d]/g, '')
+  const doc = docs[name] ? docs[name][index] : ''
+  const raw: string = require(`!!raw-loader!./${name}/${demo}.tsx`)
+  const component = require(`./${name}/${demo}.tsx`).default
 
   if (vals[name]) {
-    vals[name].demos.push({name: demo, title, description, raw, component})
+    vals[name].demos.push({name: demo, doc, raw, component})
   } else {
-    vals[name] = {name, demos: [{name: demo, title, description, raw, component}]}
+    vals[name] = {name, demos: [{name: demo, doc, raw, component}]}
   }
 
   return vals
@@ -33,8 +33,7 @@ const values = list.reduce((vals: any, path: string) => {
 
 export interface IDemoItem {
   name: string,
-  title: string,
-  description: string,
+  doc: string,
   raw: string,
   component: React.ComponentClass
 }

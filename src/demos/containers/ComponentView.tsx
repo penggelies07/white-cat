@@ -15,8 +15,8 @@ export default class ComponentView extends React.Component<IComponentViewProps> 
         </div>
         <div className='ComponentView__container'>
           <div className='ComponentView__sub-title'>示例</div>
-          {component.demos.map(({component: demo, raw, title, description}, index) => (
-            <Example key={index} {...{demo, raw, title, description}}/>
+          {component.demos.map(({component: demo, raw, doc}, index) => (
+            <Example key={index} {...{demo, raw, doc}}/>
           ))}
         </div>
       </div>

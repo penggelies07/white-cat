@@ -1,13 +1,9 @@
 import * as React from 'react'
 import {Card} from '../../../components'
 
-export const title = `子项`
+interface ICardItemProps {}
 
-export const description = `提供子项组件。`
-
-interface ICardNormalProps {}
-
-export default class CardNormal extends React.Component<ICardNormalProps> {
+export default class CardItem extends React.Component<ICardItemProps> {
 
   render () {
     return (

@@ -1,10 +1,6 @@
 import * as React from 'react'
 import {Button} from '../../../components'
 
-export const title = `类型`
-
-export const description = `多种按钮样式。`
-
 interface IButtonTypeProps {}
 
 export default class ButtonType extends React.Component<IButtonTypeProps> {
