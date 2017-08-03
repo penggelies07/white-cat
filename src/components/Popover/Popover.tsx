@@ -91,6 +91,13 @@ export default class Popover extends Base<IPopoverProps, IPopoverState> {
     }
   }
 
+  componentDidUpdate () {
+    const {visible} = this.state
+    if (visible && this.popper) {
+      this.popper.update()
+    }
+  }
+
   componentWillReceiveProps ({visible}: IPopoverProps) {
     if (visible !== undefined && visible !== this.state.visible) {
       this.setState({visible: !!visible})
