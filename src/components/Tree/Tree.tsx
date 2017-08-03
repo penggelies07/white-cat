@@ -81,7 +81,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
   }
 
   refresh = () => {
-    if (this.mounted) {
+    if (this._isMounted) {
       this.setState({})
     }
   }

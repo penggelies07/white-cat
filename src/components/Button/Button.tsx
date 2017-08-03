@@ -49,7 +49,7 @@ export default class Button extends Base<IButtonProps, IButtonState> {
       if (promise instanceof Promise) {
         this.setState({loading: true})
         promise.then(() => {
-          if (this.mounted) {
+          if (this._isMounted) {
             this.setState({loading: false})
           }
         })

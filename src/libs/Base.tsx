@@ -12,14 +12,14 @@ interface IBaseProps {
 }
 
 export default abstract class Base<P = {}, S = {}> extends React.Component<P & IBaseProps, S> {
-  mounted: boolean = false
+  _isMounted: boolean = false
 
   componentDidMount () {
-    this.mounted = true
+    this._isMounted = true
   }
   
   componentWillUnmount () {
-    this.mounted = false
+    this._isMounted = false
   }
 
   rootProps = (classes: ClassValue[] | ClassValue, styles?: React.CSSProperties) => {
