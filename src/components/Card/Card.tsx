@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Card.less'
 
-interface ICardItemProps {
+export interface ICardItemProps {
   children?: React.ReactNode,
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }
@@ -25,7 +25,7 @@ class CardItem extends Base<ICardItemProps> {
   }
 }
 
-interface ICardProps {
+export interface ICardProps {
   children?: React.ReactNode,
   items?: React.ReactNode,
   footer?: React.ReactNode,

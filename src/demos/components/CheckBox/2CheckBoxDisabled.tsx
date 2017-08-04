@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {CheckBox} from '../../../components'
+import {CheckBox} from '../../../index'
 
-interface ICheckBoxDisabledProps {}
+export interface ICheckBoxDisabledProps {}
 
 export default class CheckBoxDisabled extends React.Component<ICheckBoxDisabledProps> {
 

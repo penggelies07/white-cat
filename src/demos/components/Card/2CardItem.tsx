@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Card} from '../../../components'
+import {Card} from '../../../index'
 
-interface ICardItemProps {}
+export interface ICardItemProps {}
 
 export default class CardItem extends React.Component<ICardItemProps> {
 

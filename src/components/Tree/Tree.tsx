@@ -6,7 +6,7 @@ import Store, {loadFn} from './models/Store'
 import TreeNode from './TreeNode'
 import './Tree.less'
 
-interface ITreeProps {
+export interface ITreeProps {
   load: loadFn,
   action?: (node: Node) => React.ReactNode,
   checkable?: boolean,
@@ -16,7 +16,7 @@ interface ITreeProps {
   onCheckedChange?: (keys: string[]) => void
 }
 
-interface ITreeState {
+export interface ITreeState {
   store: Store,
   checkedKeys: string[]
 }

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {CheckBox} from '../../../components'
+import {CheckBox} from '../../../index'
 
-interface ICheckBoxValueProps {}
+export interface ICheckBoxValueProps {}
 
 export default class CheckBoxValue extends React.Component<ICheckBoxValueProps> {
 

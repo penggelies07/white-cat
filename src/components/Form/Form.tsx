@@ -10,7 +10,7 @@ export interface IField {
   value: any
 }
 
-interface IFormProps {
+export interface IFormProps {
   layout?: 'horizontal' | 'vertical',
   labelWidth?: string | number,
   onSubmit?: (invalid: IField[] | null, values: any, reset?: () => void) => void,
@@ -19,7 +19,7 @@ interface IFormProps {
   }
 }
 
-interface IFormState {
+export interface IFormState {
   values: any,
   defaultValues: any
 }

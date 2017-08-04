@@ -10,7 +10,7 @@ type placementType = 'auto' | 'top' | 'right' | 'bottom' | 'left'
   | 'auto-start' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start'
   | 'auto-end' | 'top-end' | 'right-end' | 'bottom-end' | 'left-end'
 
-interface IPopoverProps {
+export interface IPopoverProps {
   title?: string,
   content?: React.ReactNode,
   visible?: boolean,
@@ -21,7 +21,7 @@ interface IPopoverProps {
   onChange?: (visible: boolean) => void
 }
 
-interface IPopoverState {
+export interface IPopoverState {
   visible: boolean
 }
 

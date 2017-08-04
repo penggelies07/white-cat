@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Col.less'
 
-interface IColProps {
+export interface IColProps {
   span?: number,
   xs?: number,
   sm?: number,

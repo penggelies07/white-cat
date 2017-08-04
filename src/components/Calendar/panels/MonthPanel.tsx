@@ -2,12 +2,12 @@ import * as cn from 'classnames'
 import * as React from 'react'
 import {getMonths, IMonthItem} from '../utils'
 
-interface IMonthPanelProps {
+export interface IMonthPanelProps {
   value?: Date | null,
   onSelect?: (month: number) => void
 }
 
-interface IMonthPanelState {
+export interface IMonthPanelState {
   months: IMonthItem[]
 }
 

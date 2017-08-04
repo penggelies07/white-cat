@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Button} from '../../../components'
+import {Button} from '../../../index'
 
-interface IButtonLoadingProps {}
+export interface IButtonLoadingProps {}
 
 export default class ButtonLoading extends React.Component<IButtonLoadingProps> {
 

@@ -3,7 +3,7 @@ import components, {IComponentItem} from '../components'
 import Example from '../commons/Example'
 import {RouteComponentProps} from 'react-router'
 
-interface IComponentViewProps extends RouteComponentProps<{name: string}> {}
+export interface IComponentViewProps extends RouteComponentProps<{name: string}> {}
 
 export default class ComponentView extends React.Component<IComponentViewProps> {
 

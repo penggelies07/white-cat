@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import * as PropTypes from 'prop-types'
 
-interface IPopoverMenuItemProps {
+export interface IPopoverMenuItemProps {
   command?: string,
   data?: any,
   onClick?: React.MouseEventHandler<HTMLDivElement>
@@ -36,7 +36,7 @@ class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
   }
 }
 
-interface IPopoverMenuDividerProps {}
+export interface IPopoverMenuDividerProps {}
 
 class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
   render () {
@@ -48,7 +48,7 @@ class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
 
 type menuChildType = null | false | React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
 
-interface IPopoverMenuProps {
+export interface IPopoverMenuProps {
   children?: menuChildType | menuChildType[],
   onCommand?: (e: React.MouseEvent<any>, command: string, data: any) => void
 }

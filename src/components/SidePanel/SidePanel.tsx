@@ -5,7 +5,7 @@ import Loader from '../Loader'
 import ScrollBar from '../ScrollBar'
 import './SidePanel.less'
 
-interface ISidePanelProps {
+export interface ISidePanelProps {
   header?: React.ReactNode,
   placement?: 'left' | 'right',
   fixed?: boolean,
@@ -14,7 +14,7 @@ interface ISidePanelProps {
   width?: number | string
 }
 
-interface ISidePanelState {
+export interface ISidePanelState {
   visible: boolean
 }
 

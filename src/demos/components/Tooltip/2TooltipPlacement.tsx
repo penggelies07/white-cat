@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Tooltip, Button} from '../../../components'
+import {Tooltip, Button} from '../../../index'
 
-interface ITooltipPlacementProps {}
+export interface ITooltipPlacementProps {}
 
 export default class TooltipPlacement extends React.Component<ITooltipPlacementProps> {
 

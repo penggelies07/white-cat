@@ -5,7 +5,7 @@ import Mask from '../Mask'
 import Transition from 'react-transition-group/CSSTransition'
 import './Dialog.less'
 
-interface IDialogProps {
+export interface IDialogProps {
   visible?: boolean,
   size?: 'small' | 'normal' | 'large',
   maskClosable?: boolean,
@@ -17,7 +17,7 @@ interface IDialogProps {
   onConfirm?: () => void| Promise<any>
 }
 
-interface IDialogState {
+export interface IDialogState {
   loading: boolean
 }
 

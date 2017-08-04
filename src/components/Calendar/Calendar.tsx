@@ -13,12 +13,12 @@ enum viewTypes {
   DATE = 2
 }
 
-interface ICalendarProps {
+export interface ICalendarProps {
   value?: Date | null,
   onChange?: (value: Date) => void
 }
 
-interface ICalendarState {
+export interface ICalendarState {
   status: viewTypes,
   year: number,
   month: number,

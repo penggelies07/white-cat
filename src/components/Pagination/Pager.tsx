@@ -2,7 +2,7 @@ import * as cn from 'classnames'
 import * as React from 'react'
 import Base from '../../libs/Base'
 
-interface IPagerProps {
+export interface IPagerProps {
   current: number,
   total: number,
   range: number,

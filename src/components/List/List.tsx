@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './List.less'
 
-interface IItemProps {
+export interface IItemProps {
   active?: boolean,
   data?: any,
   onClick?: (e: React.MouseEvent<HTMLDivElement>, data: any) => void
@@ -28,7 +28,7 @@ class Item extends Base<IItemProps> {
   }
 }
 
-interface IListProps {
+export interface IListProps {
   title?: React.ReactNode
 }
 

@@ -5,12 +5,12 @@ import CheckBox from '../CheckBox'
 import Icon from '../Icon'
 import Node from './models/Node'
 
-interface ITreeNodeProps {
+export interface ITreeNodeProps {
   node: Node,
   action?: React.ReactNode
 }
 
-interface ITreeNodeState {}
+export interface ITreeNodeState {}
 
 export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
 

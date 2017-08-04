@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {Calendar} from '../../../components'
+import {Calendar} from '../../../index'
 
-interface ICalendarNormalProps {}
+export interface ICalendarNormalProps {}
 
-interface ICalendarNormalState {
+export interface ICalendarNormalState {
   date: Date | null
 }
 

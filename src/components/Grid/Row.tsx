@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Row.less'
 
-interface IRowProps {
+export interface IRowProps {
   gutter?: number
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Card} from '../../../components'
+import {Card} from '../../../index'
 
-interface ICardNormalProps {}
+export interface ICardNormalProps {}
 
 export default class CardNormal extends React.Component<ICardNormalProps> {
 

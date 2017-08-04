@@ -4,7 +4,7 @@ import ButtonGroup from './ButtonGroup'
 import Icon from '../Icon'
 import './Button.less'
 
-interface IButtonProps {
+export interface IButtonProps {
   size?: 'small' | 'normal' | 'large',
   type?: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger' | 'info',
   nativeType?: 'button' | 'submit' | 'reset',
@@ -15,7 +15,7 @@ interface IButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => Promise<any> | void
 }
 
-interface IButtonState {
+export interface IButtonState {
   loading: boolean
 }
 

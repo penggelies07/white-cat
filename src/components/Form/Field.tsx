@@ -2,14 +2,14 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import Base from '../../libs/Base'
 
-interface IChildProps {
+export interface IChildProps {
   value?: any,
   name?: string,
   message?: string,
   onChange: (value: any) => void
 }
 
-interface IFormFieldProps {
+export interface IFormFieldProps {
   name?: string,
   value?: any,
   label?: React.ReactNode,

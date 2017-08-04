@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import Base from '../../libs/Base'
 import Dialog from './Dialog'
 
-interface IDialogWrapProps {
+export interface IDialogWrapProps {
   visible?: boolean,
   size?: 'small' | 'normal' | 'large',
   maskClosable?: boolean,

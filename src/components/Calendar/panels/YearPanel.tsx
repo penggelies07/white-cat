@@ -2,13 +2,13 @@ import * as cn from 'classnames'
 import * as React from 'react'
 import {getYears, IYearItem} from '../utils'
 
-interface IYearPanelProps {
+export interface IYearPanelProps {
   year: number,
   value?: Date | null,
   onSelect?: (year: number) => void
 }
 
-interface IYearPanelState {
+export interface IYearPanelState {
   years: IYearItem[]
 }
 

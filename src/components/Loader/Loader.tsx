@@ -2,13 +2,13 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Loader.less'
 
-interface ILoaderProps {
+export interface ILoaderProps {
   loading?: boolean,
   text?: string,
   children?: React.ReactNode
 }
 
-interface ILoaderState {}
+export interface ILoaderState {}
 
 export default class Loader extends Base<ILoaderProps, ILoaderState> {
 

@@ -2,14 +2,14 @@ import * as cn from 'classnames'
 import * as React from 'react'
 import {dayNames, getDates, IDateItem, isSameDate} from '../utils'
 
-interface IDatePanelProps {
+export interface IDatePanelProps {
   year: number,
   month: number,
   value?: Date | null,
   onSelect?: (date: Date) => void
 }
 
-interface IDatePanelState {
+export interface IDatePanelState {
   dates: IDateItem[]
 }
 

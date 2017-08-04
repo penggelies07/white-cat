@@ -10,7 +10,7 @@ function getKey () {
   return 'key_' + Date.now() + seed
 }
 
-interface INoticeOptions {
+export interface INoticeOptions {
   type?: 'primary' | 'success' | 'warning' | 'error',
   icon?: string,
   content?: string,
@@ -18,13 +18,13 @@ interface INoticeOptions {
   duration?: number
 }
 
-interface INotice extends INoticeOptions {
+export interface INotice extends INoticeOptions {
   key: string
 }
 
-interface INotificationProps {}
+export interface INotificationProps {}
 
-interface INotificationState {
+export interface INotificationState {
   notices: INotice[]
 }
 

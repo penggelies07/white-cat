@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {RouteComponentProps} from 'react-router'
 import * as cn from 'classnames'
 
-interface ISideBarProps extends RouteComponentProps<{name: string}> {}
+export interface ISideBarProps extends RouteComponentProps<{name: string}> {}
 
 export default class SideBar extends React.Component<ISideBarProps> {
   render () {

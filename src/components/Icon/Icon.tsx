@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Icon.less'
 
-interface IIconProps {
+export interface IIconProps {
   name?: string,
   spinning?: boolean,
   fit?: boolean,

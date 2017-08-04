@@ -10,7 +10,7 @@ const iconMap = {
   loading: ''
 }
 
-interface INoticeProps {
+export interface INoticeProps {
   type?: 'primary' | 'success' | 'warning' | 'error',
   icon?: string,
   closable?: boolean,

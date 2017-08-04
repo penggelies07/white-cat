@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Input.less'
 
-interface IInputProps {
+export interface IInputProps {
   type?: 'text' | 'password' | 'textarea' | 'number',
   value?: string | number,
   placeholder?: string,

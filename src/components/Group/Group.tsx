@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Group.less'
 
-interface IGroupProps {
+export interface IGroupProps {
   title?: React.ReactNode,
   action?: React.ReactNode,
   footer?: React.ReactNode

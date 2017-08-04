@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Tooltip} from '../../../components'
+import {Tooltip} from '../../../index'
 
-interface ITooltipColorProps {}
+export interface ITooltipColorProps {}
 
 export default class TooltipColor extends React.Component<ITooltipColorProps> {
 

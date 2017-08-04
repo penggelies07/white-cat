@@ -3,7 +3,7 @@ import * as React from 'react'
 import {RouteComponentProps} from 'react-router'
 import {Link} from 'react-router-dom'
 
-interface ITopBarProps extends RouteComponentProps<{tab: string}> {}
+export interface ITopBarProps extends RouteComponentProps<{tab: string}> {}
 
 export default class TopBar extends React.Component<ITopBarProps> {
 

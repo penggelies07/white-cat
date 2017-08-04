@@ -3,7 +3,7 @@ import ComponentView from './ComponentView'
 import SideBar from './SideBar'
 import {Route, RouteComponentProps} from 'react-router'
 
-interface IComponentsViewProps extends RouteComponentProps<{}> {}
+export interface IComponentsViewProps extends RouteComponentProps<{}> {}
 
 export default class ComponentsView extends React.Component<IComponentsViewProps> {
 

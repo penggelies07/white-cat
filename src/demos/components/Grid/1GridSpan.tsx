@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {Row, Col} from '../../../components'
+import {Row, Col} from '../../../index'
 import './style.less'
 
-interface IGridSpanProps {}
+export interface IGridSpanProps {}
 
 export default class GridSpan extends React.Component<IGridSpanProps> {
 

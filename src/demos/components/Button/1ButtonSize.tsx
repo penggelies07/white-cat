@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Button} from '../../../components'
+import {Button} from '../../../index'
 
-interface IButtonSizeProps {}
+export interface IButtonSizeProps {}
 
 export default class ButtonSize extends React.Component<IButtonSizeProps> {
 

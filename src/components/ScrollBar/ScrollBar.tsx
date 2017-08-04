@@ -2,18 +2,18 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './ScrollBar.less'
 
-interface IPoint {
+export interface IPoint {
   x: number,
   y: number
 }
 
-interface IScrollBarProps extends React.HTMLProps<HTMLDivElement> {
+export interface IScrollBarProps extends React.HTMLProps<HTMLDivElement> {
   direction?: string,
   stopPropagation?: boolean,
   dragToScroll?: boolean
 }
 
-interface IScrollBarState {
+export interface IScrollBarState {
   dragging: boolean
 }
 

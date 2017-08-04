@@ -2,11 +2,11 @@ import * as React from 'react'
 import * as classnames from 'classnames'
 
 // classnames declarations
-interface IClassDictionary {[id: string]: boolean | undefined | null}
-interface IClassArray extends Array<ClassValue> {}
-type ClassValue = string | number | IClassDictionary | IClassArray[] | undefined | null | false
+export interface IClassDictionary {[id: string]: boolean | undefined | null}
+export interface IClassArray extends Array<ClassValue> {}
+export type ClassValue = string | number | IClassDictionary | IClassArray[] | undefined | null | false
 
-interface IBaseProps {
+export interface IBaseProps {
   className?: string,
   style?: React.CSSProperties
 }

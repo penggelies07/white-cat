@@ -2,9 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Box.less'
 
-interface IBoxProps {}
-
-export default class Box extends Base<IBoxProps> {
+export default class Box extends Base {
 
   render () {
     const {children} = this.props

@@ -7,7 +7,7 @@ type placementTypes = 'top' | 'top-start' | 'top-end'
   | 'left' | 'left-start' | 'left-end'
   | 'right' | 'right-start' | 'right-end'
 
-interface ITooltipProps {
+export interface ITooltipProps {
   content?: React.ReactNode,
   placement?: placementTypes,
   color?: 'dark' | 'light'

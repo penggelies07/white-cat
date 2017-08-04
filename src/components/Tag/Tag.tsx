@@ -4,7 +4,7 @@ import './Tag.less'
 
 const presetColors = ['gray', 'primary', 'success', 'warning', 'danger']
 
-interface ITagProps {
+export interface ITagProps {
   size?: 'small' | 'normal' | 'large',
   closable?: boolean,
   clickable?: boolean,
@@ -14,7 +14,7 @@ interface ITagProps {
   onClose?: React.MouseEventHandler<HTMLSpanElement>
 }
 
-interface ITagState {}
+export interface ITagState {}
 
 export default class Tag extends Base<ITagProps, ITagState> {
 

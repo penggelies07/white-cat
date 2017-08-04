@@ -6,9 +6,9 @@ import {Route} from 'react-router-dom'
 import './styles.less'
 import './components'
 
-interface IRootProps {}
+export interface IRootProps {}
 
-interface IRootState {}
+export interface IRootState {}
 
 export default class Root extends React.Component<IRootProps, IRootState> {
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './CheckBox.less'
 
-interface ICheckBoxProps {
+export interface ICheckBoxProps {
   checked?: boolean,
   disabled?: boolean,
   value?: any,
@@ -10,7 +10,7 @@ interface ICheckBoxProps {
   onChange?: (checked: boolean, value?: any) => void
 }
 
-interface ICheckBoxState {
+export interface ICheckBoxState {
   checked: boolean
 }
 

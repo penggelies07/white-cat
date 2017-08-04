@@ -4,7 +4,7 @@ import Input from '../Input'
 import Popover from '../Popover'
 import ScrollBar from '../ScrollBar'
 
-interface ITimeInputProps {
+export interface ITimeInputProps {
   min?: number,
   max?: number,
   diff?: number,
@@ -13,7 +13,7 @@ interface ITimeInputProps {
   onChange?: (value: number) => void
 }
 
-interface ITimeInputState {
+export interface ITimeInputState {
   value: number,
   text: string
 }

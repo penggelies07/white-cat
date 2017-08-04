@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Avatar.less'
 
-interface IAvatarProps {
+export interface IAvatarProps {
   src?: string,
   title?: string,
   size?: 'small' | 'normal' | 'large'

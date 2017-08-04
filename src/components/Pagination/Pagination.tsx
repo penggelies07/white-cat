@@ -4,7 +4,7 @@ import Base from '../../libs/Base'
 import Pager from './Pager'
 import './Pagination.less'
 
-interface INextProps {
+export interface INextProps {
   current: number,
   total: number,
   onClick: (page: number) => void
@@ -19,7 +19,7 @@ function Next ({total, current, onClick}: INextProps) {
   )
 }
 
-interface IPrevProps {
+export interface IPrevProps {
   current: number,
   total: number,
   onClick: (page: number) => void
@@ -34,7 +34,7 @@ function Prev ({current, onClick}: IPrevProps) {
   )
 }
 
-interface IPaginationProps {
+export interface IPaginationProps {
   current?: number,
   total?: number,
   range?: number,
@@ -42,7 +42,7 @@ interface IPaginationProps {
   onChange?: (page: number) => void
 }
 
-interface IPaginationState {}
+export interface IPaginationState {}
 
 export default class Pagination extends Base<IPaginationProps, IPaginationState> {
 

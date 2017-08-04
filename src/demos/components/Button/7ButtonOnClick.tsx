@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Button} from '../../../components'
+import {Button} from '../../../index'
 
-interface IButtonOnClickProps {}
+export interface IButtonOnClickProps {}
 
 export default class ButtonOnClick extends React.Component<IButtonOnClickProps> {
 

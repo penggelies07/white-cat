@@ -3,7 +3,7 @@ import Base from '../../libs/Base'
 import TimeInput from './TimeInput'
 import './TimePicker.less'
 
-interface ITimePickerProps {
+export interface ITimePickerProps {
   hours?: number,
   minutes?: number,
   seconds?: number,
@@ -12,7 +12,7 @@ interface ITimePickerProps {
   onChange?: (hours: number, minutes: number, seconds: number) => void
 }
 
-interface ITimePickerState {}
+export interface ITimePickerState {}
 
 export default class TimePicker extends Base <ITimePickerProps, ITimePickerState> {
 

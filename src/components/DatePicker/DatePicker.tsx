@@ -8,7 +8,7 @@ import Input from '../Input'
 import Popover from '../Popover'
 import './DatePicker.less'
 
-interface IDatePickerProps {
+export interface IDatePickerProps {
   type?: 'text' | 'input',
   value?: Date | string | null,
   format?: string,
@@ -19,7 +19,7 @@ interface IDatePickerProps {
   onChange?: (value: Date | null) => void
 }
 
-interface IDatePickerState {
+export interface IDatePickerState {
   value: Date | null,
   visible: boolean
 }

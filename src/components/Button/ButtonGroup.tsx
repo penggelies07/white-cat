@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Base from '../../libs/Base'
 
-interface IButtonGroupProps {
+export interface IButtonGroupProps {
   full?: boolean
 }
 

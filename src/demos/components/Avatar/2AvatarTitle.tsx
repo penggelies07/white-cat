@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Avatar} from '../../../components'
+import {Avatar} from '../../../index'
 
 declare const require: any
 
 const img = require('./avatar.jpg')
 
-interface IAvatarTypeProps {}
+export interface IAvatarTypeProps {}
 
 export default class AvatarType extends React.Component<IAvatarTypeProps> {
 

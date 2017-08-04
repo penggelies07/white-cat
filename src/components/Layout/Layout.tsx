@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Layout.less'
 
-interface IMiddleContainerProps {}
+export interface IMiddleContainerProps {}
 
 class MiddleContainer extends Base<IMiddleContainerProps> {
 
@@ -15,7 +15,7 @@ class MiddleContainer extends Base<IMiddleContainerProps> {
   }
 }
 
-interface ILayoutProps {
+export interface ILayoutProps {
   direction?: 'horizontal' | 'vertical',
   centered?: boolean,
   full?: boolean,
