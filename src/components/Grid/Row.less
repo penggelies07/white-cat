@@ -1,0 +1,19 @@
+@import "../../styles/import";
+
+.whc-row {
+    display: block;
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+
+    &:after {
+      display: table;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+      font-size: 0;
+      content: '';
+    }
+}

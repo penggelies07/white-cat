@@ -16,6 +16,8 @@ React components built with typescript.
 - [x] DatetimePicker
 - [x] Dialog
 - [x] Form
+- [x] Grid.Row
+- [x] Grid.Col
 - [x] Group
 - [x] Icon
 - [x] Input
@@ -28,8 +30,6 @@ React components built with typescript.
 - [x] Popover.Menu.Item
 - [x] Popover.Menu.Divider
 - [ ] Progress
-- [ ] Row
-- [ ] Row.Col
 - [x] ScrollBar
 - [x] SidePanel
 - [ ] Select
