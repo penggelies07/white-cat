@@ -8,6 +8,7 @@ module.exports =  {
   output: {
     filename: 'index.js',
     path: path.resolve(root, 'dist'),
+    sourceMapFilename: '[name].map',
     library: 'white-cat',
     libraryTarget: 'umd'
   },
@@ -50,7 +51,15 @@ module.exports =  {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
+      beautify: false,
+      mangle: {
+        screw_ie8: true,
+        keep_fnames: true
+      },
+      compress: {
+        screw_ie8: true
+      },
+      comments: false
     })
   ],
   externals: {
