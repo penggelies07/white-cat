@@ -2,12 +2,6 @@ const path = require('path')
 const root = path.resolve(__dirname, '..')
 
 module.exports = {
-  // entry: path.resolve(root, 'src/index.tsx'),
-  // output: {
-  //   filename: 'index.js',
-  //   path: path.resolve(root, 'dist'),
-  //   publicPath: '/'
-  // },
   devtool: 'inline-source-map',
   module: {
     rules: [
