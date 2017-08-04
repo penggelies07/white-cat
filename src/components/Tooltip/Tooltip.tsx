@@ -2,7 +2,7 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Tooltip.less'
 
-type placementTypes = 'top' | 'top-start' | 'top-end'
+export type placementTypes = 'top' | 'top-start' | 'top-end'
   | 'bottom' | 'bottom-start' | 'bottom-end'
   | 'left' | 'left-start' | 'left-end'
   | 'right' | 'right-start' | 'right-end'

@@ -7,7 +7,7 @@ import YearPanel from './panels/YearPanel'
 import {monthNames} from './utils'
 import './Calendar.less'
 
-enum viewTypes {
+export enum viewTypes {
   YEAR = 0,
   MONTH = 1,
   DATE = 2

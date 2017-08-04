@@ -8,7 +8,7 @@ export interface IItemProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>, data: any) => void
 }
 
-class Item extends Base<IItemProps> {
+export class Item extends Base<IItemProps> {
 
   onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const {data, onClick} = this.props

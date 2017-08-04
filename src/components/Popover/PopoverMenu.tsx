@@ -8,7 +8,7 @@ export interface IPopoverMenuItemProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
-class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
+export class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
   static contextTypes = {
     popover: PropTypes.any,
     popoverMenu: PropTypes.any
@@ -38,7 +38,7 @@ class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
 
 export interface IPopoverMenuDividerProps {}
 
-class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
+export class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
   render () {
     return (
       <div {...this.rootProps('whc-popover-menu__divider')}/>
@@ -46,7 +46,7 @@ class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
   }
 }
 
-type menuChildType = null | false | React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
+export type menuChildType = null | false | React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
 
 export interface IPopoverMenuProps {
   children?: menuChildType | menuChildType[],
@@ -63,7 +63,7 @@ export default class PopoverMenu extends Base<IPopoverMenuProps> {
 
   getChildContext = () => {
     return {
-      popoverMenu: this
+      popoverMenu: this as any
     }
   }
   

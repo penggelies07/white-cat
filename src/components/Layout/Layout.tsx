@@ -4,7 +4,7 @@ import './Layout.less'
 
 export interface IMiddleContainerProps {}
 
-class MiddleContainer extends Base<IMiddleContainerProps> {
+export class MiddleContainer extends Base<IMiddleContainerProps> {
 
   render () {
     return (

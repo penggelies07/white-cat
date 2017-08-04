@@ -23,6 +23,7 @@ export interface ITreeState {
 
 export default class Tree extends Base<ITreeProps, ITreeState> {
 
+  static NodeClass = Node
   static Node = TreeNode
 
   static childContextTypes = {
@@ -53,7 +54,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
 
   getChildContext = () => {
     return {
-      tree: this
+      tree: this as any
     }
   }
 

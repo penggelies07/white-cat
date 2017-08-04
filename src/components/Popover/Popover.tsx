@@ -6,7 +6,7 @@ import PopoverMenu from './PopoverMenu'
 import Popper from 'popper.js'
 import './Popover.less'
 
-type placementType = 'auto' | 'top' | 'right' | 'bottom' | 'left'
+export type placementType = 'auto' | 'top' | 'right' | 'bottom' | 'left'
   | 'auto-start' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start'
   | 'auto-end' | 'top-end' | 'right-end' | 'bottom-end' | 'left-end'
 
@@ -52,7 +52,7 @@ export default class Popover extends Base<IPopoverProps, IPopoverState> {
 
   getChildContext = () => {
     return {
-      popover: this
+      popover: this as any
     }
   }
 

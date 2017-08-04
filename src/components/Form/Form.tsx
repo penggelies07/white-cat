@@ -46,7 +46,7 @@ export default class Form extends Base<IFormProps, IFormState> {
 
   getChildContext = () => {
     return {
-      form: this
+      form: this as any
     }
   }
 

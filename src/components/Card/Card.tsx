@@ -7,7 +7,7 @@ export interface ICardItemProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>
 }
 
-class CardItem extends Base<ICardItemProps> {
+export class CardItem extends Base<ICardItemProps> {
 
   onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (this.props.onClick) {
