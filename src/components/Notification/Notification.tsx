@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Transition from 'react-transition-group/CSSTransition'
+import * as Transition from 'react-transition-group/CSSTransitionGroup'
 import Base from '../../libs/Base'
 import Notice from './Notice'
 import './Notification.less'
@@ -57,8 +57,9 @@ export default class Notification extends Base<INotificationProps, INotification
     return (
       <Transition
         {...this.rootProps('whc-notification')}
-        classNames='whc-notice'
-        timeout={{enter: 300, exit: 300}}>
+        transitionName='whc-notice'
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
         {notices.map(({content, ...rest}) => (
           <Notice {...rest} onClose={() => this.remove(rest.key)}>{content}</Notice>
         ))}

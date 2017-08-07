@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Transition from 'react-transition-group/CSSTransition'
+import * as Transition from 'react-transition-group/CSSTransitionGroup'
 import Base from '../../libs/Base'
 import Loader from '../Loader'
 import ScrollBar from '../ScrollBar'
@@ -39,8 +39,9 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
     
     return (
       <Transition
-        classNames='whc-side-panel'
-        timeout={{enter: 300, exit: 300}}>
+        transitionName='whc-side-panel'
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
         {
           visible
             ? (

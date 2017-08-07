@@ -1,8 +1,8 @@
 import * as React from 'react'
+import * as Transition from 'react-transition-group/CSSTransitionGroup'
 import Base from '../../libs/Base'
 import Button from '../Button'
 import Mask from '../Mask'
-import Transition from 'react-transition-group/CSSTransition'
 import './Dialog.less'
 
 export interface IDialogProps {
@@ -79,8 +79,9 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
       <span className='whc-dialog__wrap'>
         <Mask visible={visible} fixed onClick={this.onClickMask}/>
         <Transition
-        classNames='whc-dialog'
-        timeout={{enter: 300, exit: 300}}>
+        transitionName='whc-dialog'
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
         {
           visible
             ? (

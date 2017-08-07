@@ -1,6 +1,6 @@
 import * as React from 'react'
+import * as Transition from 'react-transition-group/CSSTransitionGroup'
 import Base from '../../libs/Base'
-import Transition from 'react-transition-group/CSSTransition'
 import './Mask.less'
 
 export interface IMaskProps {
@@ -15,8 +15,9 @@ export default class Mask extends Base<IMaskProps> {
     const {visible, fixed, children} = this.props
     return (
       <Transition
-        classNames='whc-mask'
-        timeout={{enter: 300, exit: 300}}>
+        transitionName='whc-mask'
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
         {
           !!visible
             ? (
