@@ -4,12 +4,14 @@ const webpack = require('webpack')
 const root = path.resolve(__dirname, '..')
 
 module.exports =  {
+  devtool: 'cheep-source-map',
   entry: path.resolve(root, 'src/index.ts'),
   output: {
     filename: 'index.js',
     path: path.resolve(root, 'dist'),
-    sourceMapFilename: '[name].map',
-    library: 'white-cat',
+    publicPath: 'dist/',
+    sourceMapFilename: 'white-cat.sourcemap.js',
+    library: 'WhiteCat',
     libraryTarget: 'umd'
   },
   module: {
@@ -40,6 +42,9 @@ module.exports =  {
     ]
   },
   resolve: {
+    // alias: {
+    //   'react': path.resolve(root, 'node_modules/react')
+    // },
     extensions: ['.tsx','.ts', '.js', '.less']
   },
   plugins: [
@@ -51,6 +56,7 @@ module.exports =  {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       beautify: false,
       mangle: {
         screw_ie8: true,
@@ -67,13 +73,13 @@ module.exports =  {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react',
+      amd: 'react'
     },
     'react-dom': {
       root: 'ReactDOM',
       commonjs2: 'react-dom',
       commonjs: 'react-dom',
-      amd: 'react-dom',
-    },
+      amd: 'react-dom'
+    }
   }
 }
