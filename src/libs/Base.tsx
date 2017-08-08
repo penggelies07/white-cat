@@ -23,10 +23,19 @@ export default abstract class Base<P = {}, S = {}> extends React.Component<P & I
   }
 
   rootProps = (classes: ClassValue[] | ClassValue, styles?: React.CSSProperties) => {
-    const {className, style} = this.props
-    return {
+    const {className, style, ...rest} = this.props as any
+
+    const props: any = {
       className: classnames(classes, className),
       style: Object.assign({}, styles, style)
     }
+
+    for (let name in rest) {
+      if (name.startsWith('data-')) {
+        props[name] = rest[name]
+      }
+    }
+
+    return props
   }
 }
