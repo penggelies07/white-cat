@@ -5,6 +5,7 @@ React components built with typescript.
 ## Components
 
 - [x] Avatar
+- [x] Badge
 - [x] Box
 - [x] Button
 - [x] Button.Group
