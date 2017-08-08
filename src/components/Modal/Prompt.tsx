@@ -87,6 +87,7 @@ export default class Prompt extends Base<IPromptProps, IPromptState> {
       )}>
         <Input
           full
+          autoFocus
           value={value}
           placeholder={placeholder}
           onChange={this.onValueChange}/>
