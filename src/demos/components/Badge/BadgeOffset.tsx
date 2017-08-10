@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Badge, Button} from '../../../index'
 
-export interface IBadgeProps {}
-
-export default class BadgeOffset extends React.Component<IBadgeProps> {
+export default class BadgeOffset extends React.Component {
 
   render () {
     return (

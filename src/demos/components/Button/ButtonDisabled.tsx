@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Button} from '../../../index'
 
-export interface IButtonDisabledProps {}
-
-export default class ButtonDisabled extends React.Component<IButtonDisabledProps> {
+export default class ButtonDisabled extends React.Component {
 
   render () {
     return (

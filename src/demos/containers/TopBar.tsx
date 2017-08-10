@@ -1,7 +1,7 @@
-import * as cn from 'classnames'
+// import * as cn from 'classnames'
 import * as React from 'react'
 import {RouteComponentProps} from 'react-router'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 export interface ITopBarProps extends RouteComponentProps<{tab: string}> {}
 
@@ -21,14 +21,14 @@ export default class TopBar extends React.Component<ITopBarProps> {
           &nbsp;&nbsp;
           <span>White Cat</span>
         </div>
-        <div className='TopBar__items'>
+        {/* <div className='TopBar__items'>
           <Link to='/'>
             <div className={cn('TopBar__item', {active: this.isSelected('/', true)})}>首页</div>
           </Link>
           <Link to='/components/Button'>
             <div className={cn('TopBar__item', {active: this.isSelected('/components')})}>组件</div>
           </Link>
-        </div>
+        </div> */}
       </div>
     )
   }

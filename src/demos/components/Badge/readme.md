@@ -1,33 +1,35 @@
------
+----- BadgeCount
 
-# count
-
-type: number
-
-# max
+## count
 
 type: number
 
------
+----- BadgeMax
 
-# type
+## max
 
-type: `'primary'` `'success'` `'warning'` `'danger'` `'gray'`
+type: number
 
------
+----- BadgeType
 
-# dot
+## type
+
+type: 'primary' | 'success' | 'warning' | 'danger' | 'gray'
+
+----- BadgeDot
+
+## dot
 
 type: boolean
 
------
+----- BadgeChildren
 
-# children
+## children
 
 type: React.ReactNode
 
------
+----- BadgeOffset
 
-# offset
+## offset
 
 type: {top: string, right: string}

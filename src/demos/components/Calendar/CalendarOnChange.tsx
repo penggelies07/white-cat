@@ -1,15 +1,15 @@
 import * as React from 'react'
 import {Calendar} from '../../../index'
 
-export interface ICalendarNormalProps {}
+export interface ICalendarOnChangeProps {}
 
-export interface ICalendarNormalState {
+export interface ICalendarOnChangeState {
   date: Date | null
 }
 
-export default class CalendarNormal extends React.Component<ICalendarNormalProps, ICalendarNormalState> {
+export default class CalendarOnChange extends React.Component<ICalendarOnChangeProps, ICalendarOnChangeState> {
 
-  constructor (props: ICalendarNormalProps) {
+  constructor (props: ICalendarOnChangeProps) {
     super(props)
     this.state = {
       date: null
@@ -25,8 +25,8 @@ export default class CalendarNormal extends React.Component<ICalendarNormalProps
 
     return (
       <div>
-        <div>{date && date.toString()}</div>
         <Calendar value={date} onChange={this.onChange}/>
+        <div>{date && date.toString()}</div>
       </div>
     )
   }

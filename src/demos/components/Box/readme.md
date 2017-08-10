@@ -1,3 +1,5 @@
------
+----- BoxChildren
 
-带阴影的容器
+## children
+
+type: React.ReactNode

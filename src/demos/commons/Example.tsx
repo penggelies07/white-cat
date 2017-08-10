@@ -8,8 +8,8 @@ marked.setOptions({
 })
 
 interface IExampleProps {
-  demo: React.ComponentClass,
-  raw: string,
+  component?: React.ComponentClass,
+  raw?: string,
   doc: string
 }
 
@@ -39,7 +39,7 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
   }
   
   render () {
-    const {demo: Demo, raw, doc} = this.props
+    const {component: Component, raw, doc} = this.props
     const {expanded} = this.state
 
     const html = this.highLightCode(raw)
@@ -49,7 +49,7 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
       <div className='Example'>
         <div className='Example__content'>
           <div className='Example__demo'>
-            <Demo/>
+            {Component && <Component/>}
             <div className='Example__toggle' onClick={this.onToggle}>{expanded ? '收起' : '展开'}</div>
           </div>
           {expanded && <div className='Example__raw' dangerouslySetInnerHTML={{__html: html}}/>}

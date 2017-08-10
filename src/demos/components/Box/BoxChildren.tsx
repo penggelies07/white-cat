@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Box} from '../../../index'
 
-export interface IBoxNormalProps {}
-
-export default class BoxNormal extends React.Component<IBoxNormalProps> {
+export default class BoxChildren extends React.Component {
 
   render () {
     return (

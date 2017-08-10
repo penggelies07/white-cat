@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Button} from '../../../index'
 
-export interface IButtonTypeProps {}
-
-export default class ButtonType extends React.Component<IButtonTypeProps> {
+export default class ButtonType extends React.Component {
 
   render () {
     return (

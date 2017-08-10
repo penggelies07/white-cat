@@ -1,9 +1,7 @@
 import * as React from 'react'
 import {Button} from '../../../index'
 
-export interface IButtonOnClickProps {}
-
-export default class ButtonOnClick extends React.Component<IButtonOnClickProps> {
+export default class ButtonOnClick extends React.Component {
 
   onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log(e)

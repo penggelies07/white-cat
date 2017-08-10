@@ -1,43 +1,49 @@
------
+----- ButtonSize
 
-# size
+## size
 
-type: `'small'` `'normal'` `'large'`
+type: 'small' | 'normal' | 'large'
 
------
+----- ButtonType
 
-# type
+## type
 
-type: `'default'` `'primary'` `'success'` `'warning'` `'danger'` `'info'` `'text'`
+type: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
 
------
+----- ButtonIcon
 
-# icon
+## icon
 
-type: `string`
+type: string
 
 需要额外引入`font-awesome`，图标名称请参考[font-awesome/icons](http://fontawesome.io/icons/)
 
------
+----- ButtonDisabled
 
-# disabled
+## disabled
 
-type: `boolean`
+type: boolean
 
------
+----- ButtonLoading
 
-# loading
+## loading
 
-type: `boolean`
+type: boolean
 
------
+----- ButtonFull
 
-# full
+## full
 
-type: `boolean`
+type: boolean
 
------
+----- ButtonNativeType
 
-# onClick
+## nativeType
+
+type: 'button' | 'submit' | 'reset'
+
+----- ButtonOnClick
+
+## onClick
 
 type: (e) => Promise | void
