@@ -2,19 +2,6 @@ import * as React from 'react'
 import Base from '../../libs/Base'
 import './Layout.less'
 
-export interface IMiddleContainerProps {}
-
-export class MiddleContainer extends Base<IMiddleContainerProps> {
-
-  render () {
-    return (
-      <div {...this.rootProps('whc-middle-container')}>
-        {this.props.children}
-      </div>
-    )
-  }
-}
-
 export interface ILayoutProps {
   direction?: 'horizontal' | 'vertical',
   centered?: boolean,
@@ -24,8 +11,6 @@ export interface ILayoutProps {
 }
 
 export default class Layout extends Base<ILayoutProps> {
-
-  static MiddleContainer = MiddleContainer
 
   static defaultProps = {
     direction: 'vertical'

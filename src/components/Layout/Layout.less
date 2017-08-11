@@ -30,20 +30,3 @@
     flex: 1;
   }
 }
-
-.middle-container-style (@screen-width, @width) {
-  @media (min-width: @screen-width) {
-    & {
-      width: @width;
-    }
-  }
-}
-
-.whc-middle-container {
-  margin: 0 auto;
-  height: 100%;
-
-  .middle-container-style(768px, 700px);
-  .middle-container-style(992px, 900px);
-  .middle-container-style(1200px, 1100px);
-}
