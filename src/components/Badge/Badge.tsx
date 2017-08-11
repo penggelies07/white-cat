@@ -3,7 +3,7 @@ import Base from '../../libs/Base'
 import './Badge.less'
 
 export interface IBadgeProps {
-  count?: number,
+  value?: number | string,
   max?: number,
   type?: 'primary' | 'success' | 'warning' | 'danger' | 'gray',
   dot?: boolean,
@@ -12,12 +12,14 @@ export interface IBadgeProps {
 
 export default class Badge extends Base<IBadgeProps> {
   render () {
-    const {count = 0, max = 99, type = 'danger', dot, children, offset = {}} = this.props
-    const text = count > max ? max + '+' : count
+    const {value = 0, max = 99, type = 'danger', dot, children, offset = {}} = this.props
+    const text = typeof value === 'number'
+      ? (value > max ? max + '+' : value > 0 ? value : '')
+      : value.trim()
 
     const el = dot
       ? <span className='whc-badge__dot' style={offset}/>
-      : count > 0
+      : text
       ? <span className='whc-badge__count' style={offset}>{text}</span>
       : null
 
