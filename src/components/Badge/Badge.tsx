@@ -17,7 +17,7 @@ export default class Badge extends Base<IBadgeProps> {
 
     const el = dot
       ? <span className='whc-badge__dot' style={offset}/>
-      : count
+      : count > 0
       ? <span className='whc-badge__count' style={offset}>{text}</span>
       : null
 

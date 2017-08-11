@@ -11,7 +11,7 @@ export default class ButtonDisabled extends React.Component {
         <Button disabled type='success'>禁用</Button>
         <Button disabled type='warning'>禁用</Button>
         <Button disabled type='danger'>禁用</Button>
-        <Button disabled type='text'>禁用</Button>
+        <Button disabled type='basic'>禁用</Button>
       </div>
     )
   }

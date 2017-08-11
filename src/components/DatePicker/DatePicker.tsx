@@ -94,8 +94,8 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
           <Calendar value={value} onChange={this.onChange}/>
           <div className='whc-date-picker__actions'>
             <Button type='primary' size='small' onClick={this.onConfirm}>确定</Button>
-            <Button type='text' size='small' onClick={this.onClear}>清除</Button>
-            <Button type='text' size='small' onClick={this.onCancel}>取消</Button>
+            <Button type='basic' size='small' onClick={this.onClear}>清除</Button>
+            <Button type='basic' size='small' onClick={this.onCancel}>取消</Button>
           </div>
         </div>
       )}>

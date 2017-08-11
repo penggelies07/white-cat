@@ -13,11 +13,16 @@
     background: @fill;
 
     &:hover {
-      background: lighten(@fill, 4%);
+      background: lighten(@fill, 6%);
     }
 
     &:active {
-      background: darken(@fill, 4%);
+      background: darken(@fill, 6%);
+    }
+
+    &.loading,
+    &.disabled {
+      background: @fill;
     }
   }
 }
@@ -32,7 +37,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
-  transition: background 0.3s;
+  transition: background 0.3s, border-color 0.3s;
 
   &:not(.full) + .whc-button:not(.full) {
     margin-left: 5px;
@@ -50,17 +55,24 @@
     width: 100%;
   }
 
-  &.whc-button--text {
-    &,
-    &.disabled,
-    &.loading {
-      background: none;
-      color: @button-text-color;
+  &.whc-button--basic {
+    background: none;
+    color: @button-basic-color;
+    border: @button-basic-border;
 
-      &:hover {
-        background: none;
-        color: @button-text-color-hover;
-      }
+    &:hover {
+      background: none;
+      border: @button-basic-border-hover;
+    }
+    
+    &:active {
+      background: @button-basic-fill-active;
+    }
+
+    &.loading,
+    &.disabled {
+      background: none;
+      border: @button-basic-border;
     }
   }
 
@@ -76,13 +88,7 @@
 
   &.disabled,
   &.loading {
-    &,
-    &:hover,
-    &:focus {
-      color: @button-disabled-color;
-      background: @button-disabled-fill;
-      cursor: auto;
-    }
+    opacity: 0.67;
   }
 }
 
@@ -102,6 +108,8 @@
   }
 
   .whc-button {
+    position: relative;
+    z-index: 1;
     float: left;
 
     & + .whc-button {
@@ -120,6 +128,14 @@
 
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: -1px !important;
+    }
+
+    &:hover {
+      z-index: 2;
     }
   }
 }

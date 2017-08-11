@@ -10,7 +10,7 @@ type: 'small' | 'normal' | 'large'
 
 ## type
 
-type: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
+type: 'default' | 'basic' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
 
 ----- ButtonIcon
 
@@ -49,3 +49,9 @@ type: 'button' | 'submit' | 'reset'
 ## onClick
 
 type: (e) => Promise | void
+
+----- ButtonGroupFull
+
+## button.group.full
+
+type: boolean
