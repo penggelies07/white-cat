@@ -13,7 +13,7 @@ export default class SideBar extends React.Component<ISideBarProps> {
       <div className='SideBar'>
         <Link to={`/components`}>
           <div className={cn('SideBar__item', {active: !name})}>
-            安装指引
+            说明
           </div>
         </Link>
         {components.map((component: any) => (

@@ -162,6 +162,44 @@ code {
     margin-bottom: 10px;
     font-size: 1.2em;
   }
+
+  &__theme {
+
+  }
+
+  .color-slot(@name) {
+    &.@{name} {
+      background: @@name;
+    }
+  }
+
+  &__theme-slot {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+
+    .color-slot(color-primary);
+    .color-slot(color-success);
+    .color-slot(color-warning);
+    .color-slot(color-danger);
+
+    .color-slot(color-black-base);
+    .color-slot(color-white-base);
+
+    .color-slot(color-black);
+    .color-slot(color-black-light);
+    .color-slot(color-black-lighter);
+
+    .color-slot(color-gray-darker);
+    .color-slot(color-gray-dark);
+    .color-slot(color-gray);
+    .color-slot(color-gray-light);
+    .color-slot(color-gray-lighter);
+  }
 }
 
 .Example {

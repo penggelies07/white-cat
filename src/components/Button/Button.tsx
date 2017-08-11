@@ -6,7 +6,7 @@ import './Button.less'
 
 export interface IButtonProps {
   size?: 'small' | 'normal' | 'large',
-  type?: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger' | 'info',
+  type?: 'default' | 'text' | 'primary' | 'success' | 'warning' | 'danger',
   nativeType?: 'button' | 'submit' | 'reset',
   icon?: string,
   disabled?: boolean,

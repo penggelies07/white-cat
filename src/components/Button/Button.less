@@ -32,6 +32,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
+  transition: background 0.3s;
 
   &:not(.full) + .whc-button:not(.full) {
     margin-left: 5px;
@@ -72,7 +73,6 @@
   .button-style(success, @button-success-color, @button-success-fill);
   .button-style(warning, @button-warning-color, @button-warning-fill);
   .button-style(danger, @button-danger-color, @button-danger-fill);
-  .button-style(info, @button-info-color, @button-info-fill);
 
   &.disabled,
   &.loading {

@@ -26,7 +26,27 @@ export default class ComponentView extends React.Component<IComponentViewProps> 
   renderGuide = () => {
     return (
       <div className='ComponentView'>
-        guide
+        <h1>说明</h1>
+        <h2>配色</h2>
+        <div className='ComponentView__theme'>
+          <div className='ComponentView__theme-slot color-primary'/>
+          <div className='ComponentView__theme-slot color-success'/>
+          <div className='ComponentView__theme-slot color-warning'/>
+          <div className='ComponentView__theme-slot color-danger'/>
+          <br/>
+          <div className='ComponentView__theme-slot color-black-base'/>
+          <div className='ComponentView__theme-slot color-white-base'/>
+          <br/>
+          <div className='ComponentView__theme-slot color-black'/>
+          <div className='ComponentView__theme-slot color-black-light'/>
+          <div className='ComponentView__theme-slot color-black-lighter'/>
+          <br/>
+          <div className='ComponentView__theme-slot color-gray-darker'/>
+          <div className='ComponentView__theme-slot color-gray-dark'/>
+          <div className='ComponentView__theme-slot color-gray'/>
+          <div className='ComponentView__theme-slot color-gray-light'/>
+          <div className='ComponentView__theme-slot color-gray-lighter'/>
+        </div>
       </div>
     )
   }

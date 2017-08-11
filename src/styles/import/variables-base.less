@@ -5,29 +5,24 @@
 @color-success: #5cbcab;
 @color-warning: #f48946;
 @color-danger: #f15941;
-@color-info: #50afe3;
 
 @color-black-base: #000;
 @color-white-base: #fff;
 
 @color-white-dark: mix(@color-white-base, @color-primary, 99%);
 
-@color-black: hsl(hue(@color-primary) + 6, 33%, 18%);
-@color-black-light: hsl(hue(@color-black) + 5, 27%, 27%);
-@color-black-lighter: hsl(hue(@color-black) + 2, 19%, 35%);
+@color-black: hsl(hue(@color-primary), 3%, 10%);
+@color-black-light: hsl(hue(@color-black), 10%, 30%);
+@color-black-lighter: hsl(hue(@color-black), 10%, 45%);
 
-@color-silver: hsl(hue(@color-black) + 3, 16%, 58%);
-@color-silver-light: hsl(hue(@color-black) + 3, 23%, 67%);
-@color-silver-lighter: hsl(hue(@color-black), 26%, 80%);
-
-@color-gray: hsl(hue(@color-black), 12%, 76%);
-@color-gray-light: hsl(hue(@color-black) + 10, 33%, 92%);
-@color-gray-lighter: hsl(hue(@color-black) + 6, 33%, 95%);
+@color-gray-darker: hsl(hue(@color-black), 3%, 55%);
+@color-gray-dark: hsl(hue(@color-black), 3%, 70%);
+@color-gray: hsl(hue(@color-black), 3%, 80%);
+@color-gray-light: hsl(hue(@color-black), 3%, 88%);
+@color-gray-lighter: hsl(hue(@color-black), 3%, 95%);
 
 // Base
 // ----------------------------
-@fill: @color-white-base;
-
 @font-size: 14px;
 @font-size-small: 12px;
 @font-size-large: 16px;
@@ -35,13 +30,14 @@
 @font-color: rgba(0, 0, 0, 0.67);
 @font-color-light: rgba(0, 0, 0, 0.5);
 @font-color-lighter: rgba(0, 0, 0, 0.35);
-@font-disable: #bbb;
+@font-color-disabled: #bbb;
 
 @border-width: 1px;
 @border-style: solid;
 @border-color: @color-gray-lighter;
-@border-color-hover: @color-gray-light;
+@border-color-light: @color-gray-light;
 @border: @border-width @border-style @border-color;
+@border-light: @border-width @border-style @border-color-light;
 
 @border-radius: 4px;
 @border-radius-small: 2px;
