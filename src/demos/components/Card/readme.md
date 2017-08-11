@@ -1,25 +1,25 @@
-# Card
+# Card 卡片
 
 ----- CardChildren
 
-## children
+## `children`?: React.ReactNode
 
-type: React.ReactNode
+内容
 
 ----- CardItems
 
-## items
+## `items`?: React.ReactNode
 
-type: React.ReactNode
+子项内容
 
 ----- CardFooter
 
-## footer
+## `footer`?: React.ReactNode
 
-type: React.ReactNode
+底部内容
 
 ----- CardOnClick
 
-## onClick
+## `onClick`?: (e) => void
 
-type: (e) => void
+点击时的回调函数

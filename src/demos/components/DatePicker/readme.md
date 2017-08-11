@@ -1,49 +1,49 @@
-# DatePicker
-
------ DatePickerType
-
-## type
-
-type: 'text' | 'input'
+# DatePicker 日期选择器
 
 ----- DatePickerValue
 
-## value
+## `value`?: Date | string | null
 
-type: Date | string | null
+选中值
+
+----- DatePickerType
+
+## `type`?: 'text' | 'input' = 'text'
+
+展示类型
 
 ----- DatePickerFormat
 
-## format
+## `format`?: string = 'YYYY-MM-DD'
 
-type: string
+展示格式
 
------ DatePickerIcon
+----- DatePickerIcon = 'calendar'
 
-## icon
+## `icon`?: string | false
 
-type: string | false
+展示图标
 
 ----- DatePickerPlaceholder
 
-## placeholder
+## `placeholder`?: string
 
-type: string
+占位文本
 
 ----- DatePickerFull
 
-## full
+## `full`?: boolean = false
 
-type: boolean
+是否100%宽度
 
 ----- DatePickerDisabled
 
-## disabled
+## `disabled`?: boolean = false
 
-type: boolean
+是否禁用
 
 ----- DatePickerOnChange
 
-## onChange
+## `onChange`?: (value: Date | null) => void
 
-type: (value: Date | null) => void
+`value`发生改变时的回调函数

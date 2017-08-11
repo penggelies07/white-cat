@@ -1,57 +1,51 @@
-# Button
+# Button 按钮
 
 ----- ButtonSize
 
-## size
+## `size`?: 'small' | 'normal' | 'large' = 'normal'
 
-type: 'small' | 'normal' | 'large'
+尺寸
 
 ----- ButtonType
 
-## type
+## `type`?: 'default' | 'basic' | 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'default'
 
-type: 'default' | 'basic' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
+样式类型
 
 ----- ButtonIcon
 
-## icon
+## `icon`?: string
 
-type: string
+图标
 
 需要额外引入`font-awesome`，图标名称请参考[font-awesome/icons](http://fontawesome.io/icons/)
 
 ----- ButtonDisabled
 
-## disabled
+## `disabled`?: boolean = false
 
-type: boolean
+是否禁用
 
 ----- ButtonLoading
 
-## loading
+## `loading`?: boolean = false
 
-type: boolean
+是否加载中
 
 ----- ButtonFull
 
-## full
+## `full`?: boolean = false
 
-type: boolean
+是否100%宽度
 
 ----- ButtonNativeType
 
-## nativeType
+## `nativeType` : 'button' | 'submit' | 'reset' = 'button'
 
-type: 'button' | 'submit' | 'reset'
+原生类型
 
 ----- ButtonOnClick
 
-## onClick
+## `onClick`?: (e) => Promise | void
 
-type: (e) => Promise | void
-
------ ButtonGroupFull
-
-## button.group.full
-
-type: boolean
+点击时的回调函数

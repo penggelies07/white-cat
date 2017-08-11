@@ -6,11 +6,11 @@ export default class BadgeType extends React.Component {
   render () {
     return (
       <div>
-        <Badge type='primary' count={1}/>primary
-        <Badge type='success' count={2}/>success
-        <Badge type='warning' count={3}/>warning
-        <Badge type='danger' count={4}/>danger
-        <Badge type='gray' count={5}/>gray
+        <Badge type='primary' value={1}/>primary
+        <Badge type='success' value={2}/>success
+        <Badge type='warning' value={3}/>warning
+        <Badge type='danger' value={4}/>danger
+        <Badge type='gray' value={5}/>gray
       </div>
     )
   }

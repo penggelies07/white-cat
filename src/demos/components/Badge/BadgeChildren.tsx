@@ -7,7 +7,7 @@ export default class BadgeFloat extends React.Component {
     return (
       <div>
         <p>
-          <Badge count={6}>
+          <Badge value={6}>
             <Button type='basic' icon='bell'>消息</Button>
           </Badge>
         </p>

@@ -1,31 +1,31 @@
-# CheckBox
+# CheckBox 多选框
 
 ----- CheckBoxChecked
 
-## checked
+## `checked`?: boolean = false
 
-type: boolean
+是否选中
 
 ----- CheckBoxValue
 
-## value
+## `value`?: any
 
-type: any
+选中值
 
 ----- CheckBoxDisabled
 
-## disabled
+## `disabled`?: boolean = false
 
-type: boolean
+是否禁用
 
 ----- CheckBoxSize
 
-## size
+## `size`?: 'small' | 'normal' | 'large' = 'normal'
 
-type: 'small' | 'normal' | 'large'
+尺寸
 
 ----- CheckBoxOnChange
 
-## onChange
+## `onChange`?: (checked: boolean, value?: any) => void
 
-type: (checked: boolean, value?: any) => void
+`checked`发生改变时的回调函数

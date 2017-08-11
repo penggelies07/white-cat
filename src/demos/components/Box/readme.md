@@ -1,7 +1,7 @@
-# Box
+# Box 盒子容器
 
 ----- BoxChildren
 
-## children
+## `children`?: React.ReactNode
 
-type: React.ReactNode
+内容

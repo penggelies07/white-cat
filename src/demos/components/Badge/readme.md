@@ -1,37 +1,37 @@
-# Badge
+# Badge 徽标数
 
------ BadgeCount
+----- BadgeValue
 
-## count
+## `value`?: number | string = 0
 
-type: number
+当前值
 
 ----- BadgeMax
 
-## max
+## `max`?: number = 99
 
-type: number
+最大值，仅`value`为`number`时有效
 
 ----- BadgeType
 
-## type
+## `type`?: 'primary' | 'success' | 'warning' | 'danger' | 'gray' = 'danger'
 
-type: 'primary' | 'success' | 'warning' | 'danger' | 'gray'
+样式类型
 
 ----- BadgeDot
 
-## dot
+## `dot`?: boolean = false
 
-type: boolean
+圆点形式
 
 ----- BadgeChildren
 
-## children
+## `children`?: React.ReactNode
 
-type: React.ReactNode
+浮动目标
 
 ----- BadgeOffset
 
-## offset
+## `offset`?: {top: string, right: string}
 
-type: {top: string, right: string}
+浮动偏移

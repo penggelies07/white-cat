@@ -1,21 +1,19 @@
-# Avatar
+# Avatar 头像
 
 ----- AvatarSrc
 
-## src
+## `src`?: string
 
-type: string
+图标资源地址
 
 ----- AvatarSize
 
-## size
+## `size`?: 'small' | 'normal' | 'large' = 'normal'
 
-type: 'small' | 'normal' | 'large'
+尺寸
 
 ----- AvatarTitle
 
-## title
-
-type: React.ReactNode
+## `title`?: React.ReactNode
 
 鼠标悬浮时显示文本。

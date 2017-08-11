@@ -1,19 +1,19 @@
-# Container
+# Container 自适应容器
 
 ----- ContainerChildren
 
-## children
+## `children`?: React.ReactNode
 
-type: React.ReactNode
+内容
 
 ----- ContainerXs
 
-## xs
+## `xs`?: 'fixed' | 'auto' | number
 
-type: 'fixed' | 'auto' | number
+当屏幕小于`768px`时的宽度调整规则
 
 ----- ContainerFull
 
-## full
+## `full`?: boolean
 
-type: boolean
+是否100%高度

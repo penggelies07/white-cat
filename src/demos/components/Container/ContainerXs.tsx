@@ -5,11 +5,11 @@ export default class ContainerXs extends React.Component {
   render () {
     return (
       <div>
-        <Container xs='fixed' style={{background: '#eee', height: '100px'}}/>
+        <Container xs='fixed' style={{background: '#eee', height: '50px'}}/>
         <br/>
-        <Container xs='auto' style={{background: '#eee', height: '100px'}}/>
+        <Container xs='auto' style={{background: '#eee', height: '50px'}}/>
         <br/>
-        <Container xs={300} style={{background: '#eee', height: '100px'}}/>
+        <Container xs={200} style={{background: '#eee', height: '50px'}}/>
       </div>
     )
   }

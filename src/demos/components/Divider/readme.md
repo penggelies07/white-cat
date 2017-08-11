@@ -2,12 +2,12 @@
 
 ----- DividerDirection
 
-## direction
+## `direction`?: 'horizontal' | 'vertical' = 'horizontal'
 
-type: 'horizontal' | 'vertical'
+方向
 
 ----- DividerChildren
 
-## children
+## `children`?: React.ReactNode
 
-type: React.ReactNode
+内容

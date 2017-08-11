@@ -1,13 +1,13 @@
-# Calendar
+# Calendar 日历
 
 ----- CalendarValue
 
-## value
+## `value`?: Date | null
 
-type: Date | null
+当前值
 
 ----- CalendarOnChange
 
-## onChange
+## `onChange`?: (value: Date) => void
 
-type: (value: Date) => void
+`value`发生改变时的回调函数

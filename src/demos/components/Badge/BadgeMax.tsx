@@ -6,9 +6,9 @@ export default class BadgeMax extends React.Component {
   render () {
     return (
       <div>
-        <Badge count={5} max={10}/>
-        <Badge count={78} max={10}/>
-        <Badge count={200} max={300}/>
+        <Badge value={5} max={10}/>
+        <Badge value={78} max={10}/>
+        <Badge value={200} max={300}/>
       </div>
     )
   }
