@@ -27,7 +27,7 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
     return this.context.tree.isChecked(this.props.node)
   }
 
-  onCheck = (value: boolean) => {
+  onCheck = (e: any, value: boolean) => {
     this.context.tree.onCheck(this.props.node)
   }
 
@@ -68,7 +68,9 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
                 : <Icon name='chevron-right'/>
             }
           </span>
-          {checkable && <CheckBox className='whc-tree__node-check-box' checked={this.isChecked()} onChange={this.onCheck}/>}
+          {checkable && (
+            <CheckBox className='whc-tree__node-check-box' checked={this.isChecked()} onChange={this.onCheck}/>
+          )}
           <span className='whc-tree__node-label'>{node.label}</span>
           <span className='whc-tree__node-action' onClick={this.onStopPropagation}>{action}</span>
         </div>

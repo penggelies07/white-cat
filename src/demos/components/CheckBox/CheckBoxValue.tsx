@@ -5,7 +5,7 @@ export interface ICheckBoxValueProps {}
 
 export default class CheckBoxValue extends React.Component<ICheckBoxValueProps> {
 
-  onChange = (checked: boolean, value: any) => {
+  onChange = (e: any, checked: boolean, value: any) => {
     console.log(checked, value)
   }
 

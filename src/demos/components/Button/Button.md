@@ -8,7 +8,7 @@
 
 ----- ButtonType
 
-## `type`?: 'default' | 'basic' | 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'default'
+## `type`?: 'default' | 'basic' | 'plain' | 'primary' | 'success' | 'warning' | 'danger' | 'info' = 'default'
 
 样式类型
 

@@ -26,6 +26,6 @@
 
 ----- CheckBoxOnChange
 
-## `onChange`?: (checked: boolean, value?: any) => void
+## `onChange`?: (e: any, checked: boolean, value?: any) => void
 
 `checked`发生改变时的回调函数

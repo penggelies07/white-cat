@@ -65,8 +65,19 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
 
     return (
       <div className='whc-dialog__footer whc-dialog__default-footer'>
-        <Button loading={loading} type='primary' size='small' onClick={this.onConfirm}>{confirmText}</Button>
-        <Button loading={loading} type='basic' size='small' onClick={onCancel}>{cancelText}</Button>
+        <div className='whc-dialog__action'>
+          <Button
+            loading={loading}
+            type='basic'
+            size='small'
+            onClick={onCancel}>{cancelText}</Button>
+          <Button
+            loading={loading}
+            type='primary'
+            size='small'
+            icon='check'
+            onClick={this.onConfirm}>{confirmText}</Button>
+        </div>
       </div>
     )
   }

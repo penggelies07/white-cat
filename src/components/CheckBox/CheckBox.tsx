@@ -7,7 +7,7 @@ export interface ICheckBoxProps {
   disabled?: boolean,
   value?: any,
   size?: 'small' | 'normal' | 'large'
-  onChange?: (checked: boolean, value?: any) => void
+  onChange?: (e: React.ChangeEvent<any>,  checked: boolean, value?: any) => void
 }
 
 export interface ICheckBoxState {
@@ -43,7 +43,7 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
       this.setState({checked})
     }
     if (onChange) {
-      onChange(checked, value)
+      onChange(e, checked, value)
     }
   }
 

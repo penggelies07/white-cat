@@ -7,11 +7,12 @@ export default class ButtonType extends React.Component {
     return (
       <div>
         <Button>default</Button>
+        <Button type='basic'>basic</Button>
+        <Button type='plain'>plain</Button>
         <Button type='primary'>primary</Button>
         <Button type='success'>success</Button>
         <Button type='warning'>warning</Button>
         <Button type='danger'>danger</Button>
-        <Button type='basic'>basic</Button>
       </div>
     )
   }

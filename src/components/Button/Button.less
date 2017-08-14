@@ -37,10 +37,11 @@
   cursor: pointer;
   user-select: none;
   outline: none;
-  transition: background 0.3s, border-color 0.3s;
+  background: transparent;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 
   &:not(.full) + .whc-button:not(.full) {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   .whc-icon + span {
@@ -48,21 +49,30 @@
   }
 
   .whc-input + & {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   &.full {
     width: 100%;
   }
 
-  &.whc-button--basic {
-    background: none;
-    color: @button-basic-color;
-    border: @button-basic-border;
+  &.whc-button--plain {
+    background: transparent;
+    color: @button-plain-color;
 
     &:hover {
-      background: none;
-      border: @button-basic-border-hover;
+      color: @button-plain-color-hover;
+    }
+  }
+
+  &.whc-button--basic {
+    background: transparent;
+    color: @button-basic-color;
+    box-shadow: @button-basic-box-shadow;
+
+    &:hover {
+      background: transparent;
+      box-shadow: @button-basic-box-shadow-hover;
     }
     
     &:active {
@@ -71,8 +81,8 @@
 
     &.loading,
     &.disabled {
-      background: none;
-      border: @button-basic-border;
+      background: transparent;
+      box-shadow: @button-basic-box-shadow;
     }
   }
 
@@ -89,7 +99,8 @@
   &.disabled,
   &.loading {
     opacity: 0.67;
-    cursor: not-allowed;
+    cursor: default;
+    pointer-events: none;
   }
 }
 

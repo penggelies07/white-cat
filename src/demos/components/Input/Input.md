@@ -58,7 +58,7 @@
 
 ----- InputOnChange
 
-## `onChange`?: (value: string) => void
+## `onChange`?: (e: any, value: string) => void
 
 `value`发生改变时的回调函数
 

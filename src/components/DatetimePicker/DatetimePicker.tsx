@@ -112,8 +112,8 @@ export default class DatetimePicker extends Base<IDatetimePickerProps, IDatetime
           </div>
           <div className='whc-datetime-picker__actions'>
             <Button type='primary' size='small' onClick={this.onConfirm}>确定</Button>
-            <Button type='basic' size='small' onClick={this.onClear}>清除</Button>
-            <Button type='basic' size='small' onClick={this.onCancel}>取消</Button>
+            <Button type='plain' size='small' onClick={this.onClear}>清除</Button>
+            <Button type='plain' size='small' onClick={this.onCancel}>取消</Button>
           </div>
         </div>
       )}>

@@ -6,7 +6,7 @@ export interface IChildProps {
   value?: any,
   name?: string,
   message?: string,
-  onChange: (value: any) => void
+  onChange: (e: any, value: any) => void
 }
 
 export interface IFormFieldProps {
@@ -24,10 +24,10 @@ export default class FormField extends Base<IFormFieldProps> {
 
   componentWillMount () {
     const {value} = this.props
-    this.onValueChange(value)
+    this.onValueChange(null, value)
   }
 
-  onValueChange = (value: any) => {
+  onValueChange = (e: any, value: any) => {
     const name = this.props.name
     const form = this.context.form
     if (name && form) {
