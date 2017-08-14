@@ -4,6 +4,7 @@ React components built with typescript.
 
 ## Components
 
+- [x] AutocompleteInput
 - [x] Avatar
 - [x] Badge
 - [x] Box
@@ -12,31 +13,40 @@ React components built with typescript.
 - [x] Calendar
 - [x] Card
 - [x] CheckBox
+- [x] Container
 - [ ] Collapse
 - [x] DatePicker
 - [x] DatetimePicker
 - [x] Dialog
+- [x] Divider
+- [x] Dropdown
 - [x] Form
 - [x] Grid.Row
 - [x] Grid.Col
 - [x] Group
 - [x] Icon
 - [x] Input
-- [ ] Input.Autocomplete
 - [x] Layout
+- [x] List
 - [x] Loader
 - [x] Mask
+- [x] Modal
+- [x] Notification
+- [x] NumberInput
+- [x] Pagination
 - [x] Popover
 - [x] Popover.Menu
 - [x] Popover.Menu.Item
-- [x] Popover.Menu.Divider
 - [ ] Progress
 - [x] ScrollBar
 - [x] SidePanel
+- [ ] Segment
 - [ ] Select
-- [x] SortableList
+- [ ] Step
+- [ ] Tab
 - [ ] Table
 - [x] Tag
+- [x] Textarea
 - [x] TimePicker
 - [x] Tooltip
 - [x] Tree
