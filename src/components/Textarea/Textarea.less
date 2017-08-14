@@ -1,0 +1,74 @@
+@import "../../styles/import";
+
+.textarea-size (@size, @padding-v, @padding-h, @font-size) {
+  &.whc-textarea--@{size} {
+    font-size: @font-size;
+
+    .whc-textarea__original {
+      padding: @padding-v @padding-h;
+    }
+
+    &.whc-textarea--has-prefix {
+      .whc-textarea__original {
+        padding-left: (@padding-v * 2) + (@font-size * 0.8);
+      }
+
+      .whc-textarea__prefix {
+        left: @padding-v;
+      }
+    }
+
+    &.whc-textarea--has-suffix {
+      .whc-textarea__original {
+        padding-right: (@padding-v * 2) + (@font-size * 0.8);
+      }
+
+      .whc-textarea__suffix {
+        right: @padding-v;
+      }
+    }
+  }
+}
+
+.whc-textarea {
+  display: inline-block;
+  position: relative;
+
+  &__original {
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.2em;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: @textarea-border-radius;
+    border: @textarea-border;
+    background: @textarea-fill;
+    transition: background 0.2s, border 0.2s;
+
+    &:hover {
+      border-color: @textarea-border-color-hover;
+    }
+
+    &:focus {
+      border-color: @textarea-border-color-focus;
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+  }
+
+  .textarea-size(normal, @textarea-padding-v, @textarea-padding-h, @textarea-font-size);
+  .textarea-size(small, @textarea-small-padding-v, @textarea-small-padding-h, @textarea-small-font-size);
+  .textarea-size(large, @textarea-large-padding-v, @textarea-large-padding-h, @textarea-large-font-size);
+
+  &.disabled &__original {
+    background: @textarea-disabled-fill;
+    border: @textarea-border;
+  }
+
+  &.full,
+  &.full &__original {
+    width: 100%;
+  }
+}

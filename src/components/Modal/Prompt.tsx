@@ -66,7 +66,7 @@ export default class Prompt extends Base<IPromptProps, IPromptState> {
     }
   }
 
-  onValueChange = (value: string) => {
+  onValueChange = (e: any, value: string) => {
     this.setState({value})
   }
 

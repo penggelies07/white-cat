@@ -80,7 +80,7 @@ export default class TimeInput extends React.Component<ITimeInputProps, ITimeInp
     })
   }
 
-  onInputChange = (text: string) => {
+  onInputChange = (e: any, text: string) => {
     this.setState({text})
   }
 

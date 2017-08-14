@@ -1,16 +1,13 @@
 import * as React from 'react'
 import Base from '../../libs/Base'
-import './Input.less'
+import './Textarea.less'
 
-export interface IInputProps {
-  type?: 'text' | 'password',
+export interface ITextareaProps {
   value?: string,
   placeholder?: string,
   size?: 'small' | 'normal' | 'large',
   disabled?: boolean,
   full?: boolean,
-  prefix?: React.ReactNode,
-  suffix?: React.ReactNode,
   autoFocus?: boolean,
   onChange?: (e: React.ChangeEvent<any>, value: string) => void,
   onFocus?: React.FormEventHandler<any>,
@@ -18,14 +15,14 @@ export interface IInputProps {
   onKeyDown?: React.FormEventHandler<any>
 }
 
-export default class Input extends Base<IInputProps> {
+export default class Textarea extends Base<ITextareaProps> {
 
   static defaultProps = {
     type: 'text',
     size: 'normal'
   }
 
-  autoFocus = (el: HTMLInputElement) => {
+  autoFocus = (el: HTMLTextAreaElement) => {
     if (this.props.autoFocus && el) {
       el.focus()
     }
@@ -39,26 +36,20 @@ export default class Input extends Base<IInputProps> {
   }
 
   render () {
-    const {type, size, disabled, full, prefix, suffix, value, placeholder, onFocus, onBlur, onKeyDown} = this.props
-    const _size = size && `whc-input--` + size
-    const _prefix = !!prefix && `whc-input--has-prefix`
-    const _suffix = !!suffix && `whc-input--has-suffix`
+    const {size, disabled, full, value, placeholder, onFocus, onBlur, onKeyDown} = this.props
+    const _size = size && `whc-textarea--` + size
 
     return (
-      <div {...this.rootProps(['whc-input', _size, _prefix, _suffix, {disabled, full}])}>
-        {prefix && <div className='whc-input__prefix'>{prefix}</div>}
-        <input
-          ref={this.autoFocus}
-          type={type}
+      <div {...this.rootProps(['whc-textarea', _size, {disabled, full}])}>
+        <textarea
           placeholder={placeholder}
           value={value}
+          className='whc-textarea__original'
           disabled={disabled}
-          className='whc-input__original'
           onChange={this.onChange}
           onFocus={onFocus}
           onBlur={onBlur}
           onKeyDown={onKeyDown}/>
-        {suffix && <div className='whc-input__suffix'>{suffix}</div>}
       </div>
     )
   }

@@ -65,6 +65,7 @@
   &.disabled &__original {
     background: @input-disabled-fill;
     border: @input-border;
+    cursor: not-allowed;
   }
 
   &__prefix,
@@ -84,10 +85,6 @@
   &.full,
   &.full &__original {
     width: 100%;
-  }
-
-  &.plain &__original {
-    border: none;
   }
 
   .whc-button + & {
