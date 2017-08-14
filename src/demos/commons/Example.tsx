@@ -10,7 +10,7 @@ marked.setOptions({
 interface IExampleProps {
   component?: React.ComponentClass,
   raw?: string,
-  doc: string
+  description: string
 }
 
 interface IExampleState {
@@ -39,11 +39,11 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
   }
   
   render () {
-    const {component: Component, raw, doc} = this.props
+    const {component: Component, raw, description} = this.props
     const {expanded} = this.state
 
     const html = this.highLightCode(raw)
-    const text = this.markdownText(doc)
+    const text = this.markdownText(description)
 
     return (
       <div className='Example'>

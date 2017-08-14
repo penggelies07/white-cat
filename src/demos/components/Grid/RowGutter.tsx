@@ -2,9 +2,7 @@ import * as React from 'react'
 import {Row, Col} from '../../../index'
 import './style.less'
 
-export interface IGridGutterProps {}
-
-export default class GridGutter extends React.Component<IGridGutterProps> {
+export default class RowGutter extends React.Component {
 
   render () {
     return (

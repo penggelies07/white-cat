@@ -8,7 +8,7 @@ export interface IComponentsViewProps extends RouteComponentProps<{}> {}
 export default class ComponentsView extends React.Component<IComponentsViewProps> {
 
   componentWillMount () {
-    if (this.props.match.url === '/') {
+    if (this.props.location.pathname === '/') {
       this.props.history.push('/components')
     }
   }

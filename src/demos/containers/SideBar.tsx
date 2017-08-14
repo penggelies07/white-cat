@@ -9,7 +9,7 @@ export interface ISideBarProps extends RouteComponentProps<{name: string}> {}
 export default class SideBar extends React.Component<ISideBarProps> {
   render () {
     const name = this.props.match.params.name
-    console.log(components)
+
     return (
       <div className='SideBar'>
         <Link to={`/components`}>
@@ -18,9 +18,9 @@ export default class SideBar extends React.Component<ISideBarProps> {
           </div>
         </Link>
         {components.map((component: any) => (
-          <Link key={component.name} to={`/components/${component.name}`}>
-            <div className={cn('SideBar__item', {active: name === component.name})}>
-              {component.name}
+          <Link key={component.title} to={`/components/${component.title}`}>
+            <div className={cn('SideBar__item', {active: name === component.title})}>
+              {component.title}
             </div>
           </Link>
         ))}

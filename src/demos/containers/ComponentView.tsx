@@ -11,12 +11,16 @@ export default class ComponentView extends React.Component<IComponentViewProps> 
     return (
       <div className='ComponentView'>
         <div className='ComponentView__header'>
-          {demo.name}
+          {demo.title}
         </div>
         <div className='ComponentView__container'>
-          <div className='ComponentView__sub-title'>示例</div>
-          {demo.examples.map(({component, raw, doc}, index) => (
-            <Example key={index} {...{component, raw, doc}}/>
+          {demo.groups.map((group) => (
+            <div className='ComponentView__segment' key={group.title}>
+              <div className='ComponentView__segment-title'># {group.title}</div>
+              {group.examples.map(({component, raw, description}, index) => (
+                <Example key={index} {...{component, raw, description}}/>
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -53,7 +57,7 @@ export default class ComponentView extends React.Component<IComponentViewProps> 
 
   render () {
     const name = this.props.match.params.name
-    const demo = demos.find((c) => c.name === name)
+    const demo = demos.find((d) => d.title === name)
     
     return demo
       ? this.renderComponent(demo)

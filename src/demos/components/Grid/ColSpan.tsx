@@ -2,9 +2,7 @@ import * as React from 'react'
 import {Row, Col} from '../../../index'
 import './style.less'
 
-export interface IGridSpanProps {}
-
-export default class GridSpan extends React.Component<IGridSpanProps> {
+export default class ColSpan extends React.Component {
 
   render () {
     return (

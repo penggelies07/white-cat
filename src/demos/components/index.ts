@@ -1,42 +1,53 @@
 declare const require: any
 
 export interface IExample {
-  name: string,
-  doc: string,
+  title: string,
+  description: string,
   raw?: string,
   component?: React.ComponentClass
 }
 
-export interface IDemo {
-  name: string,
-  doc: string,
+export interface IGroup {
+  title: string,
+  description: string,
   examples: IExample[]
+}
+
+export interface IDemo {
+  title: string,
+  groups: IGroup[]
+}
+
+export interface IDemoMap {
+  [name: string]: IDemo
 }
 
 const context = require.context('.', true, /\.md$/)
 
-const components: IDemo[] = context.keys().reduce((_c: IDemo[], mdPath: string) => {
+const componentMap: IDemoMap = context.keys().reduce((map: IDemoMap, mdPath: string) => {
   try {
-    const [name] = mdPath.split(/[./]/).filter(Boolean)
-    const mdContent = require(`./${name}/readme.md`)
+    const [name, groupName] = mdPath.split(/[./]/).filter(Boolean)
+    const mdContent = require(`./${name}/${groupName}.md`)
 
-    const demo: IDemo = {
-      name,
-      doc: '',
-      examples: []
+    let demo: IDemo = map[name]
+
+    if (!demo) {
+      demo = map[name] = {title: name, groups: []}
     }
-    
-    demo.examples = mdContent
+
+    const group = {title: groupName, description: '', examples: []}
+
+    group.examples = mdContent
       .split(/^[-]{5,}\s?/gm)
       .reduce((examples: IExample[], segment: string, i: number) => {
         if (i === 0) {
-          demo.doc = ''
+          group.description = segment
           return examples
         }
 
         const [lineOne, ...lines] = segment.trim().split('\n')
         const title = lineOne.trim()
-        const content = lines.join('\n').trim()
+        const description = lines.join('\n').trim()
 
         if (!title) {
           return examples
@@ -53,8 +64,8 @@ const components: IDemo[] = context.keys().reduce((_c: IDemo[], mdPath: string) 
         }
         
         examples.push({
-          name: title,
-          doc: content,
+          title,
+          description,
           raw,
           component
         })
@@ -62,12 +73,22 @@ const components: IDemo[] = context.keys().reduce((_c: IDemo[], mdPath: string) 
         return examples
       }, [])
 
-    _c.push(demo)
+    if (name === groupName) {
+      demo.groups = [group, ...demo.groups]
+    } else {
+      demo.groups.push(group)
+    }
 
   } catch (error) {
     console.warn(error.message)
   }
-  return _c
-}, [])
+  return map
+}, {})
+
+const components: IDemo[] = []
+
+for (const name in componentMap) {
+  components.push(componentMap[name])
+}
 
 export default components
