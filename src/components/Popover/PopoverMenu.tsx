@@ -36,17 +36,7 @@ export class PopoverMenuItem extends Base<IPopoverMenuItemProps> {
   }
 }
 
-export interface IPopoverMenuDividerProps {}
-
-export class PopoverMenuDivider extends Base<IPopoverMenuDividerProps> {
-  render () {
-    return (
-      <div {...this.rootProps('whc-popover-menu__divider')}/>
-    )
-  }
-}
-
-export type menuChildType = null | false | React.ReactElement<PopoverMenuItem> | React.ReactElement<PopoverMenuDivider>
+export type menuChildType = null | false | React.ReactElement<PopoverMenuItem>
 
 export interface IPopoverMenuProps {
   children?: menuChildType | menuChildType[],
@@ -55,7 +45,6 @@ export interface IPopoverMenuProps {
 
 export default class PopoverMenu extends Base<IPopoverMenuProps> {
   static Item = PopoverMenuItem
-  static Divider = PopoverMenuDivider
 
   static childContextTypes = {
     popoverMenu: PropTypes.any
