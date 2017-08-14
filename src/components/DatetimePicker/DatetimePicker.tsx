@@ -37,26 +37,18 @@ export default class DatetimePicker extends Base<IDatetimePickerProps, IDatetime
     super(props)
 
     this.state = {
-      value: typeof props.value === 'string' ? new Date(props.value) : props.value || null,
+      value: typeof props.value === 'string' ? new Date(props.value) : props.value || new Date(),
       visible: false
     }
   }
 
   componentWillReceiveProps ({value}: IDatetimePickerProps) {
-    value = (typeof value === 'string' ? new Date(value) : value || null) as Date
+    value = typeof value === 'string' ? new Date(value) : value || null
     this.setState({value})
   }
 
   onVisibleChange = (visible: boolean) => {
-    if (visible) {
-      const {value} = this.props
-      this.setState({
-        visible,
-        value: typeof value === 'string' ? new Date(value) : value || null
-      })
-    } else {
-      this.setState({visible})
-    }
+    this.setState({visible})
   }
 
   onChange = (date: Date) => {

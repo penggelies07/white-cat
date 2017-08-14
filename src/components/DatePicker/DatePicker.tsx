@@ -36,26 +36,18 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
     super(props)
 
     this.state = {
-      value: typeof props.value === 'string' ? new Date(props.value) : props.value || null,
+      value: typeof props.value === 'string' ? new Date(props.value) : props.value || new Date(),
       visible: false
     }
   }
 
   componentWillReceiveProps ({value}: IDatePickerProps) {
-    value = (typeof value === 'string' ? new Date(value) : value || null) as Date
+    value = typeof value === 'string' ? new Date(value) : value || null
     this.setState({value})
   }
 
   onVisibleChange = (visible: boolean) => {
-    if (visible) {
-      const {value} = this.props
-      this.setState({
-        visible,
-        value: typeof value === 'string' ? new Date(value) : value || null
-      })
-    } else {
-      this.setState({visible})
-    }
+    this.setState({visible})
   }
 
   onChange = (value: Date) => {
@@ -84,6 +76,7 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
     const {value: defaultValue, type, format, icon, placeholder, full, disabled} = this.props
     const {value, visible} = this.state
     const valueText = defaultValue ? formatDate(defaultValue, format) : ''
+
     return (
       <Popover
         {...this.rootProps(['whc-date-picker', {full}])}
