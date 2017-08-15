@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const root = path.resolve(__dirname, '..')
 
@@ -27,13 +28,16 @@ module.exports =  {
         exclude: /node_modules/,
         loader: 'awesome-typescript-loader'
       },
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     use: 'css-loader'
+      //   })
+      // },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
+        test: /\.less$/i,
+        use: ExtractTextPlugin.extract(['css-loader', 'less-loader'])
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -48,6 +52,7 @@ module.exports =  {
     extensions: ['.tsx','.ts', '.js', '.less']
   },
   plugins: [
+    new ExtractTextPlugin('styles.css'),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
