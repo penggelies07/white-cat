@@ -23,8 +23,11 @@ export default class FormField extends Base<IFormFieldProps> {
   }
 
   componentWillMount () {
-    const {value} = this.props
-    this.onValueChange(null, value)
+    const form = this.context.form
+    const {name, value} = this.props
+    if (form && name && 'value' in this.props) {
+      form.setValue(name, value)
+    }
   }
 
   onValueChange = (e: any, value: any) => {
@@ -36,8 +39,7 @@ export default class FormField extends Base<IFormFieldProps> {
   }
 
   renderChildren = () => {
-    const {name, children} = this.props
-    const value = this.context.form.getValue(name)
+    const {name, children, value} = this.props
     return typeof children === 'function'
       ? children({name, value, onChange: this.onValueChange})
       : children
