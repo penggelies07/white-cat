@@ -21,22 +21,39 @@ export default class Popover extends PopoverBase<IPopoverProps> {
     }
   }
 
-  getArrow = () => {
-    const div = document.createElement('div')
-    div.className = 'whc-popover__arrow'
-    return div
+  getArrow = (popper: HTMLElement) => {
+    return popper.querySelector('.whc-popover__arrow')
   }
 
   getContent = () => {
     const {title, content, width, narrow} = this.props
+
+    if (!content) {
+      return null
+    }
+
     return (
-      <div {...this.rootProps(['whc-popover', {'whc-popover--narrow': narrow}])} style={{width}}>
+      <div
+        {...this.rootProps(['whc-popover', {'whc-popover--narrow': narrow}])}
+        style={{width}}
+        onClick={this.onClickContent}>
         {title && (
           <div className='whc-popover__header'>{title}</div>
         )}
         <div className='whc-popover__content'>{content}</div>
+        <div className='whc-popover__arrow'/>
       </div>
     )
+  }
+
+  onClickContent = (e: React.MouseEvent<any>) => {
+    // todo:
+    // popover nest
+    console.log('click', e)
+    e.preventDefault()
+    e.stopPropagation()
+    e.nativeEvent.stopPropagation()
+    e.nativeEvent.stopImmediatePropagation()
   }
 
   render () {

@@ -8,24 +8,28 @@ export interface ITooltipProps {
 }
 
 export default class Tooltip extends PopoverBase<ITooltipProps> {
-
+  
   static defaultProps = {
     placement: 'top',
     trigger: 'hover',
     color: 'dark'
   }
-
-  getArrow = () => {
-    const div = document.createElement('div')
-    div.className = 'whc-tooltip__arrow'
-    return div
+  
+  getArrow = (popper: HTMLElement) => {
+    return popper.querySelector('.whc-tooltip__arrow')
   }
 
   getContent = () => {
     const {content, color} = this.props
+
+    if (!content) {
+      return null
+    }
+
     return (
       <div {...this.rootProps(['whc-tooltip', `whc-tooltip--${color}`])}>
         <div className='whc-tooltip__content'>{content}</div>
+        <div className='whc-tooltip__arrow'/>
       </div>
     )
   }

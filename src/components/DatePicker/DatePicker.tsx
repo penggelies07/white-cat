@@ -81,6 +81,7 @@ export default class DatePicker extends Base<IDatePickerProps, IDatePickerState>
       <Popover
         {...this.rootProps(['whc-date-picker', {full}])}
         narrow
+        disabled={disabled}
         visible={visible && !disabled}
         onChange={this.onVisibleChange}
         content={(

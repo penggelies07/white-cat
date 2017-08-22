@@ -34,8 +34,8 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
 
   timer: any
 
-  abstract getArrow: () => HTMLElement | null
-  abstract getContent: () => React.ReactElement<any>
+  abstract getArrow: (popper: HTMLElement) => Element | null
+  abstract getContent: () => React.ReactElement<any> | null
 
   constructor (props: IPopoverBaseProps) {
     super(props as any)
@@ -56,8 +56,12 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
 
   componentDidUpdate (prevProps: any , prevState: IPopoverBaseState) {
     const visible = this.state.visible
-
+    
     if (visible === prevState.visible) {
+      if (visible) {
+        this.renderPopper()
+      }
+      
       return
     }
 
@@ -80,7 +84,7 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
 
     if (trigger === 'click') {
       this.target.addEventListener('click', this.onClickTarget)
-      document.addEventListener('click', this.onClickOutside)
+      document.body.addEventListener('click', this.onClickOutside)
     } else  {
       this.target.addEventListener('mouseenter', this.onEnterTarget)
       this.target.addEventListener('mouseleave', this.onLeaveTarget)
@@ -93,15 +97,18 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
 
   componentWillUnmount () {
     super.componentWillUnmount()
-    document.removeEventListener('click', this.onClickOutside)
+    document.body.removeEventListener('click', this.onClickOutside)
     this.destroyPopper()
   }
 
   public setVisible = (visible: boolean) => {
     const {disabled, onChange} = this.props
-    if (!disabled) {
-      this.setState({visible})
+    if (disabled || !this._isMounted) {
+      return
     }
+
+    this.setState({visible})
+
     if (onChange) {
       onChange(visible)
     }
@@ -152,19 +159,22 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
     }, 300)
   }
 
-  protected updatePopper = (content: React.ReactElement<any>) => {
-    this.popper = ReactDOM.render(content, this.container) as HTMLElement
-  
+  protected renderPopper = () => {
+    const {visible} = this.state
+    const content = this.getContent()
+
+    if (!visible || !content || !this.container) {
+      return
+    }
+
     if (this.$popper) {
       this.$popper.destroy()
     }
+
+    this.popper = ReactDOM.render(content, this.container) as HTMLElement
+  
     if (this.popper) {
-      const arrow = this.getArrow()
-      const modifiers =  {} as any
-      if (arrow) {
-        modifiers.arrow = {element: arrow}
-        this.popper.appendChild(arrow)
-      }
+      const modifiers =  {arrow: {element: this.getArrow(this.popper) || ''}}
 
       this.$popper = new Popper(this.target, this.popper, {
         placement: this.props.placement,
@@ -179,30 +189,24 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
   }
 
   protected createPopper = () => {
-    const {onChange} = this.props
     if (!this.container) {
       this.container = document.createElement('span')
       document.body.appendChild(this.container)
     }
-    this.updatePopper(this.getContent())
-    if (onChange) {
-      onChange(true)
-    }
+
+    this.renderPopper()
   }
 
   protected destroyPopper = () => {
-    const {onChange} = this.props
     if (this.$popper) {
       this.$popper.destroy()
       this.$popper = null
     }
+
     if (this.container) {
       ReactDOM.unmountComponentAtNode(this.container)
       document.body.removeChild(this.container)
       this.container = null
-    }
-    if (onChange) {
-      onChange(false)
     }
   }
 }
