@@ -1,0 +1,31 @@
+@import "../../styles/import";
+
+.whc-menu {
+  line-height: @menu-line-height;
+  color: @menu-color;
+
+  &__title {
+    padding: @menu-title-padding;
+    font-weight: bold;
+  }
+
+  &--bordered {
+    border-radius: @menu-border-radius;
+    border: @menu-border;
+  }
+}
+
+.whc-menu-item {
+  padding: @menu-item-padding;
+  background: @menu-item-fill;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: @menu-item-fill-hover;
+  }
+
+  &:active {
+    background: @menu-item-fill-active;
+  }
+}
