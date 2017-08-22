@@ -1,44 +1,39 @@
 import * as React from 'react'
-import Base from '../../libs/Base'
 import './Tooltip.less'
-
-export type placementTypes = 'top' | 'top-start' | 'top-end'
-  | 'bottom' | 'bottom-start' | 'bottom-end'
-  | 'left' | 'left-start' | 'left-end'
-  | 'right' | 'right-start' | 'right-end'
+import PopoverBase from '../../libs/PopoverBase'
 
 export interface ITooltipProps {
   content?: React.ReactNode,
-  placement?: placementTypes,
   color?: 'dark' | 'light'
 }
 
-export default class Tooltip extends Base<ITooltipProps> {
+export default class Tooltip extends PopoverBase<ITooltipProps> {
 
   static defaultProps = {
     placement: 'top',
+    trigger: 'hover',
     color: 'dark'
   }
 
-  constructor (props: ITooltipProps) {
-    super(props)
-    this.state = {}
+  getArrow = () => {
+    const div = document.createElement('div')
+    div.className = 'whc-tooltip__arrow'
+    return div
+  }
+
+  getContent = () => {
+    const {content, color} = this.props
+    return (
+      <div {...this.rootProps(['whc-tooltip', `whc-tooltip--${color}`])}>
+        <div className='whc-tooltip__content'>{content}</div>
+      </div>
+    )
   }
 
   render () {
-    const {content, children} = this.props
-    const color = 'whc-tooltip--' + this.props.color
-    const placement = 'whc-tooltip--' + this.props.placement
-    
-    return (
-      <span {...this.rootProps(['whc-tooltip', color, placement])}>
-        {children}
-        {content && (
-          <div className='whc-tooltip__content'>
-            {content}
-          </div>
-        )}
-      </span>
-    )
+    const children = this.props.children || ''
+    return typeof children === 'string'
+      ? React.createElement('span', {}, children)
+      : React.cloneElement(React.Children.only(children))
   }
 }

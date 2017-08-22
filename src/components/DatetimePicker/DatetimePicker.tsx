@@ -94,6 +94,7 @@ export default class DatetimePicker extends Base<IDatetimePickerProps, IDatetime
     return (
       <Popover
         {...this.rootProps(['whc-datetime-picker', {full}])}
+        narrow
         visible={visible && !disabled}
         onChange={this.onVisibleChange}
         content={(

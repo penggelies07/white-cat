@@ -109,7 +109,7 @@ export default class TimeInput extends React.Component<ITimeInputProps, ITimeInp
 
     return (
       <span className='whc-time-picker__input'>
-        <Popover placement='top' disabled={disabled} content={(
+        <Popover narrow placement='top' disabled={disabled} content={(
           <ScrollBar className='whc-time-picker__items'>
             {this.getItems().map((i) => (
               <div

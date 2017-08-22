@@ -1,39 +1,45 @@
 @import "../../styles/import";
 
-.whc-popover {
-  &__popper {
-    margin: 8px;
-    z-index: 4;
-    box-shadow: @box-shadow-large;
-    border-radius: @border-radius-small;
-    background: @color-white-base;
+.popover-placement (@name, @reverse, @size) {
+  &[x-placement^=@{name}] {
+    margin-@{reverse}: @size;
   }
 
-  &__popper-header {
-    margin: 0 10px;
-    padding: 6px 0;
-    line-height: 30px;
-    text-align: center;
-    border-bottom: @border;
+  &[x-placement^=@{name}] &__arrow {
+    border-@{name}-color: @popover-fill;
+    border-@{reverse}-width: 0px;
+    @{reverse}: -@size;
   }
 }
 
-.whc-popover-menu {
-  padding: 5px 0;
-  line-height: 20px;
-  color: @font-color-light;
+.whc-popover {
+  padding: @popover-padding;
+  box-shadow: @popover-box-shadow;
+  border-radius: @popover-border-radius;
+  background: @popover-fill;
 
-  &__item {
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background 0.2s;
-
-    &:hover {
-      background: @color-gray-lighter;
-    }
-
-    &:active {
-      background: @color-gray-light;
-    }
+  &__header {
+    margin-bottom: 8px;
+    border-bottom: @popover-header-boder;
+    line-height: 30px;
+    text-align: center;
   }
+
+  &__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: @popover-arrow-size;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  &--narrow {
+    padding: 0;
+  }
+
+  .popover-placement(bottom, top, @popover-arrow-size);
+  .popover-placement(top, bottom, @popover-arrow-size);
+  .popover-placement(left, right, @popover-arrow-size);
+  .popover-placement(right, left, @popover-arrow-size);
 }

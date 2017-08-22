@@ -1,166 +1,42 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import Base from '../../libs/Base'
-import PopoverMenu from './PopoverMenu'
-import Popper from 'popper.js'
+import PopoverBase from '../../libs/PopoverBase'
 import './Popover.less'
 
-export type placementType = 'auto' | 'top' | 'right' | 'bottom' | 'left'
-  | 'auto-start' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start'
-  | 'auto-end' | 'top-end' | 'right-end' | 'bottom-end' | 'left-end'
-
 export interface IPopoverProps {
-  title?: string,
-  content?: React.ReactNode,
-  visible?: boolean,
-  disabled?: boolean,
-  trigger?: 'hover' | 'click',
-  placement?: placementType,
-  width?: string | number,
-  onChange?: (visible: boolean) => void
+  title?: React.ReactNode
+  content?: React.ReactNode
+  width?: string | number
+  narrow?: boolean
 }
 
-export interface IPopoverState {
-  visible: boolean
-}
-
-export default class Popover extends Base<IPopoverProps, IPopoverState> {
-  static Menu = PopoverMenu
-
-  static defaultProps = {
-    trigger: 'click',
-    placement: 'bottom'
-  }
-
+export default class Popover extends PopoverBase<IPopoverProps> {
   static childContextTypes = {
     popover: PropTypes.any
   }
 
-  rootEl: HTMLElement
-  popperEl: HTMLElement
-  triggerEl: HTMLElement
-  popper: Popper
-
-  constructor (props: IPopoverProps) {
-    super(props)
-    
-    this.state = {
-      visible: !!props.visible
-    }
+  getArrow = () => {
+    const div = document.createElement('div')
+    div.className = 'whc-popover__arrow'
+    return div
   }
 
-  getChildContext = () => {
-    return {
-      popover: this as any
-    }
-  }
-
-  componentDidMount () {
-    this.rootEl = ReactDOM.findDOMNode<HTMLElement>(this)
-    this.triggerEl = ReactDOM.findDOMNode<HTMLElement>(this.refs.triggerEl)
-
-    const {trigger} = this.props
-    if (!this.triggerEl) {
-      return
-    }
-
-    if (trigger === 'click') {
-      this.triggerEl.addEventListener('click', () => {
-        const visible = !this.state.visible
-        if (visible) {
-          this.show()
-        } else {
-          this.hide()
-        }
-      })
-      document.addEventListener('click', ({target}: any) => {
-        if (
-        !this.rootEl || !this.triggerEl || !this.popperEl
-        || this.rootEl.contains(target)
-        || this.triggerEl.contains(target)
-        || this.popperEl.contains(target)
-        ) {
-          return
-        }
-        this.hide()
-      })
-    } else if (trigger === 'hover') {
-      this.rootEl.addEventListener('mouseenter', () => this.show())
-      this.rootEl.addEventListener('mouseleave', () => this.hide())
-    }
-  }
-
-  componentDidUpdate () {
-    const {visible} = this.state
-    if (visible && this.popper) {
-      this.popper.update()
-    }
-  }
-
-  componentWillReceiveProps ({visible}: IPopoverProps) {
-    if (visible !== undefined && visible !== this.state.visible) {
-      this.setState({visible: !!visible})
-    }
-  }
-  
-  refPopperEl = (el: HTMLElement | null) => {
-    if (el) {
-      this.popperEl = el
-      this.popper = new Popper(this.triggerEl, el, {
-        placement: this.props.placement
-      })
-    } else if (this.popper) {
-      this.popper.destroy()
-      delete this.popper
-      delete this.popperEl
-    }
-  }
-
-  show = () => {
-    const {disabled, onChange} = this.props
-    if (disabled) {
-      return
-    }
-
-    this.setState({visible: true})
-    if (onChange) {
-      onChange(true)
-    }
-  }
-
-  hide = () => {
-    const {disabled, onChange} = this.props
-    if (disabled) {
-      return
-    }
-
-    this.setState({visible: false})
-    if (onChange) {
-      onChange(false)
-    }
-  }
-
-  getTriggerElement = (children: React.ReactNode) => {
-    children = children || ''
-    return typeof children === 'string'
-      ? React.createElement('span', {ref: 'triggerEl'}, children)
-      : React.cloneElement(React.Children.only(children), {ref: 'triggerEl'})
+  getContent = () => {
+    const {title, content, width, narrow} = this.props
+    return (
+      <div {...this.rootProps(['whc-popover', {'whc-popover--narrow': narrow}])} style={{width}}>
+        {title && (
+          <div className='whc-popover__header'>{title}</div>
+        )}
+        <div className='whc-popover__content'>{content}</div>
+      </div>
+    )
   }
 
   render () {
-    const {title, content, width, children} = this.props
-    const {visible} = this.state
-    return (
-      <span {...this.rootProps('whc-popover')}>
-        {visible && (
-          <div className='whc-popover__popper' style={{width}} ref={this.refPopperEl}>
-            {title && <div className='whc-popover__popper-header'>{title}</div>}
-            {content}
-          </div>
-        )}
-        {this.getTriggerElement(children)}
-      </span>
-    )
+    const children = this.props.children || ''
+    return typeof children === 'string'
+      ? React.createElement('span', {}, children)
+      : React.cloneElement(React.Children.only(children))
   }
 }
