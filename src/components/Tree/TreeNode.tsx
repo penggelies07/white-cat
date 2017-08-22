@@ -15,7 +15,7 @@ export interface ITreeNodeState {}
 export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
 
   static contextTypes = {
-    tree: PropTypes.any
+    $tree: PropTypes.any
   }
 
   constructor (props: ITreeNodeProps) {
@@ -24,17 +24,17 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
   }
 
   isChecked = () => {
-    return this.context.tree.isChecked(this.props.node)
+    return this.context.$tree.isChecked(this.props.node)
   }
 
   onCheck = (e: any, value: boolean) => {
-    this.context.tree.onCheck(this.props.node)
+    this.context.$tree.onCheck(this.props.node)
   }
 
   onSelect = () => {
     const {node} = this.props
     node.store.select(node)
-    this.context.tree.onSelect(node)
+    this.context.$tree.onSelect(node)
   }
 
   onToggle = () => {
@@ -52,7 +52,7 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
 
   render (): JSX.Element {
     const {node, action} = this.props
-    const {indent, checkable, action: actionFunc} = this.context.tree.props
+    const {indent, checkable, action: actionFunc} = this.context.$tree.props
     const selected = node.store.selectedNode === node
     return (
       <div {...this.rootProps(['whc-tree__node', {selected}])}>

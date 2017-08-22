@@ -21,7 +21,7 @@ export interface IFormFieldProps {
 export default class FormField extends Base<IFormFieldProps> {
 
   static contextTypes = {
-    formStore: PropTypes.any,
+    $formStore: PropTypes.any,
   }
 
   formStore: FormStore
@@ -30,7 +30,7 @@ export default class FormField extends Base<IFormFieldProps> {
     super(props)
 
     const {name, value} = props
-    this.formStore = context.formStore
+    this.formStore = context.$formStore
     if (name && this.formStore) {
       if (value === undefined) {
         console.warn(`Field with name '${name}' should provide a value`)

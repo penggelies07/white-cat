@@ -5,7 +5,7 @@ export default class PopoverWidth extends React.Component {
   render () {
     return (
       <Popover content='content' width='300px'>
-        <Button>hover</Button>
+        <Button>click</Button>
       </Popover>
     )
   }

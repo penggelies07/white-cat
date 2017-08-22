@@ -12,7 +12,13 @@ export interface IPopoverProps {
 
 export default class Popover extends PopoverBase<IPopoverProps> {
   static childContextTypes = {
-    popover: PropTypes.any
+    $popover: PropTypes.any
+  }
+
+  getChildContext = () => {
+    return {
+      $popover: this as any
+    }
   }
 
   getArrow = () => {

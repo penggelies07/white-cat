@@ -27,7 +27,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
   static Node = TreeNode
 
   static childContextTypes = {
-    tree: PropTypes.any
+    $tree: PropTypes.any
   }
 
   static defaultProps = {
@@ -54,7 +54,7 @@ export default class Tree extends Base<ITreeProps, ITreeState> {
 
   getChildContext = () => {
     return {
-      tree: this as any
+      $tree: this as any
     }
   }
 

@@ -17,7 +17,7 @@ export default class Form extends Base<IFormProps> {
   static Field = Field
 
   static childContextTypes = {
-    formStore: PropTypes.any
+    $formStore: PropTypes.any
   }
 
   static defaultProps = {

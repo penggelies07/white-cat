@@ -49,7 +49,7 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
     setTimeout(() => {
       // 让onClickOutside先执行
       if (visible !== undefined && visible !== this.state.visible) {
-        this.setState({visible: !!visible})
+        this.setVisible(!!visible)
       }
     })
   }
@@ -62,9 +62,9 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
     }
 
     if (visible) {
-      this.show()
+      this.createPopper()
     } else {
-      this.hide()
+      this.destroyPopper()
     }
   }
 
@@ -86,20 +86,32 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
       this.target.addEventListener('mouseleave', this.onLeaveTarget)
     }
 
-    this.setState({visible: !!visible})
+    if (visible) {
+      this.setVisible(true)
+    }
   }
 
   componentWillUnmount () {
     super.componentWillUnmount()
     document.removeEventListener('click', this.onClickOutside)
-    this.hide()
+    this.destroyPopper()
   }
 
-  onClickTarget = () => {
-    this.setState({visible: !this.state.visible})
+  public setVisible = (visible: boolean) => {
+    const {disabled, onChange} = this.props
+    if (!disabled) {
+      this.setState({visible})
+    }
+    if (onChange) {
+      onChange(visible)
+    }
   }
 
-  onClickOutside = (e: MouseEvent) => {
+  protected onClickTarget = () => {
+    this.setVisible(!this.state.visible)
+  }
+
+  protected onClickOutside = (e: MouseEvent) => {
     if (!this.state.visible) {
       return
     }
@@ -119,28 +131,28 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
       clearTimeout(this.timer)
     }
     this.timer = setTimeout(() => {
-      this.setState({visible: false})
+      this.setVisible(false)
     }, 300)
   }
 
-  onEnterTarget = () => {
+  protected onEnterTarget = () => {
     if (this.timer) {
       clearTimeout(this.timer)
       this.timer = null
     }
-    this.setState({visible: true})
+    this.setVisible(true)
   }
 
-  onLeaveTarget = () => {
+  protected onLeaveTarget = () => {
     if (this.timer) {
       clearTimeout(this.timer)
     }
     this.timer = setTimeout(() => {
-      this.setState({visible: false})
+      this.setVisible(false)
     }, 300)
   }
 
-  update = (content: React.ReactElement<any>) => {
+  protected updatePopper = (content: React.ReactElement<any>) => {
     this.popper = ReactDOM.render(content, this.container) as HTMLElement
   
     if (this.$popper) {
@@ -166,26 +178,20 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
     }
   }
 
-  show = () => {
-    const {disabled, onChange} = this.props
-    if (disabled) {
-      return
-    }
+  protected createPopper = () => {
+    const {onChange} = this.props
     if (!this.container) {
       this.container = document.createElement('span')
       document.body.appendChild(this.container)
     }
-    this.update(this.getContent())
+    this.updatePopper(this.getContent())
     if (onChange) {
       onChange(true)
     }
   }
 
-  hide = () => {
-    const {disabled, onChange} = this.props
-    if (disabled) {
-      return
-    }
+  protected destroyPopper = () => {
+    const {onChange} = this.props
     if (this.$popper) {
       this.$popper.destroy()
       this.$popper = null
