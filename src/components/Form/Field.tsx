@@ -24,25 +24,25 @@ export default class FormField extends Base<IFormFieldProps> {
     $formStore: PropTypes.any,
   }
 
-  formStore: FormStore
+  $formStore: FormStore
 
   constructor (props: IFormFieldProps, context: any) {
     super(props)
 
     const {name, value} = props
-    this.formStore = context.$formStore
-    if (name && this.formStore) {
+    this.$formStore = context.$formStore
+    if (name && this.$formStore) {
       if (value === undefined) {
         console.warn(`Field with name '${name}' should provide a value`)
       }
-      this.formStore.set(name, value)
+      this.$formStore.set(name, value)
     }
   }
   
   onChange = (e: any, value: any) => {
     const name = this.props.name
-    if (name && this.formStore) {
-      this.formStore.set(name, value, () => {
+    if (name && this.$formStore) {
+      this.$formStore.set(name, value, () => {
         this.forceUpdate()
       })
     }
@@ -54,8 +54,8 @@ export default class FormField extends Base<IFormFieldProps> {
 
   renderChildren = () => {
     const {name, children} = this.props
-    const value = name && this.formStore
-      ? this.formStore.get(name)
+    const value = name && this.$formStore
+      ? this.$formStore.get(name)
       : undefined
 
     return typeof children === 'function'

@@ -24,24 +24,24 @@ export default class Form extends Base<IFormProps> {
     layout: 'vertical'
   }
 
-  formStore: FormStore
+  $formStore: FormStore
 
   constructor (props: IFormProps) {
     super(props)
-    this.formStore = new FormStore(props.validations)
+    this.$formStore = new FormStore(props.validations)
   }
   
   getChildContext = () => {
     return {
-      formStore: this.formStore as any
+      $formStore: this.$formStore as any
     }
   }
 
   onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const {onSubmit} = this.props
     if (onSubmit) {
-      const errors = this.formStore.validateValues()
-      onSubmit(errors.length ? errors : null, this.formStore.getValues(), this.reset)
+      const errors = this.$formStore.validateValues()
+      onSubmit(errors.length ? errors : null, this.$formStore.getValues(), this.reset)
     }
     e.preventDefault()
   }
@@ -51,7 +51,7 @@ export default class Form extends Base<IFormProps> {
   }
 
   reset = () => {
-    this.formStore.reset()
+    this.$formStore.reset()
     this.forceUpdate()
   }
 

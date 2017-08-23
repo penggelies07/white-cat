@@ -11,8 +11,16 @@ export interface IPopoverProps {
 }
 
 export default class Popover extends PopoverBase<IPopoverProps> {
+  static contextTypes = {
+    $popover: PropTypes.any
+  }
+
   static childContextTypes = {
     $popover: PropTypes.any
+  }
+
+  constructor (props: any, context: any) {
+    super()
   }
 
   getChildContext = () => {
@@ -47,13 +55,10 @@ export default class Popover extends PopoverBase<IPopoverProps> {
   }
 
   onClickContent = (e: React.MouseEvent<any>) => {
-    // todo:
-    // popover nest
-    console.log('click', e)
-    e.preventDefault()
-    e.stopPropagation()
-    e.nativeEvent.stopPropagation()
-    e.nativeEvent.stopImmediatePropagation()
+    // todo: improve popover nest
+    if (this.context.$popover) {
+      e.nativeEvent.stopImmediatePropagation()
+    }
   }
 
   render () {

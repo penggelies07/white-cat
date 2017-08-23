@@ -23,7 +23,7 @@ export default class MenuItem extends Base<IMenuItemProps> {
       $menu.props.onCommand(e, this.props.command || '', this.props.data)
     }
     if ($popover) {
-      $popover.setVisible(false)
+      $popover.hide()
     }
   }
 
