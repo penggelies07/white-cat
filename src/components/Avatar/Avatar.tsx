@@ -20,9 +20,13 @@ export default class Avatar extends Base<IAvatarProps> {
     const {src, title, size} = this.props
     return (
       <div {...this.rootProps(['whc-avatar', `whc-avatar--${size}`])}>
-        <Tooltip content={title}>
+        {title ? (
+          <Tooltip content={title}>
+            <img className='whc-avatar__img' src={src}/>
+          </Tooltip>
+        ) : (
           <img className='whc-avatar__img' src={src}/>
-        </Tooltip>
+        )}
       </div>
     )
   }
