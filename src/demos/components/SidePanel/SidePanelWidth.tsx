@@ -18,7 +18,7 @@ export default class SidePanelWidth extends React.Component<ISidePanelWidthState
     const {visible} = this.state
     return (
       <div>
-        <Button onClick={this.onClick}>{visible ? '关闭' : '开启'}</Button>&nbsp;&nbsp;
+        <Button onClick={this.onClick}>{visible ? '关闭' : '开启'}</Button>
 
         <SidePanel
           width='100px'

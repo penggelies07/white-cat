@@ -18,7 +18,7 @@ export default class SidePanelHeader extends React.Component<ISidePanelHeaderSta
     const {visible} = this.state
     return (
       <div>
-        <Button onClick={this.onClick}>{visible ? '关闭' : '开启'}</Button>&nbsp;&nbsp;
+        <Button onClick={this.onClick}>{visible ? '关闭' : '开启'}</Button>
 
         <SidePanel
           header={<span>This is Header</span>}
