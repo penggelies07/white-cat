@@ -7,7 +7,7 @@ import Node from './models/Node'
 
 export interface ITreeNodeProps {
   node: Node,
-  action?: React.ReactNode
+  actions?: React.ReactNode
 }
 
 export interface ITreeNodeState {}
@@ -51,12 +51,14 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
   }
 
   render (): JSX.Element {
-    const {node, action} = this.props
-    const {indent, checkable, action: actionFunc} = this.context.$tree.props
+    const {node, actions} = this.props
+    const {indent, checkable, actions: actionsFunc} = this.context.$tree.props
     const selected = node.store.selectedNode === node
     return (
       <div {...this.rootProps(['whc-tree__node', {selected}])}>
-        <div className='whc-tree__node-head' style={{paddingLeft: indent * node.level + 'px'}} onClick={this.onSelect}>
+        <div
+          className='whc-tree__node-header'
+          style={{paddingLeft: indent * node.level + 'px'}} onClick={this.onSelect}>
           <span className='whc-tree__node-icon' onClick={this.onToggle}>
             {
               node.isLeaf
@@ -72,18 +74,18 @@ export default class TreeNode extends Base<ITreeNodeProps, ITreeNodeState> {
             <CheckBox className='whc-tree__node-check-box' checked={this.isChecked()} onChange={this.onCheck}/>
           )}
           <span className='whc-tree__node-label'>{node.label}</span>
-          <span className='whc-tree__node-action' onClick={this.onStopPropagation}>{action}</span>
+          <span className='whc-tree__node-actions' onClick={this.onStopPropagation}>{actions}</span>
         </div>
-        {node.expanded && (
+    {node.expanded && (
           <div className='whc-tree__node-children'>
             {
               node.children && node.children.map((n: Node) => (
-                <TreeNode key={n.key} node={n} action={actionFunc && actionFunc(n)}/>
+                <TreeNode key={n.key} node={n} actions={actionsFunc && actionsFunc(n)}/>
               ))
             }
           </div>
         )}
-      </div>
+      </div >
     )
   }
 }

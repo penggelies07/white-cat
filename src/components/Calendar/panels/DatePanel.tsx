@@ -46,7 +46,7 @@ export default class DatePanel extends React.Component<IDatePanelProps, IDatePan
 
     return (
       <div className='whc-calendar__date-panel'>
-        <div className='whc-calendar__date-panel-head'>
+        <div className='whc-calendar__date-panel-header'>
           {
             dayNames.map((name) => (
               <div className='whc-calendar__item' key={name}>{name}</div>

@@ -53,7 +53,7 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
     const size = this.props.size && 'whc-check-box--' + this.props.size
     return (
       <label {...this.rootProps(['whc-check-box', size, {checked, disabled}])}>
-        <div className='whc-check-box__head'>
+        <div className='whc-check-box__header'>
           <input
             type='checkbox'
             className='whc-check-box__original'
@@ -65,7 +65,7 @@ export default class CheckBox extends Base<ICheckBoxProps, ICheckBoxState> {
         <span className='whc-check-box__content'>
           {children}
         </span>
-      </label>
+      </label >
     )
   }
 }

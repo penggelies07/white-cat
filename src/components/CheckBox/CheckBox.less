@@ -8,7 +8,7 @@
   cursor: pointer;
   user-select: none;
 
-  &__head {
+  &__header {
     position: relative;
     display: inline-block;
     width: 1em;
@@ -55,28 +55,28 @@
     }
   }
 
-  &:not(.disabled):hover &__head {
+  &:not(.disabled):hover &__header {
     border: @checkbox-border-hover;
   }
 
-  &.checked &__head {
+  &.checked &__header {
     border: none;
     background-color: @checkbox-fill-active;
   }
 
-  &--small &__head {
+  &--small &__header {
     font-size: @checkbox-small-font-size;
   }
 
-  &--normal &__head {
+  &--normal &__header {
     font-size: @checkbox-normal-font-size;
   }
 
-  &--large &__head {
+  &--large &__header {
     font-size: @checkbox-large-font-size;
   }
 
-  &.checked &__head::after {
+  &.checked &__header::after {
     transform: translate(-50%, -50%) rotate(45deg) scale(1);
   }
 }

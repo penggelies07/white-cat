@@ -4,12 +4,12 @@
   color: @tree-color;
 
   &__node {
-    &.selected > .whc-tree__node-head {
+    &.selected > .whc-tree__node-header {
       background: @tree-fill-active;
     }
   }
 
-  &__node-head {
+  &__node-header {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,7 +21,7 @@
     &:hover {
       color: @tree-color-hover;
 
-      .whc-tree__node-action {
+      .whc-tree__node-actions {
         opacity: 1;
       }
     }
@@ -44,7 +44,7 @@
     text-overflow: hidden;
   }
 
-  &__node-action {
+  &__node-actions {
     margin-right: 8px;
     opacity: 0;
     transition: opacity 0.3s;

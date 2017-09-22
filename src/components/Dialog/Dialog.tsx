@@ -65,7 +65,7 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
 
     return (
       <div className='whc-dialog__footer whc-dialog__default-footer'>
-        <div className='whc-dialog__action'>
+        <div className='whc-dialog__actions'>
           <Button
             loading={loading}
             type='basic'
