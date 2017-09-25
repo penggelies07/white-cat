@@ -11,7 +11,7 @@ export default class NumberInputOnChange extends React.Component<INumberInputOnC
     value: 'test'
   }
 
-  onValueChange = (e: any, value: string) => {
+  onValueChange = (e: any, value: number) => {
     this.setState({value})
   }
 
@@ -21,7 +21,7 @@ export default class NumberInputOnChange extends React.Component<INumberInputOnC
     return (
       <div>
         <p>{value}</p>
-        <NumberInput value={value} onChange={(e, v) => this.onValueChange}/>
+        <NumberInput value={value} onChange={(e, v) => this.onValueChange(e, v)}/>
       </div>
     )
   }
